@@ -1,0 +1,81 @@
+/* -------------------------------
+BLOC PRESS MICRO COMPONENT
+------------------------------- */
+.listing-press{
+	margin-top: 67px;
+
+	.list-el{
+		.el-inner{
+			display: block;
+			box-shadow: 0 0 10px 0 hsla(0,0%,75.7%,.65);
+			margin:20px 0 0 0;
+			border-radius: 7px;
+			background: $colorwhite;
+			padding: 20px;
+			color: $colorgrey;
+			font-size: 14px;
+
+			.inner-picture{
+				display: block;
+				height: 86px;
+				width: 103px;
+				text-align: center;
+				margin: 0 auto 20px auto;
+			}
+			.inner-content {
+				padding-top: 20px;
+				display: block;
+				border-top: 1px solid $colorbluedark;
+
+				.content-title{
+					color:$colorbluedark;
+				}
+				.content-date{
+					color:$colorblue;
+					font-size:12px;
+				}
+				.content-text{
+					margin: 7px 0 0 0;
+					font-size: 14px;
+					line-height: 18px;
+				}
+			}
+		}
+	}
+}
+/* -------------------------------
+SMALL SCREENS
+------------------------------- */
+@media (min-width: $screen-sm-min){
+	.listing-press{
+		.list-el{
+			.el-inner{
+				display:flex;
+				align-items: center;
+				justify-content: space-between;
+
+				.inner-picture{
+					margin: 0 30px 0 0;
+				}
+				.inner-content{
+					border-left: 1px solid $colorbluedark;
+					border-top: none;
+					width: 75%;
+					padding:0 0 0 30px;
+					flex: 1;
+				}
+			}
+		}
+	}
+}
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width: $screen-md-min){
+	.listing-press{
+		.list-el{
+			width: 66.6666666667%;
+			margin:0 auto 30px;
+		}
+	}
+}

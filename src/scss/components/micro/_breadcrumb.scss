@@ -1,0 +1,19 @@
+/* -------------------------------
+BREADCRUMB MICRO COMPONENT
+------------------------------- */
+.cbo-breadcrumb{
+	font-size: 11px;
+	line-height: 12px;
+
+	a{
+		color:$colorbluedark;
+		transition:all .4s cubic-bezier(.694,.048,.335,1);
+
+		&:hover{
+			color:$colorblue;
+		}
+	}
+	.breadcrumb_last{
+		color:$colorblue;
+	}
+}

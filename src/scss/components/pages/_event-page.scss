@@ -1,0 +1,18 @@
+/* -------------------------------
+EVENT PAGE
+------------------------------- */
+.page-events{
+	.listing-events{
+		margin-top: 67px;
+	}
+}
+/* -------------------------------
+SMALL SCREENS
+------------------------------- */
+@media (min-width: $screen-sm-min){
+	.page-events{
+		.listing-events{
+			margin-top: 20px;
+		}
+	}
+}

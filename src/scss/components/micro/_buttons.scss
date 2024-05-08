@@ -1,0 +1,47 @@
+/* -------------------------------
+BUTTONS MICRO COMPONENT
+------------------------------- */
+.hs-header-bt-contact a,
+.hs-button{
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	color: $colorwhite;
+	background: $colorblue;
+	padding: 8px 30px;
+	height: 40px;
+	line-height: 16px;
+	transition:all .2s cubic-bezier(.694,.048,.335,1);
+
+	i{
+		margin-left: 20px;
+	}
+	&.button-center{
+		margin:0 auto;
+		display: table;
+		padding: 13px 30px 8px 30px;
+		text-align: center;
+	}
+	&.button-white{
+		background:$colorwhite;
+		color:$colorbluedark;
+	}
+}
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width: $screen-md-min){
+	.hs-button{
+		&:hover{
+			background:$colorbluedark;
+			color:$colorwhite;
+		}
+		&.button-white{
+			&:hover{
+				background:$colorbluedark;
+				color:$colorwhite;
+			}
+		}
+	}
+}

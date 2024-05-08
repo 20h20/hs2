@@ -1,0 +1,62 @@
+html,
+body{
+	height:100%;
+}
+body{
+	font-size:16px;
+	line-height:26px;
+	color:$colorbluedark;
+	font-family: 'MuseoSlab-500';
+
+	&.body-noscroll{
+		overflow: hidden;
+	}
+}
+.hs-relative{
+	position:relative;
+	z-index: 3;
+}
+.hs-intro-section{
+	text-align:center;
+    margin: 50px 0;
+
+	strong{
+		color:$colorblue;
+	}
+}
+.grecaptcha-badge{
+	display: none;
+}
+.cbo-404{
+	text-align: center;
+	height: 100%;
+	display:flex;
+	align-items: center;
+	justify-content:center;
+
+	&.cbo-contact{
+		.contact-inner .contact-content{
+			margin: 0 auto;
+			text-align: center;
+
+			.hs-main-title{
+				text-align: center;
+			}
+		}
+	}
+}
+.hs-fullwidth, .hs-fullwidth .wpcf7-form-control-wrap{
+	width: 100% !important;
+}
+.hs-cat-page{
+	background: #f2f2f2;
+}
+/* -------------------------------
+SMALL SCREENS
+------------------------------- */
+@media (min-width: $screen-sm-min){
+	.hs-intro-section{
+		width: 70%;
+		margin: 50px auto;
+	}
+}

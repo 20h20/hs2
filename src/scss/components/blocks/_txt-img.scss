@@ -1,0 +1,59 @@
+/* -------------------------------
+TEXT PICTURE COMPONENT
+------------------------------- */
+.cbo-textpicture {
+	.textpicture-picture{
+		padding-bottom: 70%;
+		max-width: 600px;
+		margin: 0 auto 20px auto;
+		position: relative;
+		border-radius: 20px;
+		overflow: hidden;
+	}
+	.textpicture-content {
+		max-width: 500px;
+		margin: 0 auto;
+	}
+}
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width: $screen-md-min) {
+	.cbo-textpicture {
+		.textpicture-inner {
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+		}
+		.textpicture-picture{
+			width: 50%;
+			max-width: inherit;
+			margin: 0;
+			min-height: 400px;
+		}
+		.textpicture-content {
+			width: 45%;
+			max-width: inherit;
+			margin: 0;
+			padding: 40px 0;
+		}
+		&.textpicture--right {
+			.textpicture-inner {
+				flex-direction: row-reverse;
+			}
+		}
+	}
+}
+/* -------------------------------
+LARGE SCREENS
+------------------------------- */
+@media (min-width: $screen-lg-min) {
+	.cbo-textpicture {
+		.textpicture-picture{
+			width: 40%;
+		}
+		.textpicture-content {
+			width: 50%;
+		}
+	}
+}

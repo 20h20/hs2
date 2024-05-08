@@ -1,0 +1,213 @@
+/* -------------------------------
+FOOTER COMPONENT
+------------------------------- */
+footer{
+	background:$colorbluedark  url(../images/pattern-footer.png) no-repeat left bottom ;
+	padding:30px 20px;
+	color:rgba($colorwhite, .5);
+
+	a{
+		text-decoration: none;
+		color:rgba($colorwhite, .5);
+		transition:all .4s cubic-bezier(.694,.048,.335,1);
+
+		&:hover{
+			color:rgba($colorwhite, 1);
+		}
+	}
+	.hs-footer-logo{
+		font-size: 120px;
+		display: table;
+		margin: 0 auto 20px auto;
+
+		a{
+			color:$colorwhite;
+
+			i{
+				line-height: 0;
+			}
+		}
+	}
+	.hs-col-footer{
+		padding:0 0 20px 0;
+		margin:0 0 20px 0;
+		border-bottom: 1px solid #1e6a98;
+		
+		&:last-child{
+			padding:0;
+			margin:0;
+			border-bottom: 0px;
+		}
+		.footer-title{
+			color:$colorblue;
+			display: flex;
+			font-size: 16px;
+			justify-content: space-between;
+			align-items: center;
+			cursor: pointer;
+
+			i{
+				transform: rotate(0);
+				transition: all .4s;
+			}
+			&.title--open{
+				i{
+					transform: rotate(90deg);
+				}
+			}
+		}
+		.footer-nav{
+			display: none;
+			font-size: 14px;
+			line-height: 18px;
+
+			&.nav--open{
+				display: block;
+			}
+			a{
+				margin-top: 10px;
+				display: block;
+			}
+		}
+		&.footer-newsletter{
+			background: $colorwhite;
+			border-radius: 7px;
+			padding: 20px;
+
+			.footer-title{
+				margin-bottom: 20px;
+			}
+			.mailpoet_form{
+				.mailpoet_paragraph{
+					margin: 10px 0;
+
+					.mailpoet_form_paragraph.mailpoet-has-font-size{
+						font-size: 10px !important;
+					}
+					input{
+						width: 100% !important;
+						color: $colorblue;
+						box-shadow: 0 0 0 1px $colorblue inset;
+						height: 50px;
+						border: 0;
+						border-radius: 5px;
+						transition: all .4s;
+
+						&:focus{
+							box-shadow: 0 0 0 1px $colorbluedark inset;
+						}
+					}
+					input[type="submit"] {
+						position: relative;
+						display: inline-flex;
+						align-items: center;
+						justify-content: center;
+						color: $colorwhite;
+						background: $colorblue;
+						transition: all .2s cubic-bezier(.694,.048,.335,1);
+
+						&:hover{
+							background: $colorbluedark;
+						}
+					}
+					.mailpoet_checkbox_label{
+						display: flex;
+						font-size: 12px;
+						font-weight: normal;
+						margin: 10px 0;
+
+						input{
+							width: 14px !important;
+							height: 14px;
+							margin-right: 8px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+.hs-footer-bot{
+	background:#002135;
+	color:rgba($colorwhite, .5);
+	padding:15px 30px;
+	width:100%;
+	font-size:12px;
+	text-align: center;
+
+	.footer-logo{
+		justify-content: center;
+		padding: 40px 0;
+		display: flex;
+
+		img{
+			margin: 0 10px;
+			width: 150px;
+		}
+	}
+	.footer-organisme{
+		display: flex;
+		width: 100%;
+		justify-content: center;
+		align-items: center;
+
+		img{
+			width: 20px;
+			margin: 0 0 0 10px;
+		}
+	}
+	a{
+		color:rgba($colorwhite, .5);
+		transition:all .4s cubic-bezier(.694,.048,.335,1);
+
+		&:hover{
+			color:rgba($colorwhite, 1);
+		}
+	}
+}
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width: $screen-md-min){
+	footer{
+		padding: 30px 30px 70px 30px;
+		display: flex;
+		flex-wrap:wrap;
+
+		.hs-footer-logo{
+			width: 100%;
+			text-align: center;
+			margin-bottom: 40px;
+		}
+		.hs-col-footer{
+			width: 25%;
+			padding:0 20px 0 0;
+			margin:0;
+			border:0px;
+
+			.footer-title{
+				font-size: 16px;
+				margin-bottom: 20px;
+				cursor: auto;
+	
+				i{
+					display: none;
+				}
+			}
+			.footer-nav{
+				display: block;
+			}
+			&.footer-newsletter{
+				.footer-title{
+					margin-bottom: 0;
+				}
+				.mailpoet_form{
+					.mailpoet_paragraph{
+						width: 100%;
+						margin: 5px 0;
+					}
+				}
+			}
+		}
+	}
+}

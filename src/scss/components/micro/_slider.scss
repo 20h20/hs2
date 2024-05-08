@@ -1,0 +1,30 @@
+.slick-slider {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    user-select: none;
+    touch-action: pan-y;
+
+	.slick-list {
+		position: relative;
+		overflow: hidden;
+		display: block;
+
+		&:focus {
+			outline: none;
+		}
+		.slick-track {
+			position: relative;
+			display: flex;
+			
+			.slick-slide {
+				height: 100%;
+			}
+		}
+	}
+}
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+    transform: translate3d(0, 0, 0);
+}

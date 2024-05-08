@@ -1,0 +1,43 @@
+/* -------------------------------
+ACCORDION MICRO COMPONENT
+------------------------------- */
+.hs-accordeon{
+	li{
+		border-top: 1px solid #e9e9e9;
+
+		&:last-child{
+			border-bottom: 1px solid #e9e9e9;
+		}
+	}
+	.hs-accordeon_title{
+		background: $colorwhite;
+		padding: 20px;
+		display: flex;
+		align-items: center;
+		color:$colorbluedark;
+		font-weight:700;
+		text-decoration: none;
+		transition: all .2s linear;
+
+		i{
+			margin-right: 15px;
+			color:$colorgrey;
+			transition: all .2s linear;
+		}
+	}
+	.hs-accordion-inner{
+		overflow: hidden;
+		display: none;
+		padding: 30px 20px;
+		background: #FFF;
+		border-top: 1px solid #e9e9e9;
+
+		li{
+			border: 0px;
+
+			&:last-child{
+				border-bottom: 0px;
+			}
+		}
+	}
+}

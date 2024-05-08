@@ -1,0 +1,107 @@
+/* -------------------------------
+HERO COMPONENT
+------------------------------- */
+.cbo-hero{
+	background: $colorbluedark url(../images/bg-hero.jpg) right top no-repeat;
+	background-size: cover;
+	color:$colorwhite;
+	padding: 140px 20px 72px 20px;
+	text-align:center;
+	position:relative;
+
+	.hero-title{
+		margin-bottom: 0;
+	}
+	.hero-content{
+		margin-top: 40px;
+		padding:0 20px;
+	}
+	.categories-list{
+		width: calc(100% - 40px);
+		text-align: center;
+		position: absolute;
+		bottom: -72px;
+		left: 20px;
+		border-radius: 7px;
+		background: $colorwhite;
+		box-shadow: 0 0 10px 0 hsla(0,0%,75.7%,.65);
+		padding: 20px 30px;
+		color: #b1b1b1;
+		z-index: 2;
+
+		.list-el{
+			color:$colorbluedark;
+			display: block;
+			width: 50%;
+			float: left;
+			position:relative;
+			font-size: 15px;
+
+			&:first-child{
+				border-right:2px solid $colorbluedark;
+			}
+			img{
+				display:block;
+				margin: 0 auto;
+				margin-bottom: 10px;
+				position:relative;
+				z-index:9;
+				max-width:50%;
+			}
+			.el-text{
+				position: relative;
+				z-index: 2;
+			}
+			&:after{
+				content:'';
+				background:#d4eeea;
+				border-radius:50%;
+				width:100px;
+				height:100px;
+				position:absolute;
+				top:0;
+				left:50%;
+				margin:0 0 0 -50px;
+				z-index: 1;
+				transform:scale(0);
+				transition:all .4s cubic-bezier(.694,.048,.335,1);
+			}
+			&:hover{
+				&:after{
+					transform:scale(1);
+				}
+			}
+		}
+	}
+}
+/* -------------------------------
+SMALL SCREENS
+------------------------------- */
+@media (min-width: $screen-sm-min){
+	.cbo-hero{
+		.categories-list {
+			margin-left: -300px;
+			width:600px;
+			left: 50%;
+		}
+	}
+}
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width: $screen-md-min){
+	.cbo-hero{
+		padding:200px 0 150px 0;
+	}
+}
+/* -------------------------------
+LARGE SCREENS
+------------------------------- */
+@media (min-width: $screen-lg-min){
+	.cbo-hero{
+		.hero-content{
+			width:50%;
+			margin:0 auto;
+		}
+	}
+}

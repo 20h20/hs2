@@ -1,0 +1,43 @@
+/* -------------------------------
+   SECTION MICRO COMPONENT
+   --
+   Mobile First
+------------------------------- */
+.hs-section{
+	padding:60px 20px;
+	position:relative;
+	
+	&.hs-entrysection{
+		padding-top:110px;
+	}
+	&.hs-blue-section{
+		background:$colorbluedark url(../images/bg-top-formation.png) no-repeat right top;
+		color:$colorwhite;
+
+		.hs-main-title{
+			small{
+				color:$colorwhite;
+			}
+		}
+		&.hs-section-simple-txt{
+			.hs-section-simple-txt_container{
+				.hs-main-title{
+					small{
+						color:$colorwhite;
+					}
+				}
+			}
+		}
+	}
+	&.hs-grey-section{
+		background:#f2f2f2 url(../images/pattern-bg-grey-section.png) no-repeat top left;
+	}
+}
+/* -------------------------------
+   SMALL SCREENS
+------------------------------- */
+@media (min-width: $screen-sm-min){
+	.hs-section{
+		padding:100px 30px;
+	}
+}

@@ -1,0 +1,260 @@
+/* -------------------------------
+CALENDAR BLOCK COMPONENT
+------------------------------- */
+.cbo-calendar{
+	.sev.ajde_evcal_calendar{
+		#evcal_list{
+			border-radius: 5px;
+
+			.evcal_month_line{
+				background: #e5e5e5;
+				padding: 10px 20px;
+
+				p{
+					text-transform: capitalize;
+					font-size: 22px;
+				}
+			}
+			.sep_month_events{
+				border-radius: 0px;
+				margin-bottom: 20px;
+				border: 1px solid #e5e5e5 !important;
+			}
+			.eventon_list_event{
+				margin-bottom: 0;
+				border-radius: 0 ;
+				border-bottom: 1px solid #e5e5e5;
+
+				.desc_trig_outter{
+					.desc_trig{
+						background: $colorwhite !important;
+
+						.evoet_c2{
+							padding: 0;
+							margin: 0;
+							width: 50px;
+
+							.evcal_cblock{
+								.evo_start {
+									em{
+										color: #ABABAB ;
+									}
+								}
+							}
+						}
+						.evcal_desc{
+							margin: 0;
+							padding-left: 40px;
+
+							.evoet_title{
+								text-transform: none;
+								color: $colorbluedark;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	.hs-calendar-section_intro-txt{
+		text-align:center;
+		margin-bottom:50px;
+	}
+	.ajde_evcal_calendar{
+		#evcal_head.calendar_header{
+			margin: 0 0 30px 0;
+
+			.evo_cal_above{
+				margin: 0 0 15px 0;
+
+				span{
+					color: $colorwhite;
+					background-color: $colorblue;
+					padding: 3px 10px;
+					opacity:1;
+		
+					&:hover{
+						background-color: $colorbluedark;
+					}
+				}
+			}
+			#evcal_cur{
+				color: $colorbluedark;
+				margin: 0 15px 0 0 ;
+			}
+			.evo_arrows{
+				.evcal_arrows{
+					border-color: $colorblue;
+
+					&:before{
+						border-color: $colorblue;
+					}
+				}
+			}
+		}
+		.eventon_events_list {
+			.eventon_list_event{
+				&.past_event .desc_trig, .completed-event{
+					opacity: 0.2;
+					cursor:not-allowed;
+				}
+			}
+		}
+		&.cev.sev #evcal_list .no_events .no_events{
+			background-color: $colorerror;
+			color: $colorwhite; 
+			font-weight: bold;
+		}
+	}
+}
+.eventon_list_event .evcal_desc span.evo_above_title span.canceled{
+	background: $colorerror !important;
+	color: $colorwhite !important;
+}
+.desc_trig_outter .cancel_event{
+	opacity: 0.2;
+}
+#evcal_list .eventon_list_event p a.desc_trig.completed-event{
+	border-color: $colorerror !important;
+	opacity: 1;
+
+	&:after{
+		content: 'complet';
+		background: $colorerror;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 200px;
+		border-radius: 5px;
+		color: $colorwhite;
+		margin: -20px 0 0 -100px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 40px;
+		line-height: 40px;
+		font-variant: small-caps;
+	} 
+	.evcal_cblock,
+	.evcal_desc{
+		opacity: 0.2;
+	}
+}
+.evo_lightbox_body .evo_repeat_series_dates span{
+	color: inherit;
+	background-color: inherit;
+}
+.page-template-template-page-flexible{
+	.evcal_evdata_row{
+		margin: 0;
+	}
+}
+.page-template-template-page-flexible{
+	.evo_metarow_details{
+		background: $colorwhite;
+		border-radius: 0;
+
+		.evcal_evdata_icons{
+			display: none;
+		}
+		.evcal_evdata_cell{
+			padding-left: 0;
+		}
+	}
+	.evo_metarow_time_location,
+	.evo_metarow_repeats{
+		background: $colorbluedark !important;
+		border-radius: 0px!important;
+
+		.evorow_b{
+			background: none!important;
+			color: $colorwhite!important;
+			border-radius: 0px!important;
+
+			p{
+				color: $colorwhite!important;;
+			}
+		}
+		.evo_repeat_series_dates {
+			color: $colorwhite !important;
+		}
+	}
+}
+.eventon_full_description{
+	.hs-button{
+		margin: 20px 0;
+		color: $colorwhite;
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		color: $colorwhite !important;
+		background: $colorblue;
+		padding: 8px 30px;
+		height: 40px;
+		width: 100%;
+		line-height: 16px;
+		transition:all .2s cubic-bezier(.694,.048,.335,1);
+	}
+	strong, b{
+		color:$colorbluedark;
+		text-decoration:underline;
+	}
+}
+/* -------------------------------
+   SMALL SCREENS
+------------------------------- */
+@media (min-width: $screen-sm-min){
+	.cbo-calendar{
+		.hs-calendar-section_intro-txt{
+			margin: 0 auto 50px;
+			width: 66.6666666667%;
+		}
+	}
+	.eventon_full_description{
+		form{
+			display: flex;
+			flex-wrap: wrap;
+
+			label{
+				display: none;
+			}
+			.wpcf7-acceptance{
+				label{
+					display: flex;
+				}
+			}
+			small,div{
+				width: 100%;
+			}
+			.wpcf7-form-control-wrap{
+				width: 48%;
+				float: left;
+				margin: 0 4% 30px 0;
+
+				&:nth-child(2n){
+					margin:  0 0 30px 0;
+				}
+				&.choix,
+				&.message,
+				&.contact_mail,
+				&.contact_telephone{
+					width: 100%;
+				}
+			}
+		}
+	}
+}

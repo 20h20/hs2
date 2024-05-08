@@ -1,0 +1,83 @@
+/* -------------------------------
+PARTNERS COMPONENT
+------------------------------- */
+.cbo-partners{
+    overflow: hidden;
+
+    .hs-main-title{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .partners-list{
+        .slick-list{
+            overflow: visible;
+
+            .slick-track{
+                align-items: center;
+
+                .slick-slide{
+                    height: 60px;
+                    background: $colorwhite;
+                    border-radius: 5px;
+                    margin: 0 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
+        .list-el{
+            height: 100%;
+
+            .el-inner{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0 20px;
+                height: 100%;
+
+                img{
+                    position: relative;
+                }
+            }
+        }
+    }
+}
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width:$screen-md-min) {
+    .cbo-partners{
+        .partners-list{
+            .slick-list{
+                .slick-track{
+                    .slick-slide{
+                        height: 80px;
+                        padding: 0 15px;
+                    }
+                }
+            }
+            .list-el{
+                .el-inner{
+                    padding: 14px;
+                }
+            }
+        }
+    }
+}
+/* -------------------------------
+LARGE SCREENS
+------------------------------- */
+@media (min-width:$screen-lg-min) {
+    .cbo-partners{
+        .partners-list{
+            .slick-list{    
+                .slick-track{    
+                    .slick-slide{
+                        height: 110px;
+                    }
+                }
+            }
+        }
+    }
+}

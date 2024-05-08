@@ -1,0 +1,28 @@
+/* -------------------------------
+LOGIN MICRO COMPONENT
+------------------------------- */
+.login{
+	background:$colorbluedark url(../images/bg-top-formation.png) no-repeat right top;
+}	
+#login h1 a {
+	background: url(../images/logo-header-hs2.png) no-repeat !important;
+	width:197px;
+    height: 69px;
+}
+.wp-core-ui{
+	.button-primary{
+		background:$colorblue;
+		text-shadow:none;
+		
+		&:hover{
+			background:$colorbluedark;
+		}
+	}
+}
+.wp-core-ui .button-group.button-large .button, .wp-core-ui .button.button-large{
+    width: 130px;
+    height: 40px;
+    margin-top: 42px;
+	border:none;
+	box-shadow:0px 0px 0px 0px $colorwhite;
+}

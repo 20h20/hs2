@@ -1,0 +1,111 @@
+/* -------------------------------
+BLOCS EVENT COMPONENT
+------------------------------- */
+.listing-events{
+	.list-el{
+		display: block;
+
+		.el-inner{
+			background:$colorbluedark url(../images/bg-bloc-event.png) no-repeat left bottom ;
+			color:$colorwhite;
+			width: 100%;
+			max-width: 394px;
+			padding-bottom:30px;
+			display: block;
+			margin: 20px auto 0 auto;
+
+			.el-type{
+				background: url(../images/event-onglet.png) no-repeat;
+				width:230px;
+				height:30px;
+				color:$colorbluedark;
+				display: block;
+				padding: 4px 0 0 30px;
+				margin-bottom: 20px;
+			}
+			.inner-content{
+				padding:0 30px;
+				display: block;
+
+				.content-title{
+					font-size:20px;
+					color:$colorblue;
+					margin-bottom:30px;
+				}
+				.content-date{
+					margin-bottom: 20px;
+					display: flex;
+					align-items: center;
+					transition: all .4s;
+
+					i{
+						margin-right: 15px;
+					}
+				}
+				.content-text{
+					border-left:1px solid $colorwhite;
+					padding-left:5px;
+					padding-left: 10px;
+					display: table;
+					transition:all .4s cubic-bezier(.694,.048,.335,1);
+
+					p{
+						margin:0;
+					}
+				}
+			}
+		}
+	}
+}
+/* -------------------------------
+SMALL SCREENS
+------------------------------- */
+@media (min-width: $screen-sm-min){
+	.listing-events{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin: -20px 0 0 0;
+
+		.list-el{
+			width: 50%;
+			padding: 0 10px;
+			cursor: pointer;
+			height: calc(394px - 20px);
+			margin: 20px 0 -20px 0;
+
+			&:nth-child(2n){
+				margin-top: 40px;
+			}
+			.el-inner{
+				max-width: inherit;
+				height: 100%;
+				margin: 0;
+			}
+			&:hover{
+				.el-inner{
+					color:$colorblue;
+				}
+			}
+		}
+	}
+}
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width: $screen-md-min){
+	.listing-events{
+		margin: -40px 0 0 0;
+
+		.list-el{
+			width: 50%;
+			padding: 0 20px;
+			height: calc(394px - 40px);
+			margin: 40px 0 -40px 0;
+
+			&:nth-child(2n){
+				margin-top: 80px;
+			}
+		}
+	}
+}

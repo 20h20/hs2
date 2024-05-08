@@ -1,0 +1,67 @@
+/* -------------------------------
+PAGINATION COMPONENT
+------------------------------- */
+.cbo-pagination{
+	margin-top:50px;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	width: 100%;
+
+	li{
+		height: 40px;
+		margin:0 6px;
+		display: flex;
+		align-items: center;
+
+		a{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100%;
+			width: 100%;
+			border-radius:7px;
+			background:$colorwhite;
+			box-shadow: 0px 0px 10px 0px rgba(193, 193, 193, 0.65);
+			padding:7px 20px;
+			transition:all .4s cubic-bezier(.694,.048,.335,1);
+			color:$colorbluedark;
+		}
+		&.active,
+		&:hover{
+			a{
+				background:$colorblue;
+				color:$colorwhite;
+			}
+		}
+		&.disabled{
+			display:none;
+		}
+		&.cbo-paginate-prev,
+		&.cbo-paginate-next{
+			width: 100%;
+		}
+		&.cbo-paginate-prev{
+			margin-bottom: 12px;
+		}
+		&.cbo-paginate-next{
+			margin-top: 12px;
+		}
+	}
+}
+/* -------------------------------
+SMALL SCREENS
+------------------------------- */
+@media (min-width: $screen-sm-min){
+	.cbo-pagination{
+		margin-top: 120px;
+
+		li{
+			&.cbo-paginate-prev,
+			&.cbo-paginate-next{
+				width: fit-content;
+				margin: 0;
+			}
+		}
+	}
+}

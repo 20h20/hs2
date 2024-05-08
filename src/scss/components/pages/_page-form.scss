@@ -1,0 +1,21 @@
+/* -------------------------------
+PAGE FORM COMPONENT
+------------------------------- */
+
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width: $screen-md-min){
+	.cbo-contact{
+		&.cbo-pageform{
+			.contact-inner{
+				.contact-content{
+					width: 40%;
+				}
+				.contact-form{
+					width: 50%;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,58 @@
+/* -------------------------------
+BIO BLOCK COMPONENT
+------------------------------- */
+.cbo-bio{
+	.bio-list{
+		margin: 0 auto;
+		max-width: 500px;
+
+		.list-el{
+			margin: 40px 0;
+
+			.el-inner{
+				.el-picture{
+					padding-bottom: 90%;
+					margin-bottom: 10px;
+				}
+				.el-title{
+					color:$colorblue;
+					font-size:20px;
+					font-weight: bold;
+					margin-bottom: 10px;
+				}
+			}
+		}
+	}
+}
+/* -------------------------------
+SMALL SCREENS
+------------------------------- */
+@media (min-width: $screen-sm-min){
+	.cbo-bio{
+		.bio-list{
+			max-width: inherit;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			margin: 0 -10px;
+
+			.list-el{
+				margin: 0;
+				width: 50%;
+				padding: 20px 10px;
+			}
+		}
+	}
+}
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width: $screen-md-min){
+	.cbo-bio{
+		.bio-list{
+			.list-el{
+				width: 33.33333%;
+			}
+		}
+	}
+}

@@ -1,0 +1,86 @@
+/* -------------------------------
+FICHE FORMATION BLOCK COMPONENT
+------------------------------- */
+.cbo-fiches{
+	.fiches-list{
+		.list-el{
+			text-align: center;
+			display: block;
+			max-width: 450px;
+			margin: 0 auto;
+
+			.el-inner{
+				background: $colorwhite;
+				display: block;
+				box-shadow: 0 0 10px 0 rgba($colorgrey,.65);
+				margin: 20px 0;
+				border-radius: 7px;
+				padding: 20px;
+				color: $colorbluedark;
+				font-size: 14px;
+
+				.el-picture{
+					width: 103px;
+					height: 68px;
+					margin: 0 auto 10px auto;
+					display: block;
+				}
+				.el-title{
+					width: 100%;
+					border-top: 1px solid $colorbluedark;
+					margin-top: 20px;
+					display: block;
+					padding-top: 20px;
+				}
+			}
+		}
+	}
+}
+/* -------------------------------
+SMALL SCREENS
+------------------------------- */
+@media (min-width: $screen-sm-min){
+	.cbo-fiches{
+		.fiches-list{
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+
+			.list-el{
+				max-width: inherit;
+				margin: 0;
+				width: 50%;
+				padding: 10px;
+
+				.el-inner{
+					margin: 0;
+					height: 100%;
+				}
+			}
+		}
+	}
+}
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width: $screen-md-min){
+	.cbo-fiches{
+		.fiches-list{
+			.list-el{
+				width: 33.333333%
+			}
+		}
+	}
+}
+/* -------------------------------
+LARGE SCREENS
+------------------------------- */
+@media (min-width: $screen-lg-min){
+	.cbo-fiches{
+		.fiches-list{
+			.list-el{
+				width: 25%
+			}
+		}
+	}
+}

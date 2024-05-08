@@ -1,0 +1,89 @@
+/* -------------------------------
+KEYFRAMES
+------------------------------- */
+@keyframes mousseBall {
+  0% {
+    opacity: 1;
+	transform: scale(1) translateY(-20px);
+  }
+  6% {
+    opacity: 1;
+	transform: scale(0.9) translateY(5px);
+  }
+  14% {
+    opacity: 0;
+	transform: scale(0.4) translateY(40px);
+  }
+  15%, 19% {
+    opacity: 0;
+	transform: scale(0.4) translateY(-20px);
+  }
+  28%, 29.99% {
+    opacity: 1;
+	transform: scale(1) translateY(-20px);
+  }
+  30% {
+    opacity: 1;
+	transform: scale(1) translateY(-20px);
+  }
+  36% {
+    opacity: 1;
+	transform: scale(0.9) translateY(5px);
+  }
+  44% {
+    opacity: 0;
+	  transform: scale(0.4) translateY(40px);
+  }
+  45%, 49% {
+    opacity: 0;
+	transform: scale(0.4) translateY(-20px);
+  }
+  58%, 59.99% {
+    opacity: 1;
+	transform: scale(1) translateY(-20px);
+  }
+  60% {
+    opacity: 1;
+	transform: scale(1) translateY(-20px);
+  }
+  66% {
+    opacity: 1;
+	transform: scale(0.9) translateY(5px);
+  }
+  74% {
+    opacity: 0;
+	transform: scale(0.4) translateY(40px);
+  }
+  75%, 79% {
+    opacity: 0;
+	transform: scale(0.4) translateY(-20px);
+  }
+  88%, 100% {
+    opacity: 1;
+	transform: scale(1) translateY(-20px);
+  }
+}
+
+@keyframes MouveMouse {
+  0% {
+	transform: translateY(0);
+  }
+  20% {
+	transform: translateY(8px);
+  }
+  30% {
+	transform: translateY(0);
+  }
+  50% {
+	transform: translateY(8px);
+  }
+  60% {
+	transform: translateY(0);
+  }
+  80% {
+	transform: translateY(8px);
+  }
+  90% {
+	transform: translateY(0);
+  }
+}
