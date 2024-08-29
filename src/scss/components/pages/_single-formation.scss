@@ -34,55 +34,23 @@ SINGLE FORMATION PAGE COMPONENT
 					font-size:30px;
 					line-height: 35px;
 				}
-				.eventon_main_section{
-					.calendar_header{
-						display: none;
+				.content-nextdates{
+					padding: 20px;
+					border-radius: 8px;
+					margin-bottom: 20px;
+					background-color: #f3f3f3;
+
+					.nextdates-title{
+						margin-bottom: 10px;
 					}
-					.eventon_events_list{
-						border: none !important;
-			
-						.evose_repeat_header, .desc_trig_outter{
-							display: none !important;
-						}
-						.event_description{
-							.evo_metarow_details,
-							.evo_metarow_time_location,
-							.evo_metarow_ICS,
-							.evo_metarow_time{
-								display: none;
-							}
-						}
-						.event_description{
-							border: none;
-							padding: 0;
-							background: none;
-			
-							.evo_metarow_repeats{
-								margin: 0;
-								padding: 20px;
-			
-								.evcal_evdata_icons{
-									display: none;
-								}
-								.evcal_evdata_cell{
-									padding: 0;
-			
-									.evo_h3{
-										color: $colorbluedark;
-										padding: 0;
-										margin-bottom: 20px;
-									}
-									.evo_repeat_series_dates{
-										.evo_repeat_series_date{
-											display: block;
-											background: none;
-											padding: 0;
-											color: $colorbluedark;
-										}
-									}
-								}
-							}
-						}
+					.nextdates-list{
+						font-size: 14px;
+					}
+				}
+				.content-text{
+					a{
+						color: $colorblue;
+						text-decoration: underline;
 					}
 				}
 				.content-clock{

@@ -20,6 +20,7 @@
 		<link rel="icon" type="image/png" sizes="32x32" href="<?php echo get_template_directory_uri(); ?>/library/images/fav/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="96x96" href="<?php echo get_template_directory_uri(); ?>/library/images/fav/favicon-96x96.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="<?php echo get_template_directory_uri(); ?>/library/images/fav/favicon-16x16.png">
+		<link rel="preload" as="image" href="<?php echo get_template_directory_uri(); ?>/library/images/bg-hero.jpg">
 		<?php wp_head(); ?>
 	</head>
 

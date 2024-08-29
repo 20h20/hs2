@@ -11,24 +11,26 @@
         </h2>
     <?php endif; ?>
 
-    <div class="metiers-list">
-        <?php
-            $args = array(
-                'taxonomy' => 'event_type',
-                'orderby' => 'name',
-                'order'   => 'ASC',
-                'child_of'   => 53
-            );
-            $cats = get_categories($args);
-            foreach($cats as $cat) {
-        ?>
-            <a class="list-el" href="<?php echo get_category_link( $cat->term_id ) ?>" data-aos="fade-up">
-                <span class="el-inner">
-                    <h3 class="el-title">
-                        <?php echo $cat->name; ?>
-                    </h3>
-                </span>
-            </a>
-        <?php } ?>
+    <div class="container">
+        <div class="metiers-list">
+            <?php
+                $args = array(
+                    'taxonomy' => 'event_type',
+                    'orderby' => 'name',
+                    'order'   => 'ASC',
+                    'child_of'   => 53
+                );
+                $cats = get_categories($args);
+                foreach($cats as $cat) {
+            ?>
+                <a class="list-el" href="<?php echo get_category_link( $cat->term_id ) ?>" data-aos="fade-up">
+                    <span class="el-inner">
+                        <h3 class="el-title">
+                            <?php echo $cat->name; ?>
+                        </h3>
+                    </span>
+                </a>
+            <?php } ?>
+        </div>
     </div>
 </section>

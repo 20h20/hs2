@@ -36,30 +36,43 @@
 		</div>
 	</section>
 
-	<div class="hs-section">
+	<div class="hs-section section--events">
 		<div class="container">
 			<div class="listing-events">
 				<?php
 					$current_page = get_query_var('paged');
-					$current_page = max( 1, $current_page );
+					$current_page = max(1, $current_page);
 					$per_page = 8;
-					$args = array(  
+					$args = array(
 						'post_type' => 'post',
 						'meta_key' => 'event_start',
+						'meta_value' => date('Ymd'),
+						'meta_compare' => '>=',
 						'posts_per_page' => $per_page,
 						'orderby' => 'meta_value_num',
+						'order' => 'DSC',
 						'paged' => $current_page,
 					);
-					$query = new WP_Query( $args );
-					if($query->have_posts()):
-						while ( $query->have_posts() ) : $query->the_post(); 
-						get_template_part('templates/content/content','event');
-						endwhile;
-						echo page_navi();
-						endif;
-					wp_reset_query(); 
+					$query = new WP_Query($args);
+
+					if ($query->have_posts()) {
+						while ($query->have_posts()) {
+							$query->the_post();
+							get_template_part('templates/content/content', 'event');
+						}
+						if ($query->max_num_pages > 1) {
+							page_navi('', '', $query);
+						}
+					} else {
+						echo '<p>Aucun événement à venir.</p>';
+					}
+					wp_reset_postdata();
 				?>
 			</div>
+
+			<a class="hs-button button-center" href="<?php echo home_url(); ?>/nos-evenement-passes/" >
+				Nos événements passés
+			</a>
 		</div>
 	</div>
 </div>

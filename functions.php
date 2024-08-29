@@ -50,56 +50,64 @@
 	/* ************************* */
 	/* CRÉATION PAGINATION */
 	/* ************************* */
-	function page_navi($before = '', $after = '') {
-		global $wpdb, $wp_query;
-		$request = $wp_query->request;
-		$posts_per_page = intval(get_query_var('posts_per_page'));
-		$paged = intval(get_query_var('paged'));
-		$numposts = $wp_query->found_posts;
-		$max_page = $wp_query->max_num_pages;
-		if ( $numposts <= $posts_per_page ) { return; }
-		if(empty($paged) || $paged == 0) {
+	function page_navi($before = '', $after = '', $query = null) {
+		if (!$query) {
+			global $wp_query;
+			$query = $wp_query;
+		}
+		$posts_per_page = intval($query->get('posts_per_page'));
+		$paged = intval($query->get('paged'));
+		$numposts = $query->found_posts;
+		$max_page = $query->max_num_pages;
+		if ($numposts <= $posts_per_page) { return; }
+		if (empty($paged) || $paged == 0) {
 			$paged = 1;
 		}
 		$pages_to_show = 7;
-		$pages_to_show_minus_1 = $pages_to_show-1;
-		$half_page_start = floor($pages_to_show_minus_1/2);
-		$half_page_end = ceil($pages_to_show_minus_1/2);
+		$pages_to_show_minus_1 = $pages_to_show - 1;
+		$half_page_start = floor($pages_to_show_minus_1 / 2);
+		$half_page_end = ceil($pages_to_show_minus_1 / 2);
 		$start_page = $paged - $half_page_start;
-		if($start_page <= 0) {
+		if ($start_page <= 0) {
 			$start_page = 1;
 		}
 		$end_page = $paged + $half_page_end;
-		if(($end_page - $start_page) != $pages_to_show_minus_1) {
+		if (($end_page - $start_page) != $pages_to_show_minus_1) {
 			$end_page = $start_page + $pages_to_show_minus_1;
 		}
-		if($end_page > $max_page) {
+		if ($end_page > $max_page) {
 			$start_page = $max_page - $pages_to_show_minus_1;
 			$end_page = $max_page;
 		}
-		if($start_page <= 0) {
+		if ($start_page <= 0) {
 			$start_page = 1;
 		}
-		echo $before.'<ul class="cbo-pagination">'."";
-
+		echo $before . '<ul class="cbo-pagination">' . "";
+	
 		$prevposts = get_previous_posts_link('Précédent');
-		if($prevposts) { echo '<li class="cbo-paginate-prev">' . $prevposts  . '</li>'; }
-		else { echo '<li class="disabled"><a href="#">Précédent</a></li>'; }
-
-		for($i = $start_page; $i  <= $end_page; $i++) {
-			if($i == $paged) {
-				echo '<li class="active"><a href="#">'.$i.'</a></li>';
+		if ($prevposts) {
+			echo '<li class="cbo-paginate-prev">' . $prevposts . '</li>';
+		} else {
+			echo '<li class="disabled"><a href="#">Précédent</a></li>';
+		}
+	
+		for ($i = $start_page; $i <= $end_page; $i++) {
+			if ($i == $paged) {
+				echo '<li class="active"><a href="#">' . $i . '</a></li>';
 			} else {
-				echo '<li><a href="'.get_pagenum_link($i).'">'.$i.'</a></li>';
+				echo '<li><a href="' . get_pagenum_link($i) . '">' . $i . '</a></li>';
 			}
 		}
-
 		$nextposts = get_next_posts_link('Suivant');
-		if($nextposts) { echo '<li class="cbo-paginate-next">' . $nextposts  . '</li>'; }
-		else { echo '<li class="disabled"><a href="#">Suivant</a></li>'; }
-		
-		echo '</ul>'.$after."";
+		if ($nextposts) {
+			echo '<li class="cbo-paginate-next">' . $nextposts . '</li>';
+		} else {
+			echo '<li class="disabled"><a href="#">Suivant</a></li>';
+		}
+	
+		echo '</ul>' . $after . "";
 	}
+	
 
 	/* ************************* */
 	/* Add button to wysiwyg editor */
@@ -166,5 +174,44 @@
 	/* OHY : hide yoast header */
 	/* ************************* */
 	add_filter( 'wpseo_hide_version', '__return_true' );
+
+	/* ************************* */
+	/* ADD AUTOMATICLY TRAINING DATES TO FORMS */
+	/* ************************* */
+	function get_upcoming_training_dates() {
+		$current_event_id = get_the_ID();
+		$repeats = get_post_meta($current_event_id, 'repeat_intervals', true);
+		$repeats = maybe_unserialize($repeats);
+	
+		$options = '';
+	
+		if (!empty($repeats) && is_array($repeats)) {
+			$current_timestamp = current_time('timestamp');
+	
+			foreach ($repeats as $repeat) {
+				if (isset($repeat[0]) && isset($repeat[1])) {
+					$start_date = $repeat[0];
+					if ($start_date >= $current_timestamp) {
+						$start_date_formatted = date('d/m/Y', $start_date);
+						$end_date = date('d/m/Y', $repeat[1]);
+						$options .= '<option value="Du ' . $start_date_formatted . ' au ' . $end_date . '">Du ' . $start_date_formatted . ' au ' . $end_date . '</option>';
+					}
+				}
+			}
+		}
+	
+		return $options;
+	}
+	
+	function cf7_dynamic_select($form) {
+		if (strpos($form, '[dynamic_select]') !== false) {
+			$options = get_upcoming_training_dates();
+			$form = str_replace('[dynamic_select]', $options, $form);
+		}
+	
+		return $form;
+	}
+	
+	add_filter('wpcf7_form_elements', 'cf7_dynamic_select');
 
 ?>

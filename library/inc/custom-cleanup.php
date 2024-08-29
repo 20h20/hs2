@@ -1,24 +1,18 @@
-<?php 
-
-/* --------------------------
-   CUSTOM CLEANUP
--------------------------- */
-
+<?php
   /* Nettoyage du wp_head */
-
   function bones_head_cleanup() {
     // editURI link
     remove_action( 'wp_head', 'rsd_link' );
     // windows live writer
     remove_action( 'wp_head', 'wlwmanifest_link' );
+    // WP version
+    remove_action( 'wp_head', 'wp_generator' );
     // previous link
     remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );
     // start link
     remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );
     // links for adjacent posts
     remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
-    // WP version
-    remove_action( 'wp_head', 'wp_generator' );
     // Remove Emoji Styles
     remove_action( 'wp_head', 'print_emoji_detection_script', 7 ); 
     remove_action( 'admin_print_scripts', 'print_emoji_detection_script' ); 
@@ -29,6 +23,21 @@
     // remove Wp version from scripts
     add_filter( 'script_loader_src', 'bones_remove_wp_ver_css_js', 9999 );
   }
+
+
+
+
+
+
+
+  function disable_embed(){
+    wp_dequeue_script( 'wp-embed' ) ;
+    }
+    add_action( 'wp_footer', 'disable_embed' ) ;
+
+
+
+
 
   /* Nettoyage titre et meta description */
 
@@ -123,20 +132,35 @@
 	/* --------------------------
 	   REMOVE STYLES
 	-------------------------- */
-
-	// remove Block library styles
-	function blocklibrary_deregister_styles() {
-		wp_deregister_style( 'wp-block-library' );
+	function dequeue_contact_form_7_css() {
+		wp_dequeue_style('contact-form-7');
+		wp_deregister_style('contact-form-7');
 	}
+	add_action('wp_enqueue_scripts', 'dequeue_contact_form_7_css', 100);
 
-	// remove cf7 styles
-	function cf7_deregister_styles() {
-		wp_deregister_style( 'contact-form-7' );
+	function dequeue_classic_theme_styles_css() {
+		wp_dequeue_style('classic-theme-styles');
+		wp_deregister_style('classic-theme-styles');
 	}
+	add_action('wp_enqueue_scripts', 'dequeue_classic_theme_styles_css', 100);
 
-  function social_warfare_block_deregister_styles() {
-		wp_deregister_style( 'social_warfare' );
+	function dequeue_cmplz_general_css() {
+		wp_dequeue_style('cmplz-general');
+		wp_deregister_style('cmplz-general');
 	}
+	add_action('wp_enqueue_scripts', 'dequeue_cmplz_general_css', 100);
+
+	function dequeue_global_styles_css() {
+		wp_dequeue_style('global-styles');
+		wp_deregister_style('global-styles');
+	}
+	add_action('wp_enqueue_scripts', 'dequeue_global_styles_css', 100);
+
+	function dequeue_wp_block_library_css() {
+		wp_dequeue_style('wp-block-library');
+		wp_deregister_style('wp-block-library');
+	}
+	add_action('wp_enqueue_scripts', 'dequeue_wp_block_library_css', 100);
 
 
 	/* --------------------------
@@ -154,12 +178,6 @@
   add_action( 'wp_head', 'bones_remove_recent_comments_style', 1 );
   // Clean up gallery output in wp
   add_filter( 'gallery_style', 'bones_gallery_style' );
-	// Remove Block library styles
-	add_action( 'wp_print_styles', 'blocklibrary_deregister_styles', 100 );
-  // Remove Social Warfare styles
-	add_action( 'wp_print_styles', 'social_warfare_block_deregister_styles', 100 );
-  // Remove CF7 styles
-  add_action( 'wp_print_styles', 'cf7_deregister_styles', 100 );
   // launching this stuff after theme setup
   bones_theme_support();
 

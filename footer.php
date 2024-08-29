@@ -16,15 +16,15 @@
         </div>
 
         <div class="hs-col-footer">
-        	<span class="footer-title">
+            <span class="footer-title">
                 Nos formations par catégories
                 <i class="icon icon--right-arrow"></i>
             </span>
         	<ul class="footer-nav">
-            	<li><a href="<?php echo home_url(); ?>/category/vie-privee-et-droit-de-la-cybersecurite/">Vie privée et droit de la cybersécurité</a></li>
-            	<li><a href="<?php echo home_url(); ?>/category/continuite-dactivite/">Continuité d’activité</a></li>
-                <li><a href="<?php echo home_url(); ?>/category/cybersecurite-organisationnelle/">Cybersécurité organisationnelle</a></li>
-            	<li><a href="<?php echo home_url(); ?>/category/cybersecurite-technique/">Cybersécurité technique</a></li>
+            	<li><a href="<?php echo home_url(); ?>/event-type/vie-privee-et-droit-de-la-cybersecurite/">Vie privée et droit de la cybersécurité</a></li>
+            	<li><a href="<?php echo home_url(); ?>/event-type/continuite-dactivite/">Continuité d’activité</a></li>
+                <li><a href="<?php echo home_url(); ?>/event-type/cybersecurite-organisationnelle/">Cybersécurité organisationnelle</a></li>
+            	<li><a href="<?php echo home_url(); ?>/event-type/cybersecurite-technique/">Cybersécurité technique</a></li>
             </ul>
         </div>
         <div class="hs-col-footer">
@@ -45,17 +45,23 @@
                 <i class="icon icon--right-arrow"></i>
             </span>
             <ul class="footer-nav">
-				<?php
-					query_posts('showposts=4&cat=10&orderby=date&order=DSC');
-                    if (have_posts()) :
-                    while (have_posts()) : the_post();
-                ?>
-                	<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>        
                 <?php
-                    endwhile;
-                    endif;
-                    wp_reset_query();
+					$args = array(  
+						'post_type' => 'post',
+						'meta_key' => 'event_start',
+						'posts_per_page' => 4,
+						'orderby' => 'meta_value_num',
+					);
+					$query = new WP_Query( $args );
+					if($query->have_posts()):
+						while ( $query->have_posts() ) : $query->the_post(); 
                 ?>
+                    <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+                <?php
+					endwhile;
+					endif;
+					wp_reset_query(); 
+				?>
             </ul>
         </div>
         <div class="hs-col-footer footer-newsletter">
@@ -85,7 +91,10 @@
         
 		©HS2 <?php echo date('Y')?> - <a href="<?php echo home_url(); ?>/vie-privee/">Vie privée</a> - <a href="<?php echo home_url(); ?>/mentions-legales/">Mentions légales</a> -
         <a href="<?php echo home_url(); ?>/cgv-hs2/">CGV</a><br />
-        <span class="footer-organisme">N° d’organisme : 11922236092 <img loading="lazy" src="<?php bloginfo('template_directory'); ?>/library/images/logo-datatocke.png" alt="Datatocké"></span>
+        <span class="footer-organisme">
+			N° d’organisme : 11922236092 
+			<img loading="lazy" src="<?php bloginfo('template_directory'); ?>/library/images/logo-datatocke.png" alt="Datatocké" width="24" height="24">
+		</span>
        	Hébergé avec &lt;3 par <a href="https://www.digdeo.fr/" target="_blank">DigDeo</a>
     </div>
     <script src="<?php echo get_template_directory_uri(); ?>/library/js/scripts.js"></script>

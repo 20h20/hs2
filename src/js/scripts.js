@@ -8,10 +8,13 @@
 		onready : function(){
 
 			//////////////////// VIDÉO ////////////////////
-			$( ".cbo-homevideo .video-player" ).on("click", function() {
+			$('.cbo-homevideo .video-player').on('click', function(e) {
+				e.stopPropagation();
 				$('.video-player').addClass('active');
+				var video = document.querySelector('.video-player video');
+				video.play();
 			});
-			
+
 			/////////////////// SMARTPHONE NAVIGATION ///////////////////
 			$('.hs-hamburger-menu').on('click', function(){
 				$('.header-nav').toggleClass('hs-responsive-menu-open');
@@ -132,6 +135,31 @@
 					}
 				]
 			});
+
+			/////////////////// SOCIAL SHARE ///////////////////
+			var shareButton = document.getElementById('linkedin-share-button');
+			if (shareButton) {
+				shareButton.addEventListener('click', function(event) {
+					event.preventDefault();
+					var pageUrl = window.location.href;
+					var pageTitle = document.title;
+					var linkedinUrl = 'https://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(pageUrl) + '&title=' + encodeURIComponent(pageTitle);
+					window.open(linkedinUrl, 'linkedin-share-dialog', 'width=800,height=600');
+					return false;
+				});
+			}
+
+			var twitterShareButton = document.getElementById('twitter-share-button');
+			if (twitterShareButton) {
+				twitterShareButton.addEventListener('click', function(event) {
+					event.preventDefault();
+					var pageUrl = window.location.href;
+					var pageTitle = document.title;
+					var twitterUrl = 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(pageUrl) + '&text=' + encodeURIComponent(pageTitle);
+					window.open(twitterUrl, 'twitter-share-dialog', 'width=800,height=600');
+					return false;
+				});
+			}
 
 			/////////////////// AOS : SCROLL ANIMATIONS ///////////////////
 			AOS.init({})

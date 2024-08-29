@@ -6,6 +6,7 @@
     $herobturl	= get_field('home_herobturl');
     $video_surtitre	= get_field('video_surtitre');
     $video_title	= get_field('video_title');
+    $video	= get_field('video_file');
     $picture	= get_field('video_picture');
     $event_txt	= get_field('event_txt');
 ?>
@@ -62,8 +63,8 @@
                         width="1000" height="1000"
                     >
                     <i class="icon icon--player"></i>
-                    <video controls>
-                        <source loading="lazy" type="video/mp4" src="https://hs2.fr//wp-content/uploads/2020/04/hs2formation_pourquoi_zoom.mp4">
+                    <video controls preload="none">
+                        <source loading="lazy" type="video/mp4" src="<?php echo $video['url'] ?>">
                     </video>
                 </div>
             </div>

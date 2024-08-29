@@ -3,7 +3,7 @@
 	$resume = get_sub_field('court_resume');
 	$adresse    = get_sub_field('adresse_postale');
 	$reseaux    = get_sub_field('reseaux_sociaux');
-	$tel    = get_sub_field('contact_telephones');	
+	$tel    = get_sub_field('contact_telephones');
 ?>
 <section class="cbo-contact">
     <div class="container">

@@ -1,6 +1,7 @@
 <?php
 	/* Template Name: Template Page formulaire */
 	get_header();
+	$form    = get_field('shortcode_du_formulaire');
 ?>
 <section class="cbo-contact cbo-pageform">
 	<div class="container">
@@ -15,7 +16,7 @@
 			</div>
 			<div class="contact-form">
 				<?php
-					$posts = get_field('shortcode_du_formulaire');
+					$posts = $form;
 					if( $posts ):
 						foreach( $posts as $p ):
 							$cf7_id= $p->ID;
