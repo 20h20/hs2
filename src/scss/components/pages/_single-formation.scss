@@ -65,15 +65,6 @@ SINGLE FORMATION PAGE COMPONENT
 			}
 		}
 	}
-	.hs-button{
-		&.contact-scroll {
-			position: absolute;
-			right: 0;
-			top: 170px;
-			width: 100%;
-			z-index: 2;
-		}
-	}
 	.hs-skills{
 		&:after{
 			display: none;
@@ -185,12 +176,6 @@ MEDIUM SCREENS
 			width: 60%;
 			margin:200px auto 0;
 		}
-		.hs-button{
-			&.contact-scroll{
-				top: 300px;
-				width: auto;
-			}
-		}
 		.cbo-formationcontact{
 			.formationcontact-content{
 				.content-inner{
@@ -216,11 +201,6 @@ LARGE SCREENS
 ------------------------------- */
 @media (min-width: $screen-lg-min){
 	.hs-page-formation{
-		.hs-button{
-			&.contact-scroll{
-				right: 24px;
-			}
-		}
 		.hs-skills{
 			.hs-accordeon{
 				display:none;

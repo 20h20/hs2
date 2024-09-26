@@ -4,7 +4,7 @@ Template Name: Old Events
 */
 get_header();
 ?>
-<div class="cbo-page page-old-events">
+<div class="cbo-page page-events page-old-events">
 	<section class="cbo-hero">
 		<div class="hero-inner container">
 			<h1 class="hero-title hs-main-title" data-aos="fade-up">
@@ -43,6 +43,10 @@ get_header();
 					wp_reset_postdata();
 				?>
 			</div>
+
+			<a class="hs-button button-center" href="<?php echo home_url(); ?>/category/evenement/">
+				<i class="icon icon--left-arrow"></i> Nos événements à venir
+			</a>
 		</div>
 	</div>
 </div>

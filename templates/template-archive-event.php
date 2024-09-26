@@ -50,7 +50,7 @@
 						'meta_compare' => '>=',
 						'posts_per_page' => $per_page,
 						'orderby' => 'meta_value_num',
-						'order' => 'DSC',
+						'order' => 'ASC',
 						'paged' => $current_page,
 					);
 					$query = new WP_Query($args);
@@ -71,7 +71,7 @@
 			</div>
 
 			<a class="hs-button button-center" href="<?php echo home_url(); ?>/nos-evenement-passes/" >
-				Nos événements passés
+				Nos événements passés <i class="icon icon--right-arrow"></i>
 			</a>
 		</div>
 	</div>

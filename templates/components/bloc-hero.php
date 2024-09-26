@@ -3,7 +3,7 @@
 	$texte	= get_sub_field('petit_texte_dintroduction');
 ?>
 <section class="cbo-hero">
-    <div class="hero-inner container">
+    <div class="hero-inner cbo-container container--nomargin">
         <?php if($titre): ?>
             <h1 class="hero-title hs-main-title" data-aos="fade-up">
                 <?php echo $titre ?>

@@ -100,7 +100,7 @@ form{
 	}
 	.wpcf7-acceptance {
 		display: block;
-	margin-top: 10px;
+		margin-top: 10px;
 
 		.wpcf7-list-item{
 			label{
@@ -149,6 +149,20 @@ form{
 }
 .screen-reader-response, .wpcf7-response-output{
 	display: none;
+}
+form{
+	&.sent{
+		.wpcf7-response-output {
+			background: $colorblue;
+			display: block;
+			color: $colorwhite;
+			width: 100%;
+			margin-top: 30px;
+			padding: 16px;
+			text-align: center;
+			border-radius: 5px;
+		}
+	}
 }
 /* -------------------------------
 SMALL SCREENS

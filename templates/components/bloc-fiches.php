@@ -1,8 +1,8 @@
 <?php
 	$title	= get_sub_field('title');
 ?>
-<section class="cbo-fiches hs-section">
-	<div class="container">
+<section class="cbo-fiches">
+	<div class="fiches-inner cbo-container">
 		<?php if($title): ?>
 			<h2 class="hs-main-title" data-aos="fade-up">
 				<?php echo $title; ?>
@@ -27,12 +27,9 @@
 								width="103" height="68"
 							>
 						</span>
-
-						<span class="el-title">
-							<h3>
-								<?php echo $title; ?>
-							</h3>
-						</span>
+						<h3 class="el-title">
+							<?php echo $title; ?>
+						</h3>
 					</span>
 				</a>
 			<?php

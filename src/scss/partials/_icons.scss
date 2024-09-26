@@ -2,11 +2,11 @@
 
 @font-face {
     font-family:"icons";
-    src: url("../iconfont/icons.eot?6fd33c7ba3084574783682c95b5d537f");
-    src: url("../iconfont/icons.eot?6fd33c7ba3084574783682c95b5d537f#iefix") format("embedded-opentype"),
-		url("../iconfont/icons.woff?6fd33c7ba3084574783682c95b5d537f") format("woff"),
-		url("../iconfont/icons.ttf?6fd33c7ba3084574783682c95b5d537f") format("truetype"),
-		url("../iconfont/icons.svg?6fd33c7ba3084574783682c95b5d537f#icons") format("svg");
+    src: url("../iconfont/icons.eot?9068566fb746050afa3596d4858d7f2e");
+    src: url("../iconfont/icons.eot?9068566fb746050afa3596d4858d7f2e#iefix") format("embedded-opentype"),
+		url("../iconfont/icons.woff?9068566fb746050afa3596d4858d7f2e") format("woff"),
+		url("../iconfont/icons.ttf?9068566fb746050afa3596d4858d7f2e") format("truetype"),
+		url("../iconfont/icons.svg?9068566fb746050afa3596d4858d7f2e#icons") format("svg");
     font-weight:normal;
     font-style:normal;
     }
@@ -30,19 +30,22 @@
 .icon--clock:before { content:"\f105"; }
 .icon--close:before { content:"\f106"; }
 .icon--cookies:before { content:"\f107"; }
-.icon--evaluation-qualite:before { content:"\f108"; }
-.icon--facebook:before { content:"\f109"; }
-.icon--left-arrow:before { content:"\f10a"; }
-.icon--linkedin:before { content:"\f10b"; }
-.icon--logo-hs2:before { content:"\f10c"; }
-.icon--materiel:before { content:"\f10d"; }
-.icon--more:before { content:"\f10e"; }
-.icon--objectif:before { content:"\f10f"; }
-.icon--pedagogie:before { content:"\f110"; }
-.icon--player:before { content:"\f111"; }
-.icon--public:before { content:"\f112"; }
-.icon--right-arrow:before { content:"\f113"; }
-.icon--search:before { content:"\f114"; }
-.icon--studient-hat:before { content:"\f115"; }
-.icon--trainer:before { content:"\f116"; }
-.icon--twitter:before { content:"\f117"; }
+.icon--download:before { content:"\f108"; }
+.icon--evaluation-qualite:before { content:"\f109"; }
+.icon--facebook:before { content:"\f10a"; }
+.icon--form:before { content:"\f10b"; }
+.icon--left-arrow:before { content:"\f10c"; }
+.icon--light:before { content:"\f10d"; }
+.icon--linkedin:before { content:"\f10e"; }
+.icon--logo-hs2:before { content:"\f10f"; }
+.icon--materiel:before { content:"\f110"; }
+.icon--more:before { content:"\f111"; }
+.icon--objectif:before { content:"\f112"; }
+.icon--pedagogie:before { content:"\f113"; }
+.icon--player:before { content:"\f114"; }
+.icon--public:before { content:"\f115"; }
+.icon--right-arrow:before { content:"\f116"; }
+.icon--search:before { content:"\f117"; }
+.icon--studient-hat:before { content:"\f118"; }
+.icon--trainer:before { content:"\f119"; }
+.icon--twitter:before { content:"\f11a"; }

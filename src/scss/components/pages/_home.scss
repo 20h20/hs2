@@ -140,11 +140,10 @@
 			display:block;
 			margin-bottom:40px;
 			text-align: center;
-		}
-		.hs-button{
-			width: 100%;
-			max-width: 394px;
-			margin-top: 20px;
+
+			.hs-button{
+				margin: 20px 0 0 0;
+			}
 		}
 	}
 }
@@ -194,7 +193,7 @@ SMALL SCREENS
 					}
 				}
 				.list-el{
-					margin: -100px 0 0 0;
+					margin: -46px 0 0 0;
 
 					&:nth-child(2n){
 						margin: 0 0 20px 0;

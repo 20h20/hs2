@@ -1,21 +1,16 @@
 /* -------------------------------
 SIMPLE TXT BLOCK COMPONENT
 ------------------------------- */
-.hs-section-simple-txt{
+.cbo-text{
 	color:$colorgrey;
-
-	&.hs-blue-section{
-		b, strong, a{
-			color:$colorblue;
-		}
-	}
 }
 /* -------------------------------
 SMALL SCREENS
 ------------------------------- */
 @media (min-width: $screen-sm-min){
-	.hs-section-simple-txt{
-		margin: 0 auto;
-		width: 66.6666666667%;
+	.cbo-text{
+		.text-inner{
+			max-width: 800px;
+		}
 	}
 }

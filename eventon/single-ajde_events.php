@@ -9,6 +9,61 @@
 	$shareactive	= get_field('formation_sharedeactivate');
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class('hs-page-formation'); ?>role="article" itemscope itemtype="http://schema.org/BlogPosting">
+
+	<?php if($shareactive == 1): ?>
+		<div class="cbo-share">
+			<input class="share-input" type="checkbox" id="checkbox">
+			<label class="share-label" for="checkbox">
+				<span class="label-icon"></span>
+			</label>
+			<ul class="share-options" data-title="Share">
+				<?php if($accordionactive == 0): ?>
+					<li>
+						<a href="<?php the_field('fiche_de_la_formation'); ?>" target="_blank">
+							<i class="icon icon--studient-hat"></i> Programme du cours
+						</a>
+					</li>
+				<?php endif; ?>
+
+				<?php
+					$posts = get_field('form');
+					if( $posts ):
+				?>
+					<li>
+						<a href="#scroll-contact-single">
+							<i class="icon icon--form"></i> S'inscrire
+						</a>
+					</li>
+				<?php
+					endif;
+				?>
+
+				<?php if($accordionactive == 0): ?>
+					<li>
+						<a href="<?php the_field('fiche_de_la_formation'); ?>" target="_blank">
+							<i class="icon icon--light"></i> Bon à savoir
+						</a>
+					</li>
+				<?php endif; ?>
+				<li>
+					<a href="<?php the_field('fiche_de_la_formation'); ?>" target="_blank">
+						<i class="icon icon--download"></i> Télécharger la fiche
+					</a>
+				</li>
+				<li>
+					<a href="#" id="linkedin-share-button" class="social-icon" target="_blank">
+						<i class="icon icon--linkedin"></i> Linkedin
+					</a>
+				</li>
+				<li>
+					<a href="#" id="twitter-share-button" class="social-icon" target="_blank">
+						<i class="icon icon--twitter"></i> Twitter
+					</a>
+				</li>				
+			</ul>
+		</div>
+	<?php endif; ?>
+
 	<section class="formation-hero container">
 		<div class="hero-inner hs-relative" data-aos="fade-up">
 			<div class="hero-content">
@@ -60,41 +115,12 @@
 				<div class="content-text">
 					<?php echo $resume; ?>
 				</div>
-
-				<?php if($shareactive == 0): ?>
-					<div class="cbo-social">
-						<div class="share-title cbo-small">
-							Partager la formation
-						</div>
-						<a href="#" id="linkedin-share-button" class="social-icon" target="_blank">
-							<i class="icon icon--linkedin"></i>
-						</a>
-
-						<a href="#" id="twitter-share-button" class="social-icon" target="_blank">
-							<i class="icon icon--twitter"></i>
-						</a>
-					</div>
-				<?php endif; ?>
 			</div>
 		</div>
-
-		<?php
-			$posts = get_field('form');
-			if( $posts ):
-		?>
-			<a class="hs-button contact-scroll" href="#scroll-contact-single" data-aos="fade-left">
-				S'inscrire <i class="icon icon--bottom-arrow"></i>
-			</a>
-		<?php
-			endif;
-		?>
 	</section>
 
 	<?php if($accordionactive == 0): ?>
 		<section class="hs-grey-section hs-section hs-skills">
-			<a href="<?php the_field('fiche_de_la_formation'); ?>" class="hs-button hs-download button-center" target="_blank" data-aos="fade-up">
-				Télécharger la fiche de cette formation
-			</a>
 			<h2 class="hs-main-title" data-aos="fade-up">
 				<small>Bon à savoir</small>
 				sur cette formation
@@ -400,14 +426,11 @@
 							<h3 class="hs-main-title">S'inscrire à la formation</h3>
 						</div>
 						<div class="formationcontact-form hs-white-bloc" data-aos="fade-left">
-
 							<?php
-								
-									foreach( $posts as $p ):
-										$cf7_id= $p->ID;
-										echo do_shortcode( '[contact-form-7 id="'.$cf7_id.'" ]' );
-									endforeach;
-								
+								foreach( $posts as $p ):
+									$cf7_id= $p->ID;
+									echo do_shortcode( '[contact-form-7 id="'.$cf7_id.'" ]' );
+								endforeach;
 							?>
 						</div>
 					</div>
@@ -417,7 +440,6 @@
 	<?php
 		endif;
 	?>
-
 </article>
 
 	

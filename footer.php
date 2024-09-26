@@ -46,21 +46,32 @@
             </span>
             <ul class="footer-nav">
                 <?php
-					$args = array(  
+					$current_page = get_query_var('paged');
+					$current_page = max(1, $current_page);
+					$per_page = 4;
+					$args = array(
 						'post_type' => 'post',
 						'meta_key' => 'event_start',
-						'posts_per_page' => 4,
+						'meta_value' => date('Ymd'),
+						'meta_compare' => '>=',
+						'posts_per_page' => $per_page,
 						'orderby' => 'meta_value_num',
+						'order' => 'ASC',
+						'paged' => $current_page,
 					);
-					$query = new WP_Query( $args );
-					if($query->have_posts()):
-						while ( $query->have_posts() ) : $query->the_post(); 
-                ?>
-                    <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
-                <?php
-					endwhile;
-					endif;
-					wp_reset_query(); 
+					$query = new WP_Query($args);
+
+					if ($query->have_posts()) {
+						while ($query->have_posts()) {
+							$query->the_post();
+                        ?>
+							<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+                        <?php
+						}
+					} else {
+						echo '<p>Aucun événement à venir.</p>';
+					}
+					wp_reset_postdata();
 				?>
             </ul>
         </div>

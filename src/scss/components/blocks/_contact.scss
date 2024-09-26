@@ -5,63 +5,65 @@ CONTACT BLOCK COMPONENT
 	background:$colorbluedark url(../images/bg-contact-component.jpg) center top no-repeat;
 	background-size: 100% auto;
 	color:$colorwhite;
-	padding:170px 20px 100px;
-	overflow: hidden;
+	padding-top: 90px;
 
-	.contact-inner{
-		.contact-content{
-			text-align:center;
-			margin: 0 auto 40px auto;
+	.contact-content{
+		text-align:center;
+		margin: 0 auto 40px auto;
 
-			.contact-list{
-				margin-top: 40px;
+		.contact-list{
+			margin-top: 40px;
 
-				.list-el{
-					.el-inner{
-						width: 100%;
-						margin: 0 0 20px 0;
-						padding: 15px;
-						border-bottom: 5px solid #64c2b3;
-						border-radius: 7px;
-						background: $colorwhite;
-						font-size: 14px;
-						color: $colorbluedark;
-						text-align: center;
+			.list-el{
+				.el-inner{
+					display: flex;
+					width: 100%;
+					margin: 0 0 20px 0;
+					padding: 15px;
+					border-bottom: 5px solid $colorblue;
+					border-radius: 7px;
+					background: $colorwhite;
+					font-size: 14px;
+					color: $colorbluedark;
+					text-align: left;
 
-						.el-picture{
-							margin: 0 auto 20px;
-							display: block;
-							width: 73px;
+					.el-picture{
+						display: block;
+						min-width: 76px;
+						margin-right: 30px;
 
-							img{
-								position: relative;
-							}
+						img{
+							position: relative;
 						}
+					}
+					.inner-content{
+						flex: 1;
+
 						.el-title{
 							font-size: 20px;
-							text-align: center;
 							font-weight: bolder;
+							margin-bottom: 20px;
 						}
-						ul{
-							text-align:center;
-							margin-top:30px;
+					}
+					ul{
+						display: flex;
 
-							li{
-								display:inline-block;
-								margin:0 5px;
+						li{
+							margin-right:10px;
 
-								i{
-									background-color:$colorbluedark;
-									color:$colorwhite;
-									width:30px;
-									height:30px;
-									border-radius:50%;
-									padding:8px 0 0 0;
-									transition:all .4s cubic-bezier(.694,.048,.335,1);
+							i{
+								background-color:$colorbluedark;
+								color:$colorwhite;
+								display:flex;
+								align-items: center;
+								justify-content: center;
+								width:30px;
+								height:30px;
+								border-radius:50%;
+								transition:all .4s cubic-bezier(.694,.048,.335,1);
 
-									&:hover{
-										background-color:$colorblue;
-									}
+								&:hover{
+									background-color:$colorblue;
 								}
 							}
 						}
@@ -69,37 +71,11 @@ CONTACT BLOCK COMPONENT
 				}
 			}
 		}
-		.contact-form {
-			padding: 20px;
-			border-radius: 7px;
-			background: $colorwhite;
-		}
 	}
-}
-/* -------------------------------
-SMALL SCREENS
-------------------------------- */
-@media (min-width: $screen-sm-min){
-	.cbo-contact{
-		.contact-inner{
-			.contact-content{
-				.contact-list{
-					display: flex;
-					flex-wrap: wrap;
-					margin: 50px -10px;
-
-					.list-el{
-						width: 33.33333%;
-						padding: 0 10px;
-
-						.el-inner{
-							height: 100%;
-							margin: 0;
-						}
-					}
-				}
-			}
-		}
+	.contact-form {
+		padding: 20px;
+		border-radius: 7px;
+		background: $colorwhite;
 	}
 }
 /* -------------------------------
@@ -122,9 +98,6 @@ MEDIUM SCREENS
 
 				.hs-main-title{
 					text-align: left;
-				}
-				.contact-list{
-					margin: 20px -10px 0 -10px;
 				}
 			}
 			.contact-form{

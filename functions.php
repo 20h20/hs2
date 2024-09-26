@@ -199,7 +199,9 @@
 				}
 			}
 		}
-	
+		if (empty($options)) {
+			$options = '<option value="">Aucune formation disponible</option>';
+		}
 		return $options;
 	}
 	
@@ -211,7 +213,6 @@
 	
 		return $form;
 	}
-	
 	add_filter('wpcf7_form_elements', 'cf7_dynamic_select');
 
 ?>

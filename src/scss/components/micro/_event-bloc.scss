@@ -64,7 +64,7 @@ SMALL SCREENS
 	.listing-events{
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: center;
+		justify-content: space-between;
 		margin: -20px 0 0 0;
 
 		.list-el{
@@ -75,7 +75,7 @@ SMALL SCREENS
 			margin: 20px 0 -20px 0;
 
 			&:nth-child(2n){
-				margin-top: 40px;
+				margin-top: 70px;
 			}
 			.el-inner{
 				max-width: inherit;

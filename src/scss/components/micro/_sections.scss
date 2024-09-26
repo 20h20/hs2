@@ -10,27 +10,35 @@
 	&.hs-entrysection{
 		padding-top:110px;
 	}
-	&.hs-blue-section{
-		background:$colorbluedark url(../images/bg-top-formation.png) no-repeat right top;
-		color:$colorwhite;
+}
+.hs-blue-section{
+	background:$colorbluedark url(../images/bg-top-formation.png) no-repeat right top;
+	color:$colorwhite;
 
-		.hs-main-title{
-			small{
-				color:$colorwhite;
-			}
-		}
-		&.hs-section-simple-txt{
-			.hs-section-simple-txt_container{
-				.hs-main-title{
-					small{
-						color:$colorwhite;
-					}
-				}
-			}
+	.hs-main-title{
+		small{
+			color:$colorwhite;
 		}
 	}
-	&.hs-grey-section{
-		background:#f2f2f2 url(../images/pattern-bg-grey-section.png) no-repeat top left;
+	.hs-cms{
+		p{
+			color: $colorwhite;
+		}
+	}
+	b, strong, a{
+		color:$colorblue;
+	}
+}
+.hs-grey-section{
+	background:#f2f2f2 url(../images/pattern-bg-grey-section.png) no-repeat top left;
+}
+
+.hs-blue-section,
+.hs-grey-section{
+	.cbo-container{
+		margin: 0 auto;
+		padding-top: 60px;
+		padding-bottom: 60px;
 	}
 }
 /* -------------------------------
@@ -39,5 +47,17 @@
 @media (min-width: $screen-sm-min){
 	.hs-section{
 		padding:100px 30px;
+	}
+}
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width: $screen-md-min){
+	.hs-blue-section,
+	.hs-grey-section{
+		.cbo-container{
+			padding-top: 100px;
+			padding-bottom: 100px;
+		}
 	}
 }

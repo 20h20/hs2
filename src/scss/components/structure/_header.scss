@@ -45,13 +45,15 @@ header{
 				top: 12px;
 			}
 		}
-		.hs-hamburger-menu{
-			box-shadow:0px 0px 0px 2px $colorwhite inset;
+		.header-buttons {
+			.hs-hamburger-menu{
+				box-shadow:0px 0px 0px 2px $colorwhite inset;
 
-			.top,
-			.middle,
-			.bottom{
-				background-color:$colorwhite;
+				.top,
+				.middle,
+				.bottom{
+					background-color:$colorwhite;
+				}
 			}
 		}
 	}
@@ -66,7 +68,7 @@ header{
 		}
 		&:after{
 			font-family:"icons";
-			content:"\f10c";
+			content:"\f10f";
 			left: 0px;
 			position: absolute;
 			top: -200px;
@@ -78,6 +80,8 @@ header{
 	.header-buttons{
 		display: flex;
 		align-items: center;
+		position: relative;
+		z-index: 2;
 
 		.search-button{
 			.icon--search{
@@ -385,7 +389,7 @@ MEDIUM SCREENS
 							transform-origin: top;
 							transition: 0.4s transform cubic-bezier(0.77, 0, 0.175, 1) 0s, 0.4s visibility 0s, 0.4s opacity ease 0.2s;
 							position: absolute;
-							top: 67px;
+							top: 76px;
 							right: -20px;
 							text-align: center;
 							background:$colorblue;
@@ -495,8 +499,6 @@ LARGE SCREENS
 					}
 					&.menu-item-has-children{
 						.sub-menu{
-							right: -30px;
-
 							li{
 								a{
 									font-size: 18px;

@@ -11,10 +11,15 @@ HERO COMPONENT
 
 	.hero-title{
 		margin-bottom: 0;
+
+		a{
+			color: $colorwhite;
+		}
 	}
 	.hero-content{
 		margin-top: 40px;
 		padding:0 20px;
+		display: block;
 	}
 	.categories-list{
 		width: calc(100% - 40px);
@@ -99,9 +104,11 @@ LARGE SCREENS
 ------------------------------- */
 @media (min-width: $screen-lg-min){
 	.cbo-hero{
+		padding:250px 0 150px 0;
+
 		.hero-content{
 			width:50%;
-			margin:0 auto;
+			margin:40px auto 0 auto;
 		}
 	}
 }

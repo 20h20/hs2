@@ -146,19 +146,39 @@
                             <small>Les événements</small>HS2
                         </h2>
                         <?php echo $event_txt ?>
+                        <a class="hs-button button-center" href="<?php echo home_url(); ?>/category/evenement" data-aos="fade-up">
+                            Calendrier des événements <i class="icon icon--right-arrow"></i>
+                        </a>
                     </div>
                     <?php
-                        query_posts('showposts=3&cat=10&orderby=date&order=DSC&meta_key=event_start&orderby=meta_value_num');
-                        if (have_posts()) :
-                            while (have_posts()) : the_post();
-                                get_template_part('templates/content/content','event');
-                            endwhile;
-                        endif;
-                        wp_reset_query();
+                        $current_page = get_query_var('paged');
+                        $current_page = max(1, $current_page);
+                        $per_page = 8;
+                        $args = array(
+                            'post_type' => 'post',
+                            'meta_key' => 'event_start',
+                            'meta_value' => date('Ymd'),
+                            'meta_compare' => '>=',
+                            'posts_per_page' => $per_page,
+                            'orderby' => 'meta_value_num',
+                            'order' => 'ASC',
+                            'paged' => $current_page,
+                        );
+                        $query = new WP_Query($args);
+
+                        if ($query->have_posts()) {
+                            while ($query->have_posts()) {
+                                $query->the_post();
+                                get_template_part('templates/content/content', 'event');
+                            }
+                            if ($query->max_num_pages > 1) {
+                                page_navi('', '', $query);
+                            }
+                        } else {
+                            echo '<p>Aucun événement à venir.</p>';
+                        }
+                        wp_reset_postdata();
                     ?>
-                    <a class="hs-button button-center" href="<?php echo home_url(); ?>/category/evenement" data-aos="fade-up">
-                        Calendrier des événements <i class="icon icon--right-arrow"></i>
-                    </a>
                 </div>
             </div>
         </section>

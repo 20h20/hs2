@@ -2,11 +2,13 @@
 TEXT PICTURE COMPONENT
 ------------------------------- */
 .cbo-textpicture {
+	.textpicture-title{
+		width: 100%;
+	}
 	.textpicture-picture{
 		padding-bottom: 70%;
 		max-width: 600px;
 		margin: 0 auto 20px auto;
-		position: relative;
 		border-radius: 20px;
 		overflow: hidden;
 	}
@@ -36,7 +38,6 @@ MEDIUM SCREENS
 			width: 45%;
 			max-width: inherit;
 			margin: 0;
-			padding: 40px 0;
 		}
 		&.textpicture--right {
 			.textpicture-inner {

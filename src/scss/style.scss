@@ -23,6 +23,7 @@ MICRO COMPONENTS
 @import "components/micro/accordion";
 @import "components/micro/aos";
 @import "components/micro/bloc-metier";
+@import "components/micro/container";
 @import "components/micro/breadcrumb";
 @import "components/micro/buttons";
 @import "components/micro/cat-bloc";
@@ -56,7 +57,7 @@ BLOCKS COMPONENTS
 PAGE COMPONENTS
 *********************/  
 @import "components/pages/home";
+@import "components/pages/event-location";
 @import "components/pages/event-page";
 @import "components/pages/single-formation";
 @import "components/pages/press-page";
-@import "components/pages/page-form";
