@@ -1,15 +1,4 @@
 <?php	
-/*
- *	The template for displaying event categoroes - event location 
- * 	In order to customize this archive page template
- *	Override this template by coping it to ../yourtheme/eventon/ folder
- 
- *	@Author: AJDE
- *	@EventON
- *	@version: 4.6.1
- */	
-	
-
 	evo_get_page_header();
 
 	$help = new evo_helper();
@@ -36,7 +25,6 @@
 				'<a target="'.$location_link_target.'" href="'. $location_term_link .'">' .  $term->name . '</a>':
 				 $term->name;
 		}
-
 ?>
 <div class="cbo-page page--eventlocation">
 	<section class="cbo-hero">
@@ -59,7 +47,7 @@
 		</div>
 	</section>
 
-	<?php 
+	<?php
 		if( !empty( $temp_data->description )):
 	?>
 		<section class="cbo-text">
@@ -72,14 +60,6 @@
 	<?php
 		endif;
 	?>
-
-	<section class="cbo-map">
-		<div class="map-inner cbo-container">
-			<?php
-				do_action('evo_taxlb_google_map', $taxonomy, $temp_data);
-			?>
-		</div>
-	</section>
 
 	<section class="cbo-calendar">
 		<div class="calendar-inner cbo-container">

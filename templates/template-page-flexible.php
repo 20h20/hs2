@@ -14,6 +14,11 @@
 						get_template_part( 'templates/components/bloc-hero');
 
 					///////////////////
+					//  VIDEO
+					elseif( get_row_layout() == 'bloc_video' ): 
+						get_template_part( 'templates/components/bloc-video');
+
+					///////////////////
 					//  BIO
 					elseif( get_row_layout() == 'bloc_biographies' ):
 						get_template_part( 'templates/components/bloc-biographie');

@@ -6,7 +6,7 @@ get_header();
 ?>
 <div class="cbo-page page-events page-old-events">
 	<section class="cbo-hero">
-		<div class="hero-inner container">
+		<div class="hero-inner cbo-container container--nomargin">
 			<h1 class="hero-title hs-main-title" data-aos="fade-up">
 				Événements passés
 			</h1>
@@ -14,7 +14,7 @@ get_header();
 	</section>
 
 	<div class="hs-section">
-		<div class="container">
+		<div class="cbo-container">
 			<div class="listing-events">
 				<?php
 					$current_page = get_query_var('paged');

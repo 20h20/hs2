@@ -2,37 +2,22 @@
 SOCIAL SHARE MICRO COMPONENT
 ------------------------------- */
 .cbo-share {
-	position: fixed;
-	bottom: 20px;
-	right: 20px;
-	width: 50px;
-	height: 50px;
-	z-index: 999;
+	position: absolute;
+	right: 0;
+	top: 10rem;
+	width: 100%;
+	z-index: 4;
+	height: 3.125rem;
 	color: $colorwhite;
-	box-shadow: 0px 0px 0px 1px rgba($colorgrey, .4);
-	border-radius: 99rem;
+	background: $colorblue;
 
 	.share-input{
 		display: none;
 
 		&:checked ~ {
-			.share-label .label-icon {
-				transition: 0s;
-				width: 0;
-				height: 0;
-				color: $colorwhite;
-
-				&:before {
-					transform: rotate(-45deg);
-				}
-				&:after {
-					transform: rotate(45deg);
-				}
-			}
 			.share-options {
-				width: 250px;
 				height: fit-content;
-				border-radius: 5px;
+				top: 3.125rem;
 			
 				&:before,
 				li {
@@ -49,8 +34,6 @@ SOCIAL SHARE MICRO COMPONENT
 		right: 0;
 		width: inherit;
 		height: inherit;
-		border-radius: 50%;
-		background: $colorbluedark;
 	}
 	.share-label{
 		cursor: pointer;
@@ -58,64 +41,32 @@ SOCIAL SHARE MICRO COMPONENT
 		display: flex;
 		justify-content: center;
 		align-items: center;
-
-		.label-icon {
-			position: relative;
-			left: -0.3125em;
-			width: 0.5em;
-			height: 0.5em;
-			border-radius: 50%;
-			color: $colorwhite;
-			background-color: currentColor;
-			box-shadow: 0.625em -0.625em, 0.625em 0.625em;
-			transition: 0.1s 0.05s;
-		
-			&::before,
-			&::after {
-				content: "";
-				position: absolute;
-				width: 1em;
-				height: 0.125em;
-				background-color: currentColor;
-				transition: 0.1s;
-			}
-			&::before {
-				top: 0.1875em;
-				left: 0.1875em;
-				transform-origin: bottom left;
-				transform: rotate(45deg);
-			}
-			&::after {
-				top: -0.125em;
-				left: 0.03125em;
-				transform-origin: center;
-				transform: rotate(-45deg);
-			}
-		}
 	}
 	.share-options {
-		padding: 6px 16px;
-		bottom: 0;
+		background: $colorblue;
+		padding: 1.25rem;
+		width: 100%;
+		top: 0;
 		margin: 0;
 		overflow: hidden;
 		transition: 0.2s;
-		box-shadow: 0 0.125em 0.125em rgba($colorbluedark, 0.3);
 
 		li {
-			margin: 10px 0;
+			margin: 1rem 0;
 
 			a{
 				display: flex;
 				align-items: center;
 				color: $colorwhite;
+				font-size: 0.875rem;
+				line-height: 0.875rem;
 				transition: all .4s;
 
 				i{
-					margin-right: 10px;
-					font-size: 12px;
+					margin-right: 0.875rem;
 				}
 				&:hover{
-					color: $colorblue;
+					color: $colorbluedark;
 				}
 			}
 		}
@@ -125,5 +76,41 @@ SOCIAL SHARE MICRO COMPONENT
 			transform: translateY(0.625em);
 			transition: 0s;
 		}
+	}
+}
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width: $screen-md-min){
+	.cbo-share {
+		top: 18.75rem;
+		width: 11.25rem;
+
+		.share-label{
+			i{
+				transform: rotate(-90deg);
+				margin-left: 15px;
+			}
+		}
+		.share-options{
+			padding: 0.625rem;
+			height: fit-content;
+			top: 3.125rem;
+
+			&:before,
+			li {
+				transition: 0.3s 0.15s;
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+	}
+}
+/* -------------------------------
+LARGE SCREENS
+------------------------------- */
+@media (min-width: $screen-lg-min){
+	.cbo-share {
+		width: 13.125rem;
 	}
 }

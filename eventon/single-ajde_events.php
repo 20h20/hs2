@@ -5,30 +5,33 @@
 	$form_day		= get_field('nombre_de_jours');
 	$form_hours		= get_field('nombre_dheures');
 	$accordionactive	= get_field('formation_accordionactive');
-	$programmeactive	= get_field('formation_accordionactiveprogramme');
+	$programmehidden	= get_field('formation_programmehidden');
 	$shareactive	= get_field('formation_sharedeactivate');
+
+	
+
+	$goodtoknowhidden	= get_field('formation_goodtoknowhidden');
+	$subscribhidden	= get_field('formation_subscribehidden');
+
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class('hs-page-formation'); ?>role="article" itemscope itemtype="http://schema.org/BlogPosting">
-
-	<?php if($shareactive == 1): ?>
+	<section class="formation-hero container">
 		<div class="cbo-share">
 			<input class="share-input" type="checkbox" id="checkbox">
 			<label class="share-label" for="checkbox">
-				<span class="label-icon"></span>
+				Table des matières <i class="icon icon--bottom-arrow"></i>
 			</label>
-			<ul class="share-options" data-title="Share">
-				<?php if($accordionactive == 0): ?>
+
+			<ul class="share-options" data-title="Table des matières">
+				<?php if($programmehidden == 0): ?>
 					<li>
-						<a href="<?php the_field('fiche_de_la_formation'); ?>" target="_blank">
+						<a href="#scroll-programme-single" target="_blank">
 							<i class="icon icon--studient-hat"></i> Programme du cours
 						</a>
 					</li>
 				<?php endif; ?>
 
-				<?php
-					$posts = get_field('form');
-					if( $posts ):
-				?>
+				<?php if($subscribhidden == 0): ?>
 					<li>
 						<a href="#scroll-contact-single">
 							<i class="icon icon--form"></i> S'inscrire
@@ -38,33 +41,35 @@
 					endif;
 				?>
 
-				<?php if($accordionactive == 0): ?>
+				<?php if($goodtoknowhidden == 0): ?>
 					<li>
-						<a href="<?php the_field('fiche_de_la_formation'); ?>" target="_blank">
+						<a href="#scroll-savoir-single" target="_blank">
 							<i class="icon icon--light"></i> Bon à savoir
 						</a>
 					</li>
 				<?php endif; ?>
+
 				<li>
 					<a href="<?php the_field('fiche_de_la_formation'); ?>" target="_blank">
 						<i class="icon icon--download"></i> Télécharger la fiche
 					</a>
 				</li>
-				<li>
-					<a href="#" id="linkedin-share-button" class="social-icon" target="_blank">
-						<i class="icon icon--linkedin"></i> Linkedin
-					</a>
-				</li>
-				<li>
-					<a href="#" id="twitter-share-button" class="social-icon" target="_blank">
-						<i class="icon icon--twitter"></i> Twitter
-					</a>
-				</li>				
+
+				<?php if($shareactive == 0): ?>
+					<li>
+						<a href="#" id="linkedin-share-button" class="social-icon" target="_blank">
+							<i class="icon icon--linkedin"></i> Linkedin
+						</a>
+					</li>
+					<li>
+						<a href="#" id="twitter-share-button" class="social-icon" target="_blank">
+							<i class="icon icon--twitter"></i> Twitter
+						</a>
+					</li>
+				<?php endif; ?>
 			</ul>
 		</div>
-	<?php endif; ?>
-
-	<section class="formation-hero container">
+		
 		<div class="hero-inner hs-relative" data-aos="fade-up">
 			<div class="hero-content">
 				<div class="cbo-breadcrumb">
@@ -110,8 +115,10 @@
 				?>
 
 				<span class="content-clock">
-					<i class="icon icon--clock"></i><?php echo $form_day; ?> - <?php echo $form_hours; ?>
+					<i class="icon icon--clock"></i><?php echo $form_day; ?><br/>
+					<?php echo $form_hours; ?>
 				</span>
+
 				<div class="content-text">
 					<?php echo $resume; ?>
 				</div>
@@ -119,8 +126,8 @@
 		</div>
 	</section>
 
-	<?php if($accordionactive == 0): ?>
-		<section class="hs-grey-section hs-section hs-skills">
+	<?php if($goodtoknowhidden == 0): ?>
+		<section id="scroll-savoir-single" class="hs-grey-section hs-section hs-skills">
 			<h2 class="hs-main-title" data-aos="fade-up">
 				<small>Bon à savoir</small>
 				sur cette formation
@@ -385,8 +392,8 @@
 		</section>
 	<?php endif; ?>
 
-	<?php if($programmeactive == 0): ?>
-		<section class="hs-blue-section hs-section">
+	<?php if($programmehidden == 0): ?>
+		<section id="scroll-programme-single" class="hs-blue-section hs-section">
 			<div class="container">
 				<h3 class="hs-main-title" data-aos="fade-up">Programme du cours</h3>
 				<div class="hs-page-formation-programme hs-cms" data-aos="fade-up">
@@ -404,42 +411,44 @@
 		</section>
 	<?php endif; ?>
 
-	<?php
-		$posts = get_field('form');
-		if( $posts ):
-	?>
-		<section id="scroll-contact-single" class="cbo-formationcontact">
-			<div class="formationcontact-inner">
-				<div class="cbo-picture-cover">
-					<img
-						decoding="async"
-						src="<?php bloginfo('template_directory'); ?>/library/images/image-formation-inscription.jpg"
-						alt="HS2, centre de formation en cybersécurité" sizes="100vw"
-						loading="lazy"
-						width="2000" height="2000"
-					>
-				</div>
+	<?php if($subscribhidden == 0): ?>
+		<?php
+			$posts = get_field('form');
+			if( $posts ):
+		?>
+			<section id="scroll-contact-single" class="cbo-formationcontact">
+				<div class="formationcontact-inner">
+					<div class="cbo-picture-cover">
+						<img
+							decoding="async"
+							src="<?php bloginfo('template_directory'); ?>/library/images/image-formation-inscription.jpg"
+							alt="HS2, centre de formation en cybersécurité" sizes="100vw"
+							loading="lazy"
+							width="2000" height="2000"
+						>
+					</div>
 
-				<div class="formationcontact-content">
-					<div class="container content-inner">
-						<div class="formationcontact-title" data-aos="fade-right">
-							<h3 class="hs-main-title">S'inscrire à la formation</h3>
-						</div>
-						<div class="formationcontact-form hs-white-bloc" data-aos="fade-left">
-							<?php
-								foreach( $posts as $p ):
-									$cf7_id= $p->ID;
-									echo do_shortcode( '[contact-form-7 id="'.$cf7_id.'" ]' );
-								endforeach;
-							?>
+					<div class="formationcontact-content">
+						<div class="container content-inner">
+							<div class="formationcontact-title" data-aos="fade-right">
+								<h3 class="hs-main-title">S'inscrire à la formation</h3>
+							</div>
+							<div class="formationcontact-form hs-white-bloc" data-aos="fade-left">
+								<?php
+									foreach( $posts as $p ):
+										$cf7_id= $p->ID;
+										echo do_shortcode( '[contact-form-7 id="'.$cf7_id.'" ]' );
+									endforeach;
+								?>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</section>
-	<?php
-		endif;
-	?>
+			</section>
+		<?php
+			endif;
+		?>
+	<?php endif; ?>
 </article>
 
 	

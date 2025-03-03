@@ -2,8 +2,8 @@
 	$title	= get_sub_field('titre_de_la_section');
 	$surtitre	= get_sub_field('surtitre_de_la_section');
 ?>
-<div class="cbo-bio hs-section">
-	<div class="container">
+<div class="cbo-bio">
+	<div class="bio-inner cbo-container">
 		<?php if($title): ?>
 			<h2 class="hs-main-title" data-aos="fade-up">
 				<small><?php echo $surtitre ?></small>

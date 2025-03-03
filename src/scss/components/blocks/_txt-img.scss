@@ -7,13 +7,13 @@ TEXT PICTURE COMPONENT
 	}
 	.textpicture-picture{
 		padding-bottom: 70%;
-		max-width: 600px;
-		margin: 0 auto 20px auto;
-		border-radius: 20px;
+		max-width: 37.5rem;
+		margin: 0 auto 1.25rem auto;
+		border-radius: 1.25rem;
 		overflow: hidden;
 	}
 	.textpicture-content {
-		max-width: 500px;
+		max-width: 31.25rem;
 		margin: 0 auto;
 	}
 }
@@ -31,7 +31,7 @@ MEDIUM SCREENS
 			width: 50%;
 			max-width: inherit;
 			margin: 0;
-			min-height: 300px;
+			min-height: 18.75rem;
 			padding: 0;
 		}
 		.textpicture-content {

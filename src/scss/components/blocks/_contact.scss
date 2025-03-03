@@ -5,32 +5,32 @@ CONTACT BLOCK COMPONENT
 	background:$colorbluedark url(../images/bg-contact-component.jpg) center top no-repeat;
 	background-size: 100% auto;
 	color:$colorwhite;
-	padding-top: 90px;
+	padding-top: 5.625rem;
 
 	.contact-content{
 		text-align:center;
-		margin: 0 auto 40px auto;
+		margin: 0 auto 2.5rem auto;
 
 		.contact-list{
-			margin-top: 40px;
+			margin-top: 2.5rem;
 
 			.list-el{
 				.el-inner{
 					display: flex;
 					width: 100%;
-					margin: 0 0 20px 0;
-					padding: 15px;
-					border-bottom: 5px solid $colorblue;
-					border-radius: 7px;
+					margin: 0 0 1.25rem 0;
+					padding: 0.9375rem;
+					border-bottom: 0.3125rem solid $colorblue;
+					border-radius: 0.4375rem;
 					background: $colorwhite;
-					font-size: 14px;
+					font-size: 0.875rem;
 					color: $colorbluedark;
 					text-align: left;
 
 					.el-picture{
 						display: block;
-						min-width: 76px;
-						margin-right: 30px;
+						min-width: 4.75rem;
+						margin-right: 1.875rem;
 
 						img{
 							position: relative;
@@ -40,16 +40,16 @@ CONTACT BLOCK COMPONENT
 						flex: 1;
 
 						.el-title{
-							font-size: 20px;
+							font-size: 1.25rem;
 							font-weight: bolder;
-							margin-bottom: 20px;
+							margin-bottom: 1.25rem;
 						}
 					}
 					ul{
 						display: flex;
 
 						li{
-							margin-right:10px;
+							margin-right:0.625rem;
 
 							i{
 								background-color:$colorbluedark;
@@ -57,8 +57,8 @@ CONTACT BLOCK COMPONENT
 								display:flex;
 								align-items: center;
 								justify-content: center;
-								width:30px;
-								height:30px;
+								width:1.875rem;
+								height:1.875rem;
 								border-radius:50%;
 								transition:all .4s cubic-bezier(.694,.048,.335,1);
 
@@ -73,8 +73,8 @@ CONTACT BLOCK COMPONENT
 		}
 	}
 	.contact-form {
-		padding: 20px;
-		border-radius: 7px;
+		padding: 1.25rem;
+		border-radius: 0.4375rem;
 		background: $colorwhite;
 	}
 }
@@ -83,7 +83,7 @@ MEDIUM SCREENS
 ------------------------------- */
 @media (min-width: $screen-md-min){
 	.cbo-contact{
-		padding: 200px 30px 120px;
+		padding: 12.5rem 1.875rem 7.5rem;
 
 		.contact-inner{
 			display: flex;
@@ -101,7 +101,7 @@ MEDIUM SCREENS
 				}
 			}
 			.contact-form{
-				padding: 30px;
+				padding: 1.875rem;
 				width: 45%;
 			}
 		}

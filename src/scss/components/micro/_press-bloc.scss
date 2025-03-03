@@ -2,42 +2,40 @@
 BLOC PRESS MICRO COMPONENT
 ------------------------------- */
 .listing-press{
-	margin-top: 67px;
-
 	.list-el{
 		.el-inner{
 			display: block;
-			box-shadow: 0 0 10px 0 hsla(0,0%,75.7%,.65);
-			margin:20px 0 0 0;
-			border-radius: 7px;
+			box-shadow: 0 0 0.625rem 0 hsla(0,0%,75.7%,.65);
+			margin:1.25rem 0;
+			border-radius: 0.4375rem;
 			background: $colorwhite;
-			padding: 20px;
+			padding: 1.25rem;
 			color: $colorgrey;
-			font-size: 14px;
+			font-size: 0.875rem;
 
 			.inner-picture{
 				display: block;
-				height: 86px;
-				width: 103px;
+				height: 5.375rem;
+				width: 6.4375rem;
 				text-align: center;
-				margin: 0 auto 20px auto;
+				margin: 0 auto 1.25rem auto;
 			}
 			.inner-content {
-				padding-top: 20px;
+				padding-top: 1.25rem;
 				display: block;
-				border-top: 1px solid $colorbluedark;
+				border-top: 0.0625rem solid $colorbluedark;
 
 				.content-title{
 					color:$colorbluedark;
 				}
 				.content-date{
 					color:$colorblue;
-					font-size:12px;
+					font-size:0.75rem;
 				}
 				.content-text{
-					margin: 7px 0 0 0;
-					font-size: 14px;
-					line-height: 18px;
+					margin: 0.4375rem 0 0 0;
+					font-size: 0.875rem;
+					line-height: 1.125rem;
 				}
 			}
 		}
@@ -55,13 +53,13 @@ SMALL SCREENS
 				justify-content: space-between;
 
 				.inner-picture{
-					margin: 0 30px 0 0;
+					margin: 0 1.875rem 0 0;
 				}
 				.inner-content{
-					border-left: 1px solid $colorbluedark;
+					border-left: 0.0625rem solid $colorbluedark;
 					border-top: none;
 					width: 75%;
-					padding:0 0 0 30px;
+					padding:0 0 0 1.875rem;
 					flex: 1;
 				}
 			}
@@ -75,7 +73,7 @@ MEDIUM SCREENS
 	.listing-press{
 		.list-el{
 			width: 66.6666666667%;
-			margin:0 auto 30px;
+			margin:0 auto 1.875rem;
 		}
 	}
 }

@@ -3,8 +3,8 @@
 	$texte	= get_sub_field('descriptif_de_la_section');
 	$color	= get_sub_field('couleur_de_la_section');
 ?>
-<section class="hs-section hs-white-section cbo-calendar">
-     <div class="container">
+<section class="cbo-calendar">
+    <div class="calendar-inner cbo-container">
         <div class="hs-section-simple-txt">
             <?php if($title): ?>
                 <h2 class="hs-main-title" data-aos="fade-up">

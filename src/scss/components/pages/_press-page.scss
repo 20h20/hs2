@@ -1,11 +1,6 @@
 /* -------------------------------
 PRESS PAGE COMPONENT
 ------------------------------- */
-.hs-press-page{
-	.hs-press-page_listing-container{
-		padding: 150px 20px 60px 20px;
-	}
-}
 .hs-press-single-page{
 	.hs-section{
 		padding: 120px 20px 60px 20px;
@@ -48,16 +43,6 @@ MEDIUM SCREENS
 					display: inline-flex;
 				}
 			}
-		}
-	}
-}
-/* -------------------------------
-LARGE SCREENS
-------------------------------- */
-@media (min-width: $screen-lg-min){
-	.hs-press-page{
-		.hs-press-page_listing-container{
-			padding:150px 0 100px 0;
 		}
 	}
 }

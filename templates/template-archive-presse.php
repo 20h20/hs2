@@ -1,9 +1,10 @@
-<div class="cbo-page page-events">
-	<section class="cbo-hero">
-		<div class="hero-inner container">
+<div class="cbo-page page--press">
+	<section class="cbo-hero hero--filters">
+		<div class="hero-inner cbo-container container--nomargin">
 			<h1 class="hero-title hs-main-title" data-aos="fade-up">
 				<?php single_cat_title(); ?>
 			</h1>
+
 			<div class="hero-content" data-aos="fade-up">
 				<?php echo category_description(); ?>
 			</div>
@@ -18,7 +19,7 @@
 					width="103" height="68"
 				>
 				<span class="el-text">
-					Revues de presse
+					<?php _e("Revues de presse", "wpbootstrap"); ?>
 				</span>
 			</a>
 			<a class="list-el" href="<?php echo home_url(); ?>/category/evenement/">
@@ -30,27 +31,25 @@
 					width="103" height="68"
 				>
 				<span class="el-text">
-					Les évènements
+					<?php _e("Les évènements", "wpbootstrap"); ?>
 				</span>
 			</a>
 		</div>
 	</section>
 
-	<div class="hs-section">
-		<div class="container">
-			<div class="listing-press">
-				<?php
-					if (have_posts()) :
-						while (have_posts()) : the_post();
-							get_template_part('templates/content/content','press');
-						endwhile;
-						if (function_exists('page_navi')) {
-							page_navi();
-						} else {
-					}
-					endif;
-				?>
-			</div>
+	<section class="cbo-container">
+		<div class="listing-press">
+			<?php
+				if (have_posts()) :
+					while (have_posts()) : the_post();
+						get_template_part('templates/content/content','press');
+					endwhile;
+					if (function_exists('page_navi')) {
+						page_navi();
+					} else {
+				}
+				endif;
+			?>
 		</div>
-	</div>
+	</section>
 </div>

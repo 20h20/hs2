@@ -6,7 +6,7 @@
 	$url	= get_sub_field('lien_vers_la_page');
 ?>
 <section class="cbo-cta">
-	<div class="container hs-section">
+	<div class="cta-inner cbo-container container--padding container--nomargin">
 		<div class="cta-content">
 			<?php if($title): ?>
 				<h3 class="content-title hs-main-title" data-aos="fade-up">

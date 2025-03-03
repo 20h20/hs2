@@ -5,7 +5,7 @@ HERO COMPONENT
 	background: $colorbluedark url(../images/bg-hero.jpg) right top no-repeat;
 	background-size: cover;
 	color:$colorwhite;
-	padding: 140px 20px 72px 20px;
+	padding: 8.75rem 1.25rem 4.5rem 1.25rem;
 	text-align:center;
 	position:relative;
 
@@ -17,20 +17,24 @@ HERO COMPONENT
 		}
 	}
 	.hero-content{
-		margin-top: 40px;
-		padding:0 20px;
+		margin-top: 2.5rem;
+		padding:0 1.25rem;
 		display: block;
 	}
+	&.hero--filters{
+		padding-bottom: 0;
+		margin-bottom: 8.25rem;
+	}
 	.categories-list{
-		width: calc(100% - 40px);
+		position: relative;
+		width: 100%;
+		top: 4.5rem;
+		display: flex;
 		text-align: center;
-		position: absolute;
-		bottom: -72px;
-		left: 20px;
-		border-radius: 7px;
+		border-radius: 0.4375rem;
 		background: $colorwhite;
-		box-shadow: 0 0 10px 0 hsla(0,0%,75.7%,.65);
-		padding: 20px 30px;
+		box-shadow: 0 0 0.625rem 0 hsla(0,0%,75.7%,.65);
+		padding: 1.25rem 1.875rem;
 		color: #b1b1b1;
 		z-index: 2;
 
@@ -38,17 +42,16 @@ HERO COMPONENT
 			color:$colorbluedark;
 			display: block;
 			width: 50%;
-			float: left;
 			position:relative;
-			font-size: 15px;
+			font-size: 0.9375rem;
 
 			&:first-child{
-				border-right:2px solid $colorbluedark;
+				border-right: 0.0625rem solid $colorbluedark;
 			}
 			img{
 				display:block;
 				margin: 0 auto;
-				margin-bottom: 10px;
+				margin-bottom: 0.625rem;
 				position:relative;
 				z-index:9;
 				max-width:50%;
@@ -61,12 +64,12 @@ HERO COMPONENT
 				content:'';
 				background:#d4eeea;
 				border-radius:50%;
-				width:100px;
-				height:100px;
+				width:6.25rem;
+				height:6.25rem;
 				position:absolute;
 				top:0;
 				left:50%;
-				margin:0 0 0 -50px;
+				margin:0 0 0 -3.125rem;
 				z-index: 1;
 				transform:scale(0);
 				transition:all .4s cubic-bezier(.694,.048,.335,1);
@@ -85,8 +88,8 @@ SMALL SCREENS
 @media (min-width: $screen-sm-min){
 	.cbo-hero{
 		.categories-list {
-			margin-left: -300px;
-			width:600px;
+			margin-left: -18.75rem;
+			width:37.5rem;
 			left: 50%;
 		}
 	}
@@ -96,7 +99,7 @@ MEDIUM SCREENS
 ------------------------------- */
 @media (min-width: $screen-md-min){
 	.cbo-hero{
-		padding:200px 0 150px 0;
+		padding:12.5rem 0 9.375rem 0;
 	}
 }
 /* -------------------------------
@@ -104,11 +107,14 @@ LARGE SCREENS
 ------------------------------- */
 @media (min-width: $screen-lg-min){
 	.cbo-hero{
-		padding:250px 0 150px 0;
+		padding:15.625rem 0 9.375rem 0;
 
 		.hero-content{
 			width:50%;
-			margin:40px auto 0 auto;
+			margin:2.5rem auto 0 auto;
+		}
+		&.hero--filters{
+			margin-bottom: 12.5rem;
 		}
 	}
 }

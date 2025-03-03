@@ -6,6 +6,7 @@
     $herobturl	= get_field('home_herobturl');
     $video_surtitre	= get_field('video_surtitre');
     $video_title	= get_field('video_title');
+    $video_desc	= get_field('video_description');
     $video	= get_field('video_file');
     $picture	= get_field('video_picture');
     $event_txt	= get_field('event_txt');
@@ -38,21 +39,21 @@
             </div>
         </section>
 
-        <section id="scroll-hero" class="hs-grey-section hs-section cbo-calendar">
-            <h2 class="hs-main-title" data-aos="fade-up">
-                <small>Nos prochaines</small>Formations
-            </h2>
-            <div class="container">
-                <?php echo do_shortcode('[add_eventon_list number_of_months="3" hide_so="yes" hide_past="yes"]'); ?>
-            </div>
-        </section>
-
-        <section class="hs-white-section hs-section cbo-homevideo">
-            <div class="container">
+        <section class="cbo-video hs-white-section">
+            <div class="cbo-container">
                 <h2 class="hs-main-title" data-aos="fade-up">
-                    <small><?php echo $video_surtitre ?></small>
+                    <small>
+                        <?php echo $video_surtitre ?>
+                    </small>
                     <?php echo $video_title ?>
                 </h2>
+
+                <?php if($video_desc): ?>
+                    <div class="hs-cms video-text">
+                        <?php echo $video_desc ?>
+                    </div>
+                <?php endif; ?>
+
                 <div class="video-player cbo-picture-cover" data-aos="fade-up">
                     <img
                         decoding="async"
@@ -67,6 +68,15 @@
                         <source loading="lazy" type="video/mp4" src="<?php echo $video['url'] ?>">
                     </video>
                 </div>
+            </div>
+        </section>
+
+        <section id="scroll-hero" class="hs-grey-section hs-section cbo-calendar">
+            <h2 class="hs-main-title" data-aos="fade-up">
+                <small>Nos prochaines</small>Formations
+            </h2>
+            <div class="container">
+                <?php echo do_shortcode('[add_eventon_list number_of_months="3" hide_so="yes" hide_past="yes"]'); ?>
             </div>
         </section>
 
@@ -153,7 +163,7 @@
                     <?php
                         $current_page = get_query_var('paged');
                         $current_page = max(1, $current_page);
-                        $per_page = 8;
+                        $per_page = 3;
                         $args = array(
                             'post_type' => 'post',
                             'meta_key' => 'event_start',
@@ -162,7 +172,6 @@
                             'posts_per_page' => $per_page,
                             'orderby' => 'meta_value_num',
                             'order' => 'ASC',
-                            'paged' => $current_page,
                         );
                         $query = new WP_Query($args);
 
@@ -170,9 +179,6 @@
                             while ($query->have_posts()) {
                                 $query->the_post();
                                 get_template_part('templates/content/content', 'event');
-                            }
-                            if ($query->max_num_pages > 1) {
-                                page_navi('', '', $query);
                             }
                         } else {
                             echo '<p>Aucun événement à venir.</p>';

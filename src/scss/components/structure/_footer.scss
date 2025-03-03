@@ -3,7 +3,7 @@ FOOTER COMPONENT
 ------------------------------- */
 footer{
 	background:$colorbluedark  url(../images/pattern-footer.png) no-repeat left bottom ;
-	padding:30px 20px;
+	padding:1.875rem 1.25rem;
 	color:rgba($colorwhite, .5);
 
 	a{
@@ -16,9 +16,9 @@ footer{
 		}
 	}
 	.hs-footer-logo{
-		font-size: 120px;
+		font-size: 7.5rem;
 		display: table;
-		margin: 0 auto 20px auto;
+		margin: 0 auto 1.25rem auto;
 
 		a{
 			color:$colorwhite;
@@ -29,19 +29,19 @@ footer{
 		}
 	}
 	.hs-col-footer{
-		padding:0 0 20px 0;
-		margin:0 0 20px 0;
-		border-bottom: 1px solid #1e6a98;
+		padding:0 0 1.25rem 0;
+		margin:0 0 1.25rem 0;
+		border-bottom: 0.0625rem solid #1e6a98;
 		
 		&:last-child{
 			padding:0;
 			margin:0;
-			border-bottom: 0px;
+			border-bottom: 0rem;
 		}
 		.footer-title{
 			color:$colorblue;
 			display: flex;
-			font-size: 16px;
+			font-size: 1rem;
 			justify-content: space-between;
 			align-items: center;
 			cursor: pointer;
@@ -58,43 +58,43 @@ footer{
 		}
 		.footer-nav{
 			display: none;
-			font-size: 14px;
-			line-height: 18px;
+			font-size: 0.875rem;
+			line-height: 1.125rem;
 
 			&.nav--open{
 				display: block;
 			}
 			a{
-				margin-top: 10px;
+				margin-top: 0.625rem;
 				display: block;
 			}
 		}
 		&.footer-newsletter{
 			background: $colorwhite;
-			border-radius: 7px;
-			padding: 20px;
+			border-radius: 0.4375rem;
+			padding: 1.25rem;
 
 			.footer-title{
-				margin-bottom: 20px;
+				margin-bottom: 1.25rem;
 			}
 			.mailpoet_form{
 				.mailpoet_paragraph{
-					margin: 10px 0;
+					margin: 0.625rem 0;
 
 					.mailpoet_form_paragraph.mailpoet-has-font-size{
-						font-size: 10px !important;
+						font-size: 0.625rem !important;
 					}
 					input{
 						width: 100% !important;
 						color: $colorblue;
-						box-shadow: 0 0 0 1px $colorblue inset;
-						height: 50px;
+						box-shadow: 0 0 0 0.0625rem $colorblue inset;
+						height: 3.125rem;
 						border: 0;
-						border-radius: 5px;
+						border-radius: 0.3125rem;
 						transition: all .4s;
 
 						&:focus{
-							box-shadow: 0 0 0 1px $colorbluedark inset;
+							box-shadow: 0 0 0 0.0625rem $colorbluedark inset;
 						}
 					}
 					input[type="submit"] {
@@ -112,14 +112,14 @@ footer{
 					}
 					.mailpoet_checkbox_label{
 						display: flex;
-						font-size: 12px;
+						font-size: 0.75rem;
 						font-weight: normal;
-						margin: 10px 0;
+						margin: 0.625rem 0;
 
 						input{
-							width: 14px !important;
-							height: 14px;
-							margin-right: 8px;
+							width: 0.875rem !important;
+							height: 0.875rem;
+							margin-right: 0.5rem;
 						}
 					}
 				}
@@ -130,19 +130,19 @@ footer{
 .hs-footer-bot{
 	background:#002135;
 	color:rgba($colorwhite, .5);
-	padding:15px 30px;
+	padding:0.9375rem 1.875rem;
 	width:100%;
-	font-size:12px;
+	font-size:0.75rem;
 	text-align: center;
 
 	.footer-logo{
 		justify-content: center;
-		padding: 40px 0;
+		padding: 2.5rem 0;
 		display: flex;
 
 		img{
-			margin: 0 10px;
-			width: 150px;
+			margin: 0 0.625rem;
+			width: 9.375rem;
 		}
 	}
 	.footer-organisme{
@@ -152,8 +152,8 @@ footer{
 		align-items: center;
 
 		img{
-			width: 20px;
-			margin: 0 0 0 10px;
+			width: 1.25rem;
+			margin: 0 0 0 0.625rem;
 		}
 	}
 	a{
@@ -170,24 +170,24 @@ MEDIUM SCREENS
 ------------------------------- */
 @media (min-width: $screen-md-min){
 	footer{
-		padding: 30px 30px 70px 30px;
+		padding: 4.375rem 1.25rem;
 		display: flex;
 		flex-wrap:wrap;
 
 		.hs-footer-logo{
 			width: 100%;
 			text-align: center;
-			margin-bottom: 40px;
+			margin-bottom: 2.5rem;
 		}
 		.hs-col-footer{
 			width: 25%;
-			padding:0 20px 0 0;
+			padding:0 1.25rem 0 0;
 			margin:0;
-			border:0px;
+			border:0rem;
 
 			.footer-title{
-				font-size: 16px;
-				margin-bottom: 20px;
+				font-size: 1rem;
+				margin-bottom: 1.25rem;
 				cursor: auto;
 	
 				i{
@@ -204,7 +204,7 @@ MEDIUM SCREENS
 				.mailpoet_form{
 					.mailpoet_paragraph{
 						width: 100%;
-						margin: 5px 0;
+						margin: 0.3125rem 0;
 					}
 				}
 			}

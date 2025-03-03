@@ -8,7 +8,7 @@
 		onready : function(){
 
 			//////////////////// VIDÉO ////////////////////
-			$('.cbo-homevideo .video-player').on('click', function(e) {
+			$('.cbo-video .video-player').on('click', function(e) {
 				e.stopPropagation();
 				$('.video-player').addClass('active');
 				var video = document.querySelector('.video-player video');
