@@ -31,23 +31,25 @@
                     <span class="entryhome-text" data-aos="fade-up">
                         <?php echo $herochapo ?>
                     </span>
+
                     <a class="hs-button button-white" href="<?php echo $herobturl ?>" data-aos="fade-up">
                         <?php echo $herobtxt ?> <i class="icon icon--right-arrow"></i>
                     </a>
-                    <div class="entryhome-scroll"><a href="#scroll-hero"></a></div>
                 </div>
             </div>
         </section>
 
-        <section class="cbo-video hs-white-section">
+        <section id="nouveaute2025" class="cbo-video">
             <div class="cbo-container">
-                <h2 class="hs-main-title" data-aos="fade-up">
-                    <small>
-                        <?php echo $video_surtitre ?>
-                    </small>
-                    <?php echo $video_title ?>
-                </h2>
-
+                <?php if($video_title): ?>
+                    <h2 class="hs-main-title" data-aos="fade-up">
+                        <small>
+                            <?php echo $video_surtitre ?>
+                        </small>
+                        <?php echo $video_title ?>
+                    </h2>
+                <?php endif; ?>
+                
                 <?php if($video_desc): ?>
                     <div class="hs-cms video-text">
                         <?php echo $video_desc ?>

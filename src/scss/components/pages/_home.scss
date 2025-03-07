@@ -3,6 +3,9 @@
 ------------------------------- */
 .page-home{
 	.cbo-entryhome{
+		position: relative;
+		overflow: hidden;
+
 		.cbo-picture-cover{
 			width: 100%;
 			height: 100%;
@@ -29,35 +32,6 @@
 			}
 			.hs-button{
 				width: 100%;
-			}
-			.entryhome-scroll {
-				position: relative;
-				margin: 30px auto 0 auto;
-				border:2px solid $colorwhite;
-				width: 25px;
-				height: 40px;
-				border-radius: 100px;
-				animation: MouveMouse 5s ease-out infinite;
-
-				&:after {
-					content: "";
-					position: absolute;
-					top: 0;
-					right: 0;
-					bottom: 0;
-					left: 0;
-					margin: auto;
-					background-color: $colorwhite;
-					width: 5px;
-					height: 5px;
-					border-radius: 100%;
-					animation: mousseBall 5s linear infinite;
-				}
-				a{
-					display:block;
-					width: 100%;
-					height: 100%;
-				}
 			}
 		}
 	}
@@ -150,9 +124,9 @@ MEDIUM SCREENS
 		.cbo-entryhome{
 			.entryhome-content{
 				padding:146px 0 50px 0;
-				width: 50%;
+				width: 80%;
 
-				.hs-button {
+				.hs-button{
 					width: auto;
 				}
 			}
