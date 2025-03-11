@@ -29,8 +29,7 @@ VIDEO COMPONENT
 			width: 5rem;
 			height: 5rem;
 			border-radius: 99rem;
-			border: 1px solid rgba($colorwhite, .2);
-			background: linear-gradient(332deg, rgba($colorbluedark,.6) 0%, rgba($colorwhite,.2) 100%);
+			background: $colorblue;
 			display: flex;
 			align-items: center;
 			justify-content: center;

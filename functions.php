@@ -29,7 +29,7 @@
 	// STYLES
 	/* ************************* */
 	function ma_styles(){
-		wp_enqueue_style('styles', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '1.0', 'all');
+		wp_enqueue_style('styles', get_stylesheet_directory_uri() . '/library/css/style.css?v=3.4.1', array(), '1.0', 'all');
 	}
 	add_action('wp_enqueue_scripts', 'ma_styles', 500);
 
