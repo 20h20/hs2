@@ -7,6 +7,30 @@
 	var Master = {
 		onready : function(){
 
+			//////////////////// UP BUTTON ////////////////////
+			var upButton = document.querySelector(".cbo-up");
+			var footer = document.querySelector("footer");		
+			function toggleUpButton() {
+				var scrollY = window.scrollY || document.documentElement.scrollTop;
+				var footerPosition = footer.getBoundingClientRect().top + window.scrollY;
+				var windowHeight = window.innerHeight;
+				if (scrollY > 200) {
+					upButton.classList.add("show");
+				} else {
+					upButton.classList.remove("show");
+				}
+				if (scrollY + windowHeight >= footerPosition) {
+					upButton.classList.add("hide");
+				} else {
+					upButton.classList.remove("hide");
+				}
+			}
+			window.addEventListener("scroll", toggleUpButton);
+			upButton.addEventListener("click", function () {
+				window.scrollTo({ top: 0, behavior: "smooth" });
+			});
+
+
 			//////////////////// VIDÉO ////////////////////
 			$('.cbo-video .video-player').on('click', function(e) {
 				e.stopPropagation();

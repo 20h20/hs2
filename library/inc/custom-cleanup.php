@@ -1,75 +1,45 @@
 <?php
-  /* Nettoyage du wp_head */
   function bones_head_cleanup() {
-    // editURI link
     remove_action( 'wp_head', 'rsd_link' );
-    // windows live writer
     remove_action( 'wp_head', 'wlwmanifest_link' );
-    // WP version
     remove_action( 'wp_head', 'wp_generator' );
-    // previous link
     remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );
-    // start link
     remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );
-    // links for adjacent posts
     remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
-    // Remove Emoji Styles
     remove_action( 'wp_head', 'print_emoji_detection_script', 7 ); 
     remove_action( 'admin_print_scripts', 'print_emoji_detection_script' ); 
     remove_action( 'wp_print_styles', 'print_emoji_styles' ); 
     remove_action( 'admin_print_styles', 'print_emoji_styles' );
-    // remove WP version from css
-    add_filter( 'style_loader_src', 'bones_remove_wp_ver_css_js', 9999 );
-    // remove Wp version from scripts
-    add_filter( 'script_loader_src', 'bones_remove_wp_ver_css_js', 9999 );
   }
-
-
-
-
-
-
 
   function disable_embed(){
     wp_dequeue_script( 'wp-embed' ) ;
-    }
-    add_action( 'wp_footer', 'disable_embed' ) ;
-
-
-
+  }
+  add_action( 'wp_footer', 'disable_embed' ) ;
 
 
   /* Nettoyage titre et meta description */
-
   function rw_title( $title, $sep, $seplocation ) {
     global $page, $paged;
 
-    // Don't affect in feeds.
     if ( is_feed() ) return $title;
 
-    // Add the blog's name
     if ( 'right' == $seplocation ) {
       $title .= get_bloginfo( 'name' );
     } else {
       $title = get_bloginfo( 'name' ) . $title;
     }
 
-    // Set separator
     if($sep == '')
-      $sep = '-';
-
-    // Add the blog description for the home/front page.
+    $sep = '-';
     $site_description = get_bloginfo( 'description', 'display' );
 
-    // Add a page number if necessary:
     if ( $paged >= 2 || $page >= 2 ) {
       $title .= " {$sep} " . sprintf( __( 'Page %s', 'dbt' ), max( $paged, $page ) );
     }
-
     return $title;
   }
 
-  // remove WP version from RSS
   function bones_rss_version(){ 
     return ''; 
   }
@@ -129,6 +99,7 @@
     ));
   }
 
+
 	/* --------------------------
 	   REMOVE STYLES
 	-------------------------- */
@@ -172,6 +143,7 @@
   add_filter( 'wp_title', 'rw_title', 10, 3 );
   // Remove WP version from RSS
   add_filter( 'the_generator', 'bones_rss_version' );
+
   // Remove pesky injected css for recent comments widget
   add_filter( 'wp_head', 'bones_remove_wp_widget_recent_comments_style', 1 );
   // Clean up comment styles in the head

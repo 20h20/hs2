@@ -82,8 +82,8 @@
             </div>
         </section>
 
-        <section class="hs-blue-section hs-section cbo-homecategories">
-            <div class="container">
+        <section class="hs-blue-section hs-section cbo-categories">
+            <div class="categories-inner cbo-container">
                 <h2 class="hs-main-title" data-aos="fade-up">
                     <small>Nos formations</small>par catégories
                 </h2>

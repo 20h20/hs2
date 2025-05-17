@@ -62,7 +62,17 @@
 					//  BLOC PARTENAIRES
 					elseif( get_row_layout() == 'bloc_partners' ): 
 						get_template_part( 'templates/components/bloc-partners');
-						
+
+					///////////////////
+					//  BLOC RELATIONSHIP
+					elseif( get_row_layout() == 'bloc_relationship' ):
+						get_template_part( 'templates/components/bloc-relationship');
+
+					///////////////////
+					//  BLOC RELATIONSHIP
+					elseif( get_row_layout() == 'bloc_categories' ):
+						get_template_part( 'templates/components/bloc-categories');
+
 					endif;
 				endwhile;
 			endif;

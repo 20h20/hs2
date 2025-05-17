@@ -8,12 +8,21 @@
 		</form>
 	</div>
 
+	<button class="cbo-up" aria-label="Revenir en haut">
+		<i class="icon icon--bottom-arrow"></i>
+	</button> 
+
 	<footer>
-		<div class="hs-footer-logo">
-			<a class="logo" title="<?php echo get_bloginfo('description'); ?>" href="<?php echo home_url(); ?>">
-				<i class="icon icon--logo-hs2"></i>
-			</a>
-		</div>
+		<a class="hs-footer-logo" title="<?php echo get_bloginfo('description'); ?>" href="<?php echo home_url(); ?>">
+			<img
+				decoding="async"
+				src="<?php bloginfo('template_directory'); ?>/library/images/logo-hs2-footer.svg"
+				alt="<?php echo get_bloginfo('description'); ?>" sizes="100vw"
+				width="120" height="50"
+				itemprop="logo"
+				loading="lazy"
+			>
+		</a>
 
 		<div class="hs-col-footer">
 			<span class="footer-title">
@@ -76,7 +85,7 @@
 		</div>
 		<div class="hs-col-footer footer-newsletter">
 			<span class="footer-title">S'inscrire à la newsletter</span>
-			<?php echo do_shortcode('[mailpoet_form id="7"]'); ?>
+			<p>Nous prévoyons de changer de logiciel de newsletter, aussi les inscriptions sont provisoirement suspendues.</p>
 		</div>
 	</footer>
 

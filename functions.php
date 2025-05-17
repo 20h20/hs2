@@ -28,10 +28,14 @@
 	/* ************************* */
 	// STYLES
 	/* ************************* */
-	function ma_styles(){
-		wp_enqueue_style('styles', get_stylesheet_directory_uri() . '/library/css/style.css?v=3.4.1', array(), '1.0', 'all');
+	function my_theme_enqueue_styles() {
+		$css_file = get_stylesheet_directory() . '/library/css/style.css';
+		$css_version = file_exists($css_file) ? filemtime($css_file) : wp_get_theme()->get('Version');
+		$css_url = get_stylesheet_directory_uri() . '/library/css/style.css?ver=' . $css_version;
+		wp_enqueue_style('my-custom-style', $css_url, array(), null);
 	}
-	add_action('wp_enqueue_scripts', 'ma_styles', 500);
+	add_action('wp_enqueue_scripts', 'my_theme_enqueue_styles', 20);
+
 
 	/* ************************* */
 	/* DISABLE GUTEMBERG */
@@ -215,4 +219,14 @@
 	}
 	add_filter('wpcf7_form_elements', 'cf7_dynamic_select');
 
+
+	/* ************************* */
+	// Add a custom tool bar
+	/* ************************* */
+	function custom_acf_wysiwyg_toolbar($toolbars) {
+		$toolbars['Custom'] = [];
+		$toolbars['Custom'][1] = ['bold', 'formatselect'];
+		return $toolbars;
+	}
+	add_filter('acf/fields/wysiwyg/toolbars', 'custom_acf_wysiwyg_toolbar');
 ?>

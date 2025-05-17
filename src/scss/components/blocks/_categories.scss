@@ -1,0 +1,57 @@
+/* -------------------------------
+CATEGORIES BLOCK COMPONENT
+------------------------------- */
+.cbo-categories{
+	overflow: hidden;
+	position: relative;
+
+	&.hs-grey-section{
+		&:after {
+			display: none;
+		}
+	}
+	.categories-title{
+		position: relative;
+		z-index: 2;
+
+		p,h1,h2,h3,h4,h5,h6{
+			margin: 0;
+			font-weight: bold;
+		}
+	}
+}
+/* -------------------------------
+SMALL SCREENS
+------------------------------- */
+@media (min-width: $screen-sm-min){
+	.cbo-categories{
+		.hs-main-title {
+			margin-bottom: 6.25rem;
+		}
+		.categories-list{
+			position: relative;
+			z-index: 2;
+		}
+		&:after{
+			content:'';
+			background:#002135;
+			position:absolute;
+			bottom:0;
+			left: 50%;
+			height:calc(100% - 11.8125rem);
+			width: 37.5rem;
+			margin-left: -18.75rem;
+		}
+	}
+}
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width: $screen-md-min){
+	.cbo-categories{
+		&:after{
+			width: 50rem;
+			margin-left: -25rem;
+		}
+	}
+}

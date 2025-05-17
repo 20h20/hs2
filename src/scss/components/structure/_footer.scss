@@ -16,17 +16,9 @@ footer{
 		}
 	}
 	.hs-footer-logo{
-		font-size: 7.5rem;
+		width: 7.5rem;
 		display: table;
 		margin: 0 auto 1.25rem auto;
-
-		a{
-			color:$colorwhite;
-
-			i{
-				line-height: 0;
-			}
-		}
 	}
 	.hs-col-footer{
 		padding:0 0 1.25rem 0;
@@ -77,52 +69,10 @@ footer{
 			.footer-title{
 				margin-bottom: 1.25rem;
 			}
-			.mailpoet_form{
-				.mailpoet_paragraph{
-					margin: 0.625rem 0;
-
-					.mailpoet_form_paragraph.mailpoet-has-font-size{
-						font-size: 0.625rem !important;
-					}
-					input{
-						width: 100% !important;
-						color: $colorblue;
-						box-shadow: 0 0 0 0.0625rem $colorblue inset;
-						height: 3.125rem;
-						border: 0;
-						border-radius: 0.3125rem;
-						transition: all .4s;
-
-						&:focus{
-							box-shadow: 0 0 0 0.0625rem $colorbluedark inset;
-						}
-					}
-					input[type="submit"] {
-						position: relative;
-						display: inline-flex;
-						align-items: center;
-						justify-content: center;
-						color: $colorwhite;
-						background: $colorblue;
-						transition: all .2s cubic-bezier(.694,.048,.335,1);
-
-						&:hover{
-							background: $colorbluedark;
-						}
-					}
-					.mailpoet_checkbox_label{
-						display: flex;
-						font-size: 0.75rem;
-						font-weight: normal;
-						margin: 0.625rem 0;
-
-						input{
-							width: 0.875rem !important;
-							height: 0.875rem;
-							margin-right: 0.5rem;
-						}
-					}
-				}
+			p{
+				color: $colorbluedark;
+				font-size: 14px;
+				font-style: italic;
 			}
 		}
 	}
@@ -189,7 +139,7 @@ MEDIUM SCREENS
 				font-size: 1rem;
 				margin-bottom: 1.25rem;
 				cursor: auto;
-	
+
 				i{
 					display: none;
 				}
@@ -200,12 +150,6 @@ MEDIUM SCREENS
 			&.footer-newsletter{
 				.footer-title{
 					margin-bottom: 0;
-				}
-				.mailpoet_form{
-					.mailpoet_paragraph{
-						width: 100%;
-						margin: 0.3125rem 0;
-					}
 				}
 			}
 		}

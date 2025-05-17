@@ -70,25 +70,6 @@ SMALL SCREENS
 				bottom: -96px;
 			}
 		}
-		.cbo-homecategories{
-			.hs-main-title {
-    			margin-bottom: 100px;
-			}
-			.categories-list{
-				position: relative;
-				z-index: 2;
-			}
-			&:after{
-				content:'';
-				background:#002135;
-				position:absolute;
-				bottom:0;
-				left: 50%;
-				height:calc(100% - 189px);
-				width: 600px;
-				margin-left: -300px;
-			}
-		}
 		.cbo-homevent{
 			.listing-events{
 				max-width: 900px;
@@ -141,12 +122,6 @@ MEDIUM SCREENS
 						margin: 0 0 40px 0;
 					}
 				}
-			}
-		}
-		.cbo-homecategories{
-			&:after{
-				width: 800px;
-				margin-left: -400px;
 			}
 		}
 	}
