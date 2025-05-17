@@ -185,6 +185,43 @@
 				});
 			}
 
+
+			///////////////////// SOMMAIRE ///////////////////
+			var headers = document.querySelectorAll("h2");
+			var tocLists = document.getElementsByClassName("share-options");
+
+			if (tocLists.length > 0) {
+				var tocList = tocLists[0];
+				Array.from(headers).forEach(function(header, index) {
+					// Exclusion du titre du hero
+					if (header.classList.contains('hero-title')) return;
+
+					// Exclusion des titres vides ou invisibles
+					if (!header.textContent.trim()) return;
+
+					var id = "header-" + index;
+					header.id = id;
+					var li = document.createElement("li");
+					var a = document.createElement("a");
+					a.href = "#" + id;
+					a.textContent = header.textContent;
+					li.appendChild(a);
+					tocList.appendChild(li);
+				});
+			}
+
+			// Smooth scroll sans jQuery
+			$('.share-options a[href^="#"]').on('click', function(e) {
+				e.preventDefault();
+				var target = $($(this).attr('href'));
+				if (target.length) {
+					$('html, body').animate({
+						scrollTop: target.offset().top - 100
+					}, 600);
+				}
+			});
+
+
 			/////////////////// AOS : SCROLL ANIMATIONS ///////////////////
 			AOS.init({})
 		},

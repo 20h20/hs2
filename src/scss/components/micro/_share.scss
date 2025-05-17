@@ -2,9 +2,9 @@
 SOCIAL SHARE MICRO COMPONENT
 ------------------------------- */
 .cbo-share {
-	position: absolute;
 	right: 0;
-	top: 10rem;
+	bottom: -25px;
+	position: absolute;
 	width: 100%;
 	z-index: 4;
 	height: 3.125rem;
@@ -83,8 +83,10 @@ MEDIUM SCREENS
 ------------------------------- */
 @media (min-width: $screen-md-min){
 	.cbo-share {
-		top: 18.75rem;
-		width: 11.25rem;
+		right: 20px;
+		bottom: 0px;
+		width: 200px;
+		text-align: left;
 
 		.share-label{
 			i{

@@ -6,7 +6,7 @@
 <section class="cbo-categories <?php if($bgcolor == 'grey'): ?>hs-grey-section<?php endif; ?> <?php if($bgcolor == 'blue'): ?>hs-blue-section<?php endif; ?>">
     <div class="categories-inner cbo-container">
 
-        <div class="categories-title hs-main-title" data-aos="fade-up">
+        <h2 class="categories-title hs-main-title" data-aos="fade-up">
             <?php if($uptitle): ?>
                 <small>
                     <?php echo $uptitle; ?>
@@ -16,7 +16,7 @@
             <?php if($title): ?>
                 <?php echo $title; ?>
             <?php endif; ?>
-        </div>
+        </h2>
 
         <div class="categories-list">
             <?php
@@ -28,7 +28,7 @@
                 $link	= get_sub_field('link');
                 $color	= get_sub_field('color');
             ?>
-                <a class="list-el" href="<?php the_sub_field('lien_de_la_categorie'); ?>" data-aos="fade-up">
+                <a class="list-el" href=" <?php echo $link; ?>" data-aos="fade-up">
                     <span class="el-inner">
                         <?php if($icon): ?>
                             <span class="el-picture cbo-picture-contain">

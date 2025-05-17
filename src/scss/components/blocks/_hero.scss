@@ -20,6 +20,16 @@ HERO COMPONENT
 		margin-top: 2.5rem;
 		padding:0 1.25rem;
 		display: block;
+
+		img{
+			width: 12.5rem;
+			height: auto;
+		}
+		p{
+			&:last-child{
+				margin-bottom: 0;
+			}
+		}
 	}
 	&.hero--filters{
 		padding-bottom: 0;

@@ -10,7 +10,7 @@
 
 	<button class="cbo-up" aria-label="Revenir en haut">
 		<i class="icon icon--bottom-arrow"></i>
-	</button> 
+	</button>
 
 	<footer>
 		<a class="hs-footer-logo" title="<?php echo get_bloginfo('description'); ?>" href="<?php echo home_url(); ?>">
