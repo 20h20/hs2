@@ -1,0 +1,55 @@
+@import "../../../src/scss/partials/variables";
+
+/* -------------------------------
+PROGRAMME MICRO COMPONENT
+------------------------------- */
+.cbo-programme{
+	background: $colorbluedark url(../../images/bg-top-formation.png) no-repeat right top;
+	color:$colorwhite;
+	position: relative;
+
+	&:after{
+		content:'';
+		position:absolute;
+		right:0;
+		background:url(../../images/bg-bottom-formation.png) no-repeat;
+		width:25.125rem;
+		height:39.5625rem;
+		bottom:0;
+	}
+	.programme-inner{
+		z-index: 1;
+	}
+	.programme-title{
+		text-align: center;
+		margin-bottom: 2.5rem;
+	}
+}
+
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width: $screen-md-min){
+	.cbo-programme{
+		.programme-title{
+			margin-bottom: 4.375rem;
+		}
+		.programme-content{
+			max-width: 55rem;
+			margin: 0 auto;
+			column-count: 2;
+			column-gap: 3.75rem;
+		}
+	}
+}
+
+/* -------------------------------
+LARGE SCREENS
+------------------------------- */
+@media (min-width: $screen-lg-min){
+	.cbo-programme{
+		.programme-content{
+			column-gap: 7.5rem;
+		}
+	}
+}

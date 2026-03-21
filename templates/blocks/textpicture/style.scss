@@ -1,0 +1,65 @@
+@import "../../../src/scss/partials/variables";
+
+/* -------------------------------
+TEXT PICTURE COMPONENT
+------------------------------- */
+.cbo-textpicture {
+  .textpicture-title{
+    margin-bottom: 3.125rem;
+    text-align: center;
+  }
+  .textpicture-content{
+    .textpicture-picture{
+      padding-bottom: 65%;
+      margin-bottom: 1.875rem;
+      overflow: hidden;
+      border-radius:  $bordersmall;
+
+      &.cbo-picture-contain{
+        padding-bottom: 0;
+
+        img{
+          position: relative;
+        }
+      }
+    }
+  }
+}
+
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width: $screen-md-min) {
+  .cbo-textpicture {
+    .textpicture-content{
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      .textpicture-picture{
+        width: 50%;
+        margin-bottom: 0;
+        padding-bottom: 0%;
+
+        &.cbo-picture-contain{
+          img{
+            position: absolute;
+          }
+        }
+      }
+      .content-text{
+        width: 50%;
+        padding: 3.125rem 0 3.125rem 3.125rem;
+      }
+    }
+    &.textpicture--reverse{
+      .textpicture-content{
+        flex-direction: row-reverse;
+
+        .content-text{
+          padding: 3.125rem 3.125rem 3.125rem 0;
+        }
+      }
+    }
+  }
+}

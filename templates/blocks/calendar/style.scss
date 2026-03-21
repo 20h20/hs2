@@ -1,0 +1,281 @@
+@import "../../../src/scss/partials/variables";
+
+/* -------------------------------
+CALENDAR LAYOUT COMPONENT
+------------------------------- */
+.cbo-calendar{
+	&.calendar--grey{
+		background: $colorgreylight url(../../images/pattern-bg-grey-section.png) no-repeat 0 0;
+	}
+	.calendar-title{
+		text-align: center;
+		margin-bottom: 3.125rem;
+	}
+	.calendar-chapo{
+		margin: 1.875rem auto 3.125rem;;
+		text-align: center;
+		max-width: 46.875rem;
+	}
+
+	.evotax_term_subtitle {
+		display: none;
+	}
+	
+	.sev.ajde_evcal_calendar{
+		.eventon_desc_in{
+			a{
+				&:not(.hs-button){
+					text-decoration: underline !important;
+					color: $colorblue;
+				}
+				&.hs-button{
+					color: $colorwhite;
+					padding: 0.5rem 1.875rem;
+				}
+			}
+		}
+		.calendar_header {
+			.cal_head_btn{
+				background-color: $colorbluedark;
+				height: 2.5rem;
+				width: 2.5rem;
+				transform: all .4s;
+
+				&:hover{
+					background-color: $colorblue;
+				}
+			}
+		}
+		.evo_filter_bar{
+			background-color: $colorbluedark;
+		}
+		#evcal_list{
+			.eventon_list_event{
+				margin-bottom: 0;
+				border-radius: 0 ;
+				border-bottom: 0.0625rem solid $colorgreylight;
+				border-right: 0.0625rem solid $colorgreylight;
+
+				&:first-child{
+					border-top: 0.0625rem solid $colorgreylight;
+				}
+				.desc_trig_outter{
+					background: $colorwhite;
+
+					.desc_trig{
+						background-color: $colorwhite !important;
+
+						.evoet_c2{
+							margin: 0;
+							width: 3.125rem;
+
+							.evcal_cblock{
+								.evo_start {
+									em{
+										color: $colorgrey ;
+									}
+								}
+							}
+						}
+						.evcal_desc{
+							margin: 0;
+							padding-left: 2.5rem;
+
+							.evoet_title{
+								text-transform: none;
+								color: $colorbluedark;
+							}
+						}
+					}
+				}
+				.evo_metarow_details{
+					background: $colorgreylight;
+
+					.eventon_full_description{
+						.hs-button{
+							margin: 1.25rem 0;
+							color: $colorwhite;
+							position: relative;
+							display: inline-flex;
+							align-items: center;
+							justify-content: center;
+							color: $colorwhite !important;
+							background: $colorblue;
+							padding: 0.5rem 1.875rem;
+							height: 2.5rem;
+							width: 100%;
+							line-height: 1rem;
+							transition:all .2s cubic-bezier(.694,.048,.335,1);
+						}
+						strong, b{
+							color:$colorbluedark;
+							text-decoration:underline;
+						}
+					}
+				}
+			}
+			.eventon_list_event{
+				.event_description{
+					border-right: 0.0625rem solid $colorgreylight;					
+				}
+			}
+		}
+	}
+
+	.ajde_evcal_calendar{
+		#evcal_head.calendar_header{
+			margin: 0 0 1.875rem 0;
+
+			.evo_cal_above{
+				margin: 0 0 0.9375rem 0;
+
+				span{
+					color: $colorwhite;
+					background-color: $colorblue;
+					padding: 0.1875rem 0.625rem;
+					opacity:1;
+
+					&:hover{
+						background-color: $colorbluedark;
+					}
+				}
+				.evo-gototoday-btn{
+					width: auto;
+				}
+			}
+			#evcal_cur{
+				color: $colorbluedark;
+				margin: 0 0.9375rem 0 0 ;
+			}
+			.evo_arrows{
+				.evcal_arrows{
+					border-color: $colorblue;
+
+					&:before{
+						border-color: $colorblue;
+					}
+				}
+			}
+		}
+		.eventon_events_list {
+			.evcal_month_line{
+				background: $colorbluedark;
+				padding: .625rem 1.25rem;
+
+				p{
+					color: $colorwhite;
+				}
+			}
+			.eventon_list_event{
+				&.past_event .desc_trig, .completed-event{
+					opacity: 0.2;
+					cursor:not-allowed;
+				}
+			}
+		}
+		&.cev.sev #evcal_list .no_events .no_events{
+			background-color: $colorerror;
+			color: $colorwhite; 
+			font-weight: bold;
+		}
+	}
+}
+.eventon_list_event .evcal_desc span.evo_above_title span.canceled{
+	background: $colorerror !important;
+	color: $colorwhite !important;
+}
+.desc_trig_outter .cancel_event{
+	opacity: 0.2;
+}
+#evcal_list .eventon_list_event p a.desc_trig.completed-event{
+	border-color: $colorerror !important;
+	opacity: 1;
+
+	&:after{
+		content: 'complet';
+		background: $colorerror;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 12.5rem;
+		border-radius: 0.3125rem;
+		color: $colorwhite;
+		margin: -1.25rem 0 0 -6.25rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 2.5rem;
+		line-height: 2.5rem;
+		font-variant: small-caps;
+	}
+	.evcal_cblock,
+	.evcal_desc{
+		opacity: 0.2;
+	}
+}
+.evo_lightbox_body .evo_repeat_series_dates span{
+	color: inherit;
+	background-color: inherit;
+}
+
+
+
+.evo_lightbox{
+	.evolb_content_in{
+		.eventon_list_event{
+			.event_description{
+				.eventdetails{
+					a{
+						&:not(.hs-button){
+							text-decoration: underline !important;
+							color: $colorblue;
+						}
+						&.hs-button{
+							color: $colorwhite;
+							padding: 0.5rem 1.875rem;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/* -------------------------------
+   SMALL SCREENS
+------------------------------- */
+@media (min-width: $screen-sm-min){
+	.eventon_full_description{
+		form{
+			display: flex;
+			flex-wrap: wrap;
+
+			label{
+				display: none;
+			}
+			.wpcf7-acceptance{
+				label{
+					display: flex;
+				}
+			}
+			small,div{
+				width: 100%;
+			}
+			.wpcf7-form-control-wrap{
+				width: 48%;
+				float: left;
+				margin: 0 4% 1.875rem 0;
+
+				&:nth-child(2n){
+					margin:  0 0 1.875rem 0;
+				}
+				&.choix,
+				&.message,
+				&.contact_mail,
+				&.contact_telephone{
+					width: 100%;
+				}
+			}
+		}
+	}
+}

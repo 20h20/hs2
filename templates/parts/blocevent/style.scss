@@ -1,0 +1,100 @@
+@import "../../../src/scss/partials/variables";
+
+/* -------------------------------
+BLOCS EVENT COMPONENT
+------------------------------- */
+.events-list{
+	.list-el{
+		display: block;
+
+		.el-inner{
+			background: $colorbluedark url(../../images/bg-bloc-event.png) no-repeat left bottom ;
+			color: $colorwhite;
+			width: 100%;
+			padding-bottom:1.875rem;
+			display: block;
+			margin: 1.25rem 0;
+
+			.el-type{
+				background: url(../../images/event-onglet.png) no-repeat;
+				width:14.375rem;
+				height:1.875rem;
+				color:$colorbluedark;
+				display: block;
+				padding: 0.25rem 0 0 1.875rem;
+				margin-bottom: 1.25rem;
+			}
+			.inner-content{
+				padding:0 1.875rem;
+				display: block;
+
+				.content-title{
+					color:$colorblue;
+					margin-bottom:1.875rem;
+				}
+				.content-date{
+					margin-bottom: 1.25rem;
+					display: flex;
+					align-items: center;
+					transition: all .4s;
+
+					i{
+						margin-right: 0.9375rem;
+					}
+				}
+				.content-text{
+					border-left:0.0625rem solid $colorwhite;
+					padding-left:0.3125rem;
+					padding-left: 0.625rem;
+					display: table;
+					transition:all .4s cubic-bezier(.694,.048,.335,1);
+
+					p{
+						margin:0;
+					}
+				}
+			}
+		}
+	}
+}
+
+/* -------------------------------
+SMALL SCREENS
+------------------------------- */
+@media (min-width: $screen-sm-min){
+	.events-list{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin: -0.625rem;
+
+		.list-el{
+			width: 50%;
+			cursor: pointer;
+			margin: 0.625rem 0;
+			padding: 0 0.625rem;
+
+			.el-inner{
+				max-width: inherit;
+				height: 100%;
+				margin: 0;
+			}
+			&:hover{
+				.el-inner{
+					color:$colorblue;
+				}
+			}
+		}
+	}
+}
+
+/* -------------------------------
+SMALL SCREENS
+------------------------------- */
+@media (min-width: $screen-sm-min){
+	.events-list{
+		.list-el{
+			width: 33.33333%;
+		}
+	}
+}

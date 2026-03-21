@@ -1,0 +1,76 @@
+@import "../../../src/scss/partials/variables";
+
+/* -------------------------------
+VIDEO LAYOUT COMPONENT
+------------------------------- */
+.cbo-video{
+	text-align: center;
+
+	.video-title{
+		margin-bottom: 1.875rem;
+	}
+	.video-text{
+		margin: 0 auto 2.5rem auto;
+		max-width: 43.75rem;
+	}
+	.video-player{
+		cursor: pointer;
+		margin-top: 3.125rem;
+		padding-bottom: 56%;
+		border-radius: 0.625rem;
+		overflow: hidden;
+		position: relative;
+
+		&:before{
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 1;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(332deg, rgba($colorbluedark,.2) 0%, rgba($colorbluedark,.7) 100%);
+			transform: translateY(0%);
+			transition: all .4s;
+		}
+		.icon--player{
+			width: 5rem;
+			height: 5rem;
+			border-radius: 99rem;
+			background: $colorblue;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: absolute;
+			z-index: 2;
+			color: $colorwhite;
+			top: 50%;
+			left: 50%;
+			margin: -2.5rem 0 0 -2.5rem;
+			transition: all .4s;
+		}
+		&.active{
+			&:before{
+				transform: translateY(-100%);
+			}
+			.icon--player,
+			img{
+				display: none;
+			}
+			video{
+				display: block;
+			}
+		}
+		&:hover{
+			.icon--player{
+				transform: scale(1.1);
+			}
+		}
+		video{
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: none;
+		}
+	}
+}

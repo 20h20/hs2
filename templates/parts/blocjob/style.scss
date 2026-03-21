@@ -1,0 +1,121 @@
+@import "../../../src/scss/partials/variables";
+
+/* -------------------------------
+BLOCS METIER MICRO COMPONENT
+------------------------------- */
+.metiers-list{
+	.list-el {
+		margin: 1.25rem 0;
+		display: block;
+
+		.el-inner{
+			border-radius:$bordersmall;
+			background:$colorwhite;
+			box-shadow: 0rem 0rem 0.625rem 0rem rgba($colorgrey, 0.65);
+			z-index: 2;
+			position: relative;
+			display:flex;
+			justify-content: center;
+			text-align: center;
+			width: 100%;
+
+			&:before,
+			&:after{
+				content:'';
+				position:absolute;
+				transition:all .3s cubic-bezier(.694,.048,.335,1);
+			}
+			&:before{
+				background:$colorbluelight;
+				width:100%;
+				height:3rem;
+				top:0;
+				left:0;
+			}
+			&:after{
+				font-family:"icons";
+				content:'\f119';
+				top: 1.625rem;
+				left: 50%;
+				margin-left:-1.25rem;
+				width: 2.5rem;
+				height: 2.5rem;
+				font-size: 1.25rem;
+				border-radius:50%;
+				background:$colorblue;
+				color:$colorwhite;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.el-title{
+				color:$colorbluedark;
+				position:relative;
+				width: 100%;
+				display: block;
+				padding: 5.5rem 1.25rem 1.875rem;
+				transition:all .4s cubic-bezier(.694,.048,.335,1);
+			}
+		}
+	}
+}
+
+/* -------------------------------
+SMALL SCREENS
+------------------------------- */
+@media (min-width: $screen-sm-min){
+	.metiers-list{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin: -0.625rem;
+
+		.list-el{
+			width: 50%;
+			padding: 0.625rem;
+			margin: 0;
+
+			.el-inner{
+				height: 100%;
+			}
+		}
+	}
+}
+
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width: $screen-md-min){
+	.metiers-list{
+		.list-el{
+			width: 33.333333%;
+		}
+	}
+}
+
+/* -------------------------------
+LARGE SCREENS
+------------------------------- */
+@media (min-width: $screen-lg-min){
+	.metiers-list{
+		.list-el{
+			width: 25%;
+
+			.el-inner{
+				&:hover{
+					&:before{
+						height:100%;
+						opacity:0.5;
+					}
+					&:after{
+						top:4.375rem;
+						margin-left:-1.25rem;
+					}
+					.el-title{
+						opacity:0.5;
+					}
+				}
+			}
+		}
+	}
+}

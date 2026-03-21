@@ -1,0 +1,122 @@
+@import "../../../src/scss/partials/variables";
+
+/* -------------------------------
+CONTACT BLOCK COMPONENT
+------------------------------- */
+.cbo-contact{
+	background:$colorbluedark url(../../images/bg-contact-component.jpg) center top no-repeat;
+	background-size: 100% auto;
+
+	.contact-content{
+		color:$colorwhite;
+		text-align:center;
+
+		.contact-title{
+			margin-bottom: 1.875rem;
+		}
+		.contact-list{
+			margin-top: 2.5rem;
+
+			.list-el{
+				.el-inner{
+					display: flex;
+					width: 100%;
+					margin: 0 0 1.25rem 0;
+					padding: 0.9375rem;
+					border-bottom: 0.3125rem solid $colorblue;
+					border-radius: $bordersmall;
+					background: $colorwhite;
+					font-size: 0.875rem;
+					color: $colorbluedark;
+					text-align: left;
+
+					.el-picture{
+						min-width: 4.75rem;
+						width: 4.75rem;
+						margin-right: 1.875rem;
+
+						img{
+							position: relative;
+						}
+					}
+					.inner-content{
+						flex: 1;
+
+						.el-title{
+							margin-bottom: 1.25rem;
+						}
+					}
+					ul{
+						display: flex;
+
+						li{
+							margin-right:0.625rem;
+
+							i{
+								background-color:$colorbluedark;
+								color:$colorwhite;
+								display:flex;
+								align-items: center;
+								justify-content: center;
+								width:1.875rem;
+								height:1.875rem;
+								border-radius:50%;
+								transition:all .4s cubic-bezier(.694,.048,.335,1);
+
+								&:hover{
+									background-color:$colorblue;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.contact-form {
+		margin-top: 3.125rem;
+		padding: 1.25rem;
+		border-radius: $bordersmall;
+		background: $colorwhite;
+	}
+}
+
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width: $screen-md-min){
+	.cbo-contact{
+		.contact-inner{
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-items: flex-start;
+		}
+		.contact-content{
+			width: 50%;
+			padding-right: 3.125rem;
+			text-align: left;
+
+			.contact-title{
+				text-align: left;
+				margin-bottom: 2.5rem;
+			}
+		}
+		.contact-form{
+			margin-top: 0;
+			padding: 1.875rem;
+			width: 50%;
+		}
+	}
+}
+
+/* -------------------------------
+LARGE SCREENS
+------------------------------- */
+@media (min-width: $screen-lg-min){
+	.cbo-contact{
+		.contact-content{
+			padding-right: 6.25rem;
+		}
+	}
+}

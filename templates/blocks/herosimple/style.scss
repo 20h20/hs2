@@ -1,0 +1,128 @@
+@import "../../../src/scss/partials/variables";
+
+/* -------------------------------
+HERO COMPONENT
+------------------------------- */
+.cbo-herosimple{
+	background: $colorbluedark url(../../images/bg-hero.jpg) right top no-repeat;
+	background-size: cover;
+	color:$colorwhite;
+
+	&.herosimple--archive{
+		.herosimple-inner {
+			padding-bottom: 6.25rem;
+			margin-bottom: 8.125rem;
+		}
+		.herosimple-content{
+			.herosimple-list{
+				position: absolute;
+				bottom: -4.375rem;
+				top: inherit;
+				height: 8.75rem;
+				width: calc(100% - 2.5rem);
+				display: flex;
+				text-align: center;
+				border-radius: $bordersmall;
+				background: $colorwhite;
+				box-shadow: 0 0 0.625rem 0 rgba($colorgrey,.65);
+				padding: 1.25rem 1.875rem;
+				z-index: 2;
+
+				.list-el{
+					color:$colorbluedark;
+					display: block;
+					width: 50%;
+					position:relative;
+
+					&:first-child{
+						border-right: 0.0625rem solid $colorbluedark;
+					}
+					.el-picture{
+						display: block;
+						position: relative;
+						z-index: 1;
+						width: 6.25rem;
+						margin: 0 auto;
+						margin-bottom: 0.625rem;
+
+						img{
+							position:relative;
+						}
+					}
+					.el-text{
+						position: relative;
+						z-index: 1;
+					}
+					&:after{
+						content:'';
+						background:$colorbluelight;
+						border-radius:50%;
+						width:6.25rem;
+						height:6.25rem;
+						position:absolute;
+						top:0;
+						left:50%;
+						margin:0 0 0 -3.125rem;
+						transform:scale(0);
+						transition:all .4s cubic-bezier(.694,.048,.335,1);
+					}
+					&:hover{
+						&:after{
+							transform:scale(1);
+						}
+					}
+				}
+			}
+		}
+	}
+	.herosimple-content{
+		max-width: 59.375rem;
+		margin: 0 auto;
+		text-align: center;
+
+		img{
+			max-width: 12.5rem;
+			height: auto;
+		}
+		.herosimple-text{
+			color: $colorwhite;
+			margin-top: 1.875rem;
+		}
+		.button-container {
+			margin-top: 1.875rem;
+		}
+	}
+}
+
+/* -------------------------------
+SMALL SCREENS
+------------------------------- */
+@media (min-width: $screen-sm-min){
+	.cbo-herosimple{
+		&.herosimple--archive{
+			.herosimple-inner {
+				padding-bottom: 8.125rem;
+			}
+			.herosimple-content{
+				.herosimple-list{
+					margin-left: -18.75rem;
+					width:37.5rem;
+					left: 50%;
+				}
+			}
+		}
+	}
+}
+
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width: $screen-md-min){
+	.cbo-herosimple{
+		&.herosimple--archive{
+			.herosimple-inner {
+				margin-bottom: 11.875rem;
+			}
+		}
+	}
+}

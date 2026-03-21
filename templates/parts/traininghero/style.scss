@@ -1,0 +1,89 @@
+@import "../../../src/scss/partials/variables";
+
+/* -------------------------------
+TRAINING HERO MICRO COMPONENT
+------------------------------- */
+.cbo-traininghero{
+	position: relative;
+	background: $colorgreylight url(../../images/pattern-bg-grey-section.png) no-repeat 0 0;
+
+	&:before{
+		content:'';
+		position:absolute;
+		top:-3.125rem;
+		left:0;
+		height:22.5rem;
+		width: 100%;
+		background: url(../../images/hero-single-formation.jpg) no-repeat;
+		background-size: cover;
+	}
+	.traininghero-inner.cbo-container{
+		padding-bottom: 0;
+	}
+	.traininghero-content{
+		background:$colorwhite;
+		border-radius: $bordersmall;
+		padding: 4.375rem 1.25rem 1.25rem 1.25rem;
+		box-shadow: 0rem 0rem 0.625rem 0rem rgba($colorgrey, 0.65);
+
+		.content-title{
+			margin:1.875rem 0 0.9375rem 0;
+		}
+		.content-nextdates{
+			padding: 1.25rem;
+			border-radius: $bordersmall;
+			margin-bottom: 1.25rem;
+			background-color: $colorgreylight;
+
+			.nextdates-title{
+				margin-bottom: 0.625rem;
+				margin-top: 0;
+				font-family: $fontsecondary;
+			}
+			.nextdates-list{
+				font-size: 0.875rem;
+			}
+		}
+		.content-clock{
+			display: block;
+			font-size: 0.875rem;
+			margin-bottom: 2.5rem;
+
+			i{
+				margin-right: 0.3125rem;
+			}
+		}
+	}
+}
+
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width: $screen-md-min){
+	.cbo-traininghero{
+		.traininghero-content{
+			.content-title{
+				font-size: 1.875rem;
+				line-height: 2.1875rem;
+			}
+		}
+	}
+}
+
+/* -------------------------------
+LARGE SCREENS
+------------------------------- */
+@media (min-width: $screen-lg-min){
+	.cbo-traininghero{
+		padding-top: 14.375rem;
+
+		.traininghero-inner.cbo-container{
+			padding-top: 0;
+		}
+		.traininghero-content{
+			max-width: 41.25rem;
+			padding-top: 1.25rem;
+			margin: 0 auto;
+		}
+	}
+}

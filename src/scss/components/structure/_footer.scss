@@ -2,8 +2,7 @@
 FOOTER COMPONENT
 ------------------------------- */
 footer{
-	background:$colorbluedark  url(../images/pattern-footer.png) no-repeat left bottom ;
-	padding:1.875rem 1.25rem;
+	background:$colorbluedark  url(../images/pattern-footer.png) no-repeat left top ;
 	color:rgba($colorwhite, .5);
 
 	a{
@@ -15,15 +14,15 @@ footer{
 			color:rgba($colorwhite, 1);
 		}
 	}
-	.hs-footer-logo{
+	.footer-logo{
 		width: 7.5rem;
 		display: table;
 		margin: 0 auto 1.25rem auto;
 	}
-	.hs-col-footer{
+	.col-footer{
 		padding:0 0 1.25rem 0;
 		margin:0 0 1.25rem 0;
-		border-bottom: 0.0625rem solid #1e6a98;
+		border-bottom: 0.0625rem solid rgba($colorblue, .4);
 		
 		&:last-child{
 			padding:0;
@@ -71,7 +70,7 @@ footer{
 			}
 			p{
 				color: $colorbluedark;
-				font-size: 14px;
+				font-size: 0.875rem;
 				font-style: italic;
 			}
 		}
@@ -115,28 +114,30 @@ footer{
 		}
 	}
 }
+
 /* -------------------------------
 MEDIUM SCREENS
 ------------------------------- */
 @media (min-width: $screen-md-min){
 	footer{
-		padding: 4.375rem 1.25rem;
-		display: flex;
-		flex-wrap:wrap;
-
-		.hs-footer-logo{
+		.footer-inner.cbo-container{
+			display: flex;
+			flex-wrap:wrap;
+			padding-top: 4.375rem;
+			padding-bottom: 4.375rem;
+		}
+		.footer-logo{
 			width: 100%;
 			text-align: center;
 			margin-bottom: 2.5rem;
 		}
-		.hs-col-footer{
+		.col-footer{
 			width: 25%;
 			padding:0 1.25rem 0 0;
 			margin:0;
 			border:0rem;
 
 			.footer-title{
-				font-size: 1rem;
 				margin-bottom: 1.25rem;
 				cursor: auto;
 

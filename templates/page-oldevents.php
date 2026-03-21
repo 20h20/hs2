@@ -1,25 +1,31 @@
 <?php
-/*
-Template Name: Old Events
-*/
-get_header();
+	/*
+	Template Name: Old Events
+	*/
+	if (function_exists('cbo_register_block_usage')) {
+		cbo_register_block_usage('herosimple');
+	}
+	get_header();
 ?>
+
 <div class="cbo-page page-events page-old-events">
-	<section class="cbo-hero">
-		<div class="hero-inner cbo-container container--nomargin">
-			<h1 class="hero-title hs-main-title" data-aos="fade-up">
-				Événements passés
-			</h1>
+	<section class="cbo-herosimple">
+		<div class="herosimple-inner cbo-container container--padding container--nomargin">
+			<div class="herosimple-content">
+				<h1 class="herosimple-title cbo-title-1 slide-up">
+					Événements passés
+				</h1>
+			</div>
 		</div>
 	</section>
 
-	<div class="hs-section">
-		<div class="cbo-container">
-			<div class="listing-events">
+	<section class="cbo-events">
+		<div class="events-inner cbo-container">
+			<div class="events-list">
 				<?php
 					$current_page = get_query_var('paged');
 					$current_page = max(1, $current_page);
-					$per_page = 8;
+					$per_page = 9;
 					$args = array(
 						'post_type' => 'post',
 						'meta_key' => 'event_start',
@@ -34,7 +40,7 @@ get_header();
 
 					if ($query->have_posts()):
 						while ($query->have_posts()): $query->the_post();
-						get_template_part('templates/content/content', 'event');
+						get_part('templates/parts/blocevent/template');
 					endwhile;
 					if ($query->max_num_pages > 1) {
 						page_navi('', '', $query);
@@ -44,12 +50,15 @@ get_header();
 				?>
 			</div>
 
-			<a class="hs-button button-center" href="<?php echo home_url(); ?>/category/evenement/">
-				<i class="icon icon--left-arrow"></i> Nos événements à venir
-			</a>
+			<div class="buttons-container slide-up">
+				<a class="cbo-button button--back" href="<?php echo home_url(); ?>/category/evenement/">
+					Nos événements à venir
+				</a>
+			</div>
 		</div>
-	</div>
+	</section>
 </div>
+
 <?php
 	get_footer();
 ?>

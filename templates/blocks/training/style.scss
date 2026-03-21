@@ -1,0 +1,25 @@
+@import "../../../src/scss/partials/variables";
+
+/* -------------------------------
+RELATION COMPONENT
+------------------------------- */
+.cbo-training{
+	background: $colorgreylight url(../../images/pattern-bg-grey-section.png) no-repeat top left;
+
+	&.training--white{
+		background: $colorwhite;
+	}
+	.training-title{
+		text-align: center;
+		margin-bottom: 1.875rem;
+	}
+	.training-chapo{
+		margin: 0 auto 3.125rem;
+		max-width: 46.875rem;
+		text-align: center;
+	}
+	.button-container{
+		text-align: center;
+		margin-top: 70px;
+	}
+}

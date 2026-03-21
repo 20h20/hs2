@@ -1,0 +1,71 @@
+@import "../../../src/scss/partials/variables";
+
+/* -------------------------------
+BLOCS BIOGRAPHY MICRO COMPONENT
+------------------------------- */
+.cbo-biography{
+	.biography-list{
+		.list-el{
+			margin: 2.5rem 0;
+
+			.el-inner{
+				.el-picture{
+					padding-bottom: 90%;
+					margin-bottom: 0.625rem;
+					border-radius: $bordersmall;
+					overflow: hidden;
+				}
+				.el-title{
+					color:$colorblue;
+					margin-bottom: 0.625rem;
+				}
+			} 
+		}
+	} 
+}
+
+/* -------------------------------
+SMALL SCREENS
+------------------------------- */
+@media (min-width: $screen-sm-min){
+	.cbo-biography{
+		.biography-list{
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			margin: -1.25rem -0.625rem;
+
+			.list-el{
+				margin: 0;
+				width: 50%;
+				padding: 1.25rem 0.625rem;
+			}
+		}
+	}
+}
+
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width: $screen-md-min){
+	.cbo-biography{
+		.biography-list{
+			.list-el{
+				width: 33.33333%;
+			}
+		}
+	}
+}
+
+/* -------------------------------
+LARGE SCREENS
+------------------------------- */
+@media (min-width: $screen-lg-min){
+	.cbo-biography{
+		.biography-list{
+			.list-el{
+				width: 25%;
+			}
+		}
+	}
+}

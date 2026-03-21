@@ -1,0 +1,134 @@
+@import "../../../src/scss/partials/variables";
+
+/* -------------------------------
+SUMMARY MICRO COMPONENT
+------------------------------- */
+.cbo-summary {
+	position: sticky;
+	top: 7.5rem;
+	width: calc(100% - 2.5rem);
+	left: 1.25rem;
+	z-index: 4;
+	height: 3.125rem;
+	color: $colorwhite;
+	background: $colorblue;
+
+	.summary-input{
+		display: none;
+
+		&:checked ~ {
+			.summary-options {
+				height: fit-content;
+				top: 3.125rem;
+			
+				&:before,
+				li {
+					transition: 0.3s 0.15s;
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+		}
+	}
+	.summary-label,
+	.summary-options {
+		position: absolute;
+		right: 0;
+		height: inherit;
+		width: 100%;
+	}
+	.summary-label{
+		cursor: pointer;
+		z-index: 1;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.summary-options {
+		background: $colorblue;
+		padding: 0 1.25rem 1.25rem 1.25rem;
+		width: 100%;
+		top: 0;
+		margin: 0;
+		transition: 0.2s;
+
+		li {
+			margin: 1rem 0;
+
+			a{
+				display: flex;
+				align-items: center;
+				color: $colorwhite;
+				font-size: 0.875rem;
+				line-height: 0.875rem;
+				transition: all .4s;
+
+				i{
+					margin-right: 0.875rem;
+				}
+				&:hover{
+					color: $colorbluedark;
+				}
+			}
+		}
+		&::before,
+		li {
+			opacity: 0;
+			transform: translateY(0.625em);
+			transition: 0s;
+		}
+	}
+}
+
+/* -------------------------------
+SMALL SCREENS
+------------------------------- */
+@media (min-width: $screen-sm-min){
+	.cbo-summary {
+		left: 2.5rem;
+		width: calc(100% - 5rem);
+	}
+}
+
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width: $screen-md-min){
+	.cbo-summary {
+		top: 11.25rem;
+		left: 4.375rem;
+		width: calc(100% - 8.75rem);
+	}
+}
+
+/* -------------------------------
+LARGE SCREENS
+------------------------------- */
+@media (min-width: $screen-lg-min){
+	.cbo-summary {
+		position: absolute;
+		right: 1.875rem;
+		left: inherit;
+		top: 14.375rem;
+		width: 13.125rem;
+
+		.summary-label{
+			i{
+				transform: rotate(-90deg);
+				margin-left: 0.9375rem;
+			}
+		}
+		.summary-options{
+			padding: 0 0.625rem;
+			height: fit-content;
+			top: 3.125rem;
+
+			&:before,
+			li {
+				transition: 0.3s 0.15s;
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+	}
+}

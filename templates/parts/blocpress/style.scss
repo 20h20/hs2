@@ -1,0 +1,83 @@
+@import "../../../src/scss/partials/variables";
+
+/* -------------------------------
+BLOC PRESS MICRO COMPONENT
+------------------------------- */
+.cbo-press{
+	.press-list{
+		.list-el{
+			margin:1.25rem 0;
+
+			.el-inner{
+				display: block;
+				box-shadow: 0 0 0.625rem 0 hsla(0,0%,75.7%,.65);
+				border-radius: $bordersmall;
+				background: $colorwhite;
+				padding: 1.25rem;
+				color: $colorbluedark;
+
+				.inner-picture{
+					display: block;
+					height: 5.375rem;
+					width: 6.4375rem;
+					text-align: center;
+					margin: 0 auto 1.25rem auto;
+				}
+				.inner-content {
+					padding-top: 1.25rem;
+					display: block;
+					border-top: 0.0625rem solid rgba($colorbluedark, .2);
+
+					.content-title{
+						font-family: $fontsecondary;
+						margin-bottom: 0.5rem;
+					}
+					.content-date{
+						color:$colorblue;
+						font-size:0.75rem;
+					}
+					.content-text{
+						margin: 0.4375rem 0 0 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+/* -------------------------------
+SMALL SCREENS
+------------------------------- */
+@media (min-width: $screen-sm-min){
+	.cbo-press{
+		.press-list{
+			.list-el{
+				max-width: 50rem;
+				margin:1.875rem auto;
+
+				.el-inner{
+					display:flex;
+					align-items: center;
+					justify-content: space-between;
+					transition: all .4s;
+
+					.inner-picture{
+						margin: 0 1.875rem 0 0;
+					}
+					.inner-content{
+						border-left: 0.0625rem solid rgba($colorbluedark, .2);
+						border-top: none;
+						width: 75%;
+						padding:0 0 0 1.875rem;
+						flex: 1;
+					}
+				}
+				&:hover{
+					.el-inner{
+						color: $colorblue;
+					}
+				}
+			}
+		}
+	}
+}

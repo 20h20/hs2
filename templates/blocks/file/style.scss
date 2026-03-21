@@ -1,0 +1,99 @@
+@import "../../../src/scss/partials/variables";
+
+/* -------------------------------
+FILE BLOCK COMPONENT
+------------------------------- */
+.cbo-file{
+	.file-title{
+		text-align: center;
+		margin-bottom: 3.125rem;
+	}
+	.file-chapo{
+		margin: 1.875rem auto 3.125rem;
+		text-align: center;
+		max-width: 46.875rem;
+	}
+	.file-list{
+		.list-el{
+			text-align: center;
+			display: block;
+			margin: 1.25rem auto;
+			max-width: 28.125rem;
+
+			.el-inner{
+				background: $colorwhite;
+				display: block;
+				box-shadow: 0 0 0.625rem 0 rgba($colorgrey,.65);
+				border-radius: $bordersmall;
+				padding: 1.25rem;
+				color: $colorbluedark;
+
+				.el-picture{
+					width: 6.4375rem;
+					height: 4.25rem;
+					margin: 0 auto 0.625rem auto;
+					display: block;
+				}
+				.el-title{
+					width: 100%;
+					border-top: 0.0625rem solid rgba($colorbluedark, .2);
+					margin-top: 1.25rem;
+					display: block;
+					padding-top: 1.25rem;
+				}
+			}
+		}
+	}
+}
+
+/* -------------------------------
+SMALL SCREENS
+------------------------------- */
+@media (min-width: $screen-sm-min){
+	.cbo-file{
+		.file-list{
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			margin: -0.625rem;
+
+			.list-el{
+				max-width: inherit;
+				margin: 0;
+				width: 50%;
+				margin: 0.625rem 0;
+				padding: 0 0.625rem;
+
+				.el-inner{
+					height: 100%;
+				}
+			}
+		}
+	}
+}
+
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width: $screen-md-min){
+	.cbo-file{
+		.file-list{
+			.list-el{
+				width: 33.333333%
+			}
+		}
+	}
+}
+
+/* -------------------------------
+LARGE SCREENS
+------------------------------- */
+@media (min-width: $screen-lg-min){
+	.cbo-file{
+		.file-list{
+			.list-el{
+				width: 25%
+			}
+		}
+	}
+}

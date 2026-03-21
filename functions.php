@@ -1,10 +1,80 @@
 <?php
-
 	function bones_ahoy() {
-	 	require_once( 'library/inc/custom-cleanup.php' );
-	 	require_once( 'library/inc/custom-admin.php' );
+		require_once( 'library/inc/custom-cleanup.php' );
+		require_once( 'library/inc/custom-admin.php' );
+		require_once( 'library/inc/custom-dashboard.php' );
+		require_once( 'library/inc/styles-import.php' );
+		require_once( 'library/inc/acf.php' );
+		require_once( 'library/inc/custom-post/cpt-trainer.php' );
 	}
 	add_action( 'after_setup_theme', 'bones_ahoy' );
+
+
+	/* ************************* */
+	// Pic size
+	/* ************************* */
+	add_action('after_setup_theme', function() {
+		add_image_size('xsmall', 320, 320, false);
+		add_image_size('small', 768, 768, false);
+		add_image_size('medium', 1200, 1200, false);
+		add_image_size('xlarge', 1920, 1920, false);
+	});
+
+
+	/* ************************* */
+	// Add a custom tool bar
+	/* ************************* */
+	function custom_acf_wysiwyg_toolbar($toolbars) {
+		$toolbars['Custom'] = [];
+		$toolbars['Custom'][1] = ['bold', 'formatselect'];
+		return $toolbars;
+	}
+	add_filter('acf/fields/wysiwyg/toolbars', 'custom_acf_wysiwyg_toolbar');
+
+
+	/* ************************* */
+	/* Add button to wysiwyg editor */
+	/* ************************* */
+	function add_style_select_button($buttons) {
+		array_unshift($buttons, 'styleselect');
+		return $buttons;
+	}
+	add_filter('mce_buttons_2', 'add_style_select_button');
+	function my_mce_before_init_insert_formats( $init_array ) {
+		$style_formats = array(
+			array(
+				'title' => 'Bouton bleu',  
+				'block' => 'a',  
+				'classes' => 'hs-button cbo-button',
+				'wrapper' => true,
+				'attributes' => array(
+					'href' => '#'
+				)
+			),
+			array(  
+				'title' => 'Bouton blanc',  
+				'block' => 'a',  
+				'classes' => 'hs-button cbo-button button-white',
+				'wrapper' => true,
+				'attributes' => array(
+					'href' => '#'
+				)
+			),  
+		);
+		$init_array['style_formats'] = json_encode( $style_formats );
+		return $init_array;
+	}
+	add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' );
+
+
+	/* ************************* */
+	/* CUSTOM LOGIN */
+	/* ************************* */
+	function childtheme_custom_login() {
+		echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/library/css/style.min.css" />';
+	}
+	add_action('login_head', 'childtheme_custom_login');
+
 
 	/* ************************* */
 	// Register menu
@@ -17,39 +87,6 @@
 		)
 	);
 
-	/* ************************* */
-	// Pic size
-	/* ************************* */
-	add_image_size('xsmall', 320, 320, false);
-	add_image_size('small', 768, 768, false);
-	add_image_size('medium', 1200, 1200, false);
-	add_image_size('xlarge', 1920, 1920, false);
-
-	/* ************************* */
-	// STYLES
-	/* ************************* */
-	function my_theme_enqueue_styles() {
-		$css_file = get_stylesheet_directory() . '/library/css/style.css';
-		$css_version = file_exists($css_file) ? filemtime($css_file) : wp_get_theme()->get('Version');
-		$css_url = get_stylesheet_directory_uri() . '/library/css/style.css?ver=' . $css_version;
-		wp_enqueue_style('my-custom-style', $css_url, array(), null);
-	}
-	add_action('wp_enqueue_scripts', 'my_theme_enqueue_styles', 20);
-
-
-	/* ************************* */
-	/* DISABLE GUTEMBERG */
-	/* ************************* */
-	add_filter('use_block_editor_for_post', '__return_false', 10);
-	add_filter('use_block_editor_for_post_type', '__return_false', 10);
-
-	/* ************************* */
-	/* CUSTOM LOGIN */
-	/* ************************* */
-	function childtheme_custom_login() {
-		echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/library/css/style.css" />';
-	}
-	add_action('login_head', 'childtheme_custom_login');
 
 	/* ************************* */
 	/* CRÉATION PAGINATION */
@@ -94,7 +131,7 @@
 		} else {
 			echo '<li class="disabled"><a href="#">Précédent</a></li>';
 		}
-	
+
 		for ($i = $start_page; $i <= $end_page; $i++) {
 			if ($i == $paged) {
 				echo '<li class="active"><a href="#">' . $i . '</a></li>';
@@ -111,41 +148,7 @@
 	
 		echo '</ul>' . $after . "";
 	}
-	
 
-	/* ************************* */
-	/* Add button to wysiwyg editor */
-	/* ************************* */
-	function add_style_select_button($buttons) {
-		array_unshift($buttons, 'styleselect');
-		return $buttons;
-	}
-	add_filter('mce_buttons_2', 'add_style_select_button');
-	function my_mce_before_init_insert_formats( $init_array ) {
-		$style_formats = array(
-			array(  
-				'title' => 'Bouton bleu',  
-				'block' => 'a',  
-				'classes' => 'hs-button',
-				'wrapper' => true,
-				'attributes' => array(
-					'href' => '#'
-				)
-			),
-			array(  
-				'title' => 'Bouton blanc',  
-				'block' => 'a',  
-				'classes' => 'hs-button button-white',
-				'wrapper' => true,
-				'attributes' => array(
-					'href' => '#'
-				)
-			),  
-		);
-		$init_array['style_formats'] = json_encode( $style_formats );
-		return $init_array;
-	}
-	add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' );
 
 	/* ************************* */
 	/* AFFICHAGE DE 8 EVENT PAR PAGE - ARCHIVE EVENTS */
@@ -157,6 +160,7 @@
 	}
 	add_action( 'pre_get_posts', 'custom_posts_per_page' );
 
+
 	/* ************************* */
 	/* LIMITATION CARACTÈRES ZONE D'EXTRAIT */
 	/* ************************* */
@@ -164,6 +168,7 @@
 		return 26;
 	}
 	add_filter('excerpt_length', 'new_excerpt_length');
+
 
 	/* ************************* */
 	/* POINTS DE SUPENSIONS THE EXERPT */
@@ -174,59 +179,48 @@
 	}
 	add_filter('excerpt_more', 'wp_bootstrap_excerpt_more');
 
+
 	/* ************************* */
 	/* OHY : hide yoast header */
 	/* ************************* */
 	add_filter( 'wpseo_hide_version', '__return_true' );
 
+
 	/* ************************* */
 	/* ADD AUTOMATICLY TRAINING DATES TO FORMS */
 	/* ************************* */
-	function get_upcoming_training_dates() {
-		$current_event_id = get_the_ID();
-		$repeats = get_post_meta($current_event_id, 'repeat_intervals', true);
-		$repeats = maybe_unserialize($repeats);
-	
+	function get_upcoming_training_dates( $post_id = null ) {
+		if ( ! $post_id ) {
+			return '<option value="">Aucune formation disponible</option>';
+		}
+
+		$repeats = get_post_meta( $post_id, 'repeat_intervals', true );
+		$repeats = maybe_unserialize( $repeats );
 		$options = '';
-	
-		if (!empty($repeats) && is_array($repeats)) {
-			$current_timestamp = current_time('timestamp');
-	
-			foreach ($repeats as $repeat) {
-				if (isset($repeat[0]) && isset($repeat[1])) {
-					$start_date = $repeat[0];
-					if ($start_date >= $current_timestamp) {
-						$start_date_formatted = date('d/m/Y', $start_date);
-						$end_date = date('d/m/Y', $repeat[1]);
-						$options .= '<option value="Du ' . $start_date_formatted . ' au ' . $end_date . '">Du ' . $start_date_formatted . ' au ' . $end_date . '</option>';
-					}
+
+		if ( ! empty( $repeats ) && is_array( $repeats ) ) {
+			$current_timestamp = current_time( 'timestamp' );
+
+			foreach ( $repeats as $repeat ) {
+				if ( isset( $repeat[0], $repeat[1] ) && $repeat[0] >= $current_timestamp ) {
+					$start = date( 'd/m/Y', $repeat[0] );
+					$end   = date( 'd/m/Y', $repeat[1] );
+					$label = 'Du ' . $start . ' au ' . $end;
+					$options .= '<option value="' . $label . '">' . $label . '</option>';
 				}
 			}
 		}
-		if (empty($options)) {
-			$options = '<option value="">Aucune formation disponible</option>';
-		}
-		return $options;
+		return $options ?: '<option value="">Aucune formation disponible</option>';
 	}
-	
-	function cf7_dynamic_select($form) {
-		if (strpos($form, '[dynamic_select]') !== false) {
-			$options = get_upcoming_training_dates();
-			$form = str_replace('[dynamic_select]', $options, $form);
+
+	function cf7_dynamic_select( $form ) {
+		if ( strpos( $form, '[dynamic_select]' ) !== false ) {
+			$post_id = get_queried_object_id();
+			$options = get_upcoming_training_dates( $post_id );
+			$form    = str_replace( '[dynamic_select]', $options, $form );
 		}
-	
 		return $form;
 	}
-	add_filter('wpcf7_form_elements', 'cf7_dynamic_select');
+	add_filter( 'wpcf7_form_elements', 'cf7_dynamic_select' );
 
-
-	/* ************************* */
-	// Add a custom tool bar
-	/* ************************* */
-	function custom_acf_wysiwyg_toolbar($toolbars) {
-		$toolbars['Custom'] = [];
-		$toolbars['Custom'][1] = ['bold', 'formatselect'];
-		return $toolbars;
-	}
-	add_filter('acf/fields/wysiwyg/toolbars', 'custom_acf_wysiwyg_toolbar');
 ?>

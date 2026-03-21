@@ -1,0 +1,155 @@
+/* -------------------------------
+BUTTONS MICRO COMPONENT
+------------------------------- */
+.buttons-container{
+	display: flex;
+	justify-content: center;
+	margin-top: 4.375rem;
+}
+
+.hs-header-bt-contact a,
+.hs-button,
+input[type="submit"],
+.cbo-button{
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	color: $colorwhite;
+	background: $colorblue;
+	padding: 0.5rem 1.875rem;
+	height: 3.75rem;
+	line-height: 1rem;
+	border-radius: $bordersmall;
+	transition:all .2s cubic-bezier(.694,.048,.335,1);
+
+	&:after{
+		font-family:"icons";
+		content: '\f117';
+		display: block;
+		margin-left: 0.875rem;
+		position: relative;
+		right: 0;
+		transition:all .2s cubic-bezier(.694,.048,.335,1);
+	}
+
+	&.button--back{
+		flex-direction: row-reverse;
+
+		&:after{
+			left: 0;
+			content: '\f10d';
+			margin: 0 0.875rem 0 0;
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	i{
+		margin-left: 1.25rem;
+	}
+	&.button-center{
+		margin:0 auto;
+		display: table;
+		padding: 0.8125rem 1.875rem 0.5rem 1.875rem;
+		text-align: center;
+	}
+	&.button-white{
+		background:$colorwhite;
+		color:$colorbluedark;
+	}
+}
+
+.content-link{
+	padding: 0 1.25rem;
+	margin-top: 1.875rem;
+	height: 2.5rem;
+	display: flex;
+	justify-content: flex-end;
+  
+	.link-inner{
+	  display: flex;
+	  align-items: center;
+	  color: $colorblue;
+	  position: relative;
+	  padding-left: 1.25rem;
+	  transition: padding-left 0.8s cubic-bezier(0.85, 0, 0.15, 1), width 0.8s cubic-bezier(0.85, 0, 0.15, 1), justify-content 0.8s cubic-bezier(0.85, 0, 0.15, 1);
+  
+	  .link-txt{
+		padding-right: 2.5rem;
+		opacity: 0;
+		transform: translate3d(-1.875rem,0,0);
+		transition: opacity 0.8s cubic-bezier(0.38, 0.005, 0.215, 1), transform 0.8s cubic-bezier(0.38, 0.005, 0.215, 1);
+	  }
+	  &:after{
+		content: '';
+		width: 2.5rem;
+		height: 2.5rem;
+		border-radius: 0.875rem;
+		background: rgba($colorblue, .3);
+		border: 0.0625rem solid rgba($colorblue, .4);
+		position: absolute;
+		top: 0;
+		right: 0;
+		transition: all 0.8s cubic-bezier(0.38, 0.005, 0.215, 1),;
+	  }
+	  i{
+		position: absolute;
+		right: 0;
+		top: 0;
+		z-index: 2;
+		width: 2.5rem;
+		height: 2.5rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: $colorblue;
+		transition: all 0.8s cubic-bezier(0.38, 0.005, 0.215, 1);
+	  }
+	}
+  }
+  
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width: $screen-md-min){
+	.cbo-button,
+	.hs-button{
+		&:hover{
+			background:$colorbluedark;
+			color:$colorwhite;
+
+			&:after{
+				right: -0.625rem;
+			}
+		}
+		&.button--back{
+			&:hover{
+				&:after{
+					left: -0.625rem;
+					right: inherit;
+				}
+			}
+		}
+
+
+
+		
+		&.button-white{
+			&:hover{
+				background:$colorbluedark;
+				color:$colorwhite;
+			}
+		}
+	}
+}

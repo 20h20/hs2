@@ -1,0 +1,47 @@
+@import "../../../src/scss/partials/variables";
+
+/* -------------------------------
+CATEGORIES LAYOUT COMPONENT
+------------------------------- */
+.cbo-categories{
+	background: $colorgreylight url(../../images/pattern-bg-grey-section.png) no-repeat top left;
+
+	.categories-inner{
+		z-index: 1;
+	}
+	.categories-title{
+		text-align: center;
+		margin-bottom: 3.125rem;
+	}
+	&.categories--blue{
+		background:$colorbluedark url(../../images/bg-top-formation.png) no-repeat right top;
+		color:$colorwhite;
+		position: relative;
+	}
+	.categories-list{
+		margin: -1.25rem 0;
+	}
+}
+
+/* -------------------------------
+SMALL SCREENS
+------------------------------- */
+@media (min-width: $screen-sm-min){
+	.categories-list{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin: -0.625rem;
+	}
+}
+
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width: $screen-md-min){
+	.cbo-categories{
+		.categories-title{
+			margin-bottom: 5rem;
+		}
+	}
+}

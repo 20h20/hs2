@@ -1,91 +1,99 @@
-	<div class="hs-overlay-search">
-		<button type="button" class="search-close" aria-label="Fermer la modale">
-			<i class="icon icon--close"></i>
+	</main>
+	
+	<div class="overlay-search"role="dialog" aria-modal="true" aria-labelledby="search-title">
+		<button type="button" class="search-close" aria-label="Fermer la recherche">
+			<i class="icon icon--close" aria-hidden="true"></i>
 		</button>
-		<form role="search" method="get" class="searchform" action="<?php echo home_url( '/' ); ?>">
-			<input name="s" id="s" type="text" placeholder="<?php _e('Votre recherche'); ?>" data-provide="typeahead" data-items="4" data-source='<?php echo $typeahead_data; ?>'>
-			<button class="hs-button" type="submit">Rechercher</button>
-		</form>
+		<div class="cbo-form">
+			<form role="search" method="get" class="searchform" action="<?php echo home_url( '/' ); ?>">
+				<input name="s" id="s" type="search" placeholder="<?php _e('Votre recherche'); ?>" data-provide="typeahead" data-items="4">
+				<button class="cbo-button" type="submit">Rechercher</button>
+			</form>
+		</div>
 	</div>
 
 	<button class="cbo-up" aria-label="Revenir en haut">
-		<i class="icon icon--bottom-arrow"></i>
+		<i class="icon icon--bottom-arrow" aria-hidden="true"></i>
 	</button>
 
-	<footer>
-		<a class="hs-footer-logo" title="<?php echo get_bloginfo('description'); ?>" href="<?php echo home_url(); ?>">
-			<img
-				decoding="async"
-				src="<?php bloginfo('template_directory'); ?>/library/images/logo-hs2-footer.svg"
-				alt="<?php echo get_bloginfo('description'); ?>" sizes="100vw"
-				width="120" height="50"
-				itemprop="logo"
-				loading="lazy"
-			>
-		</a>
+	<footer itemscope itemtype="http://schema.org/WPFooter" role="contentinfo">
+		<div class="footer-inner cbo-container container--padding container--nomargin">
+			<a class="footer-logo" title="<?php echo get_bloginfo('description'); ?>" href="<?php echo home_url(); ?>/" rel="home" aria-label="Revenir à l'accueil">
+				<img
+					decoding="async"
+					src="<?php bloginfo('template_directory'); ?>/library/images/logo-hs2-footer.svg"
+					alt="<?php echo get_bloginfo('description'); ?>" sizes="100vw"
+					width="120" height="50"
+					itemprop="logo"
+					loading="lazy"
+				>
+			</a>
 
-		<div class="hs-col-footer">
-			<span class="footer-title">
-				Nos formations par catégories <i class="icon icon--right-arrow"></i>
-			</span>
-			<ul class="footer-nav">
-				<li><a href="<?php echo home_url(); ?>/event-type/vie-privee-et-droit-de-la-cybersecurite/">Vie privée et droit de la cybersécurité</a></li>
-				<li><a href="<?php echo home_url(); ?>/event-type/continuite-dactivite/">Continuité d’activité</a></li>
-				<li><a href="<?php echo home_url(); ?>/event-type/cybersecurite-organisationnelle/">Cybersécurité organisationnelle</a></li>
-				<li><a href="<?php echo home_url(); ?>/event-type/cybersecurite-technique/">Cybersécurité technique</a></li>
-			</ul>
-		</div>
-		<div class="hs-col-footer">
-			<span class="footer-title">
-				À propos
-				<i class="icon icon--right-arrow"></i>
-			</span>
-			<ul class="footer-nav">
-				<li><a href="<?php echo home_url(); ?>/qui-sommes-nous/">Qui sommes nous ?</a></li>
-				<li><a href="<?php echo home_url(); ?>/engagement-qualite/">Notre engagement qualité</a></li>
-				<li><a href="<?php echo home_url(); ?>/reglement-de-certification-hs2/">La certification HS2</a></li>
-				<li><a href="<?php echo home_url(); ?>/contact">Nous contacter</a></li>
-			</ul>
-		</div>
-		<div class="hs-col-footer">
-			<span class="footer-title">
-				Nos événements
-				<i class="icon icon--right-arrow"></i>
-			</span>
-			<ul class="footer-nav">
-				<?php
-					$current_page = get_query_var('paged');
-					$current_page = max(1, $current_page);
-					$per_page = 4;
-					$args = array(
-						'post_type' => 'post',
-						'meta_key' => 'event_start',
-						'meta_value' => date('Ymd'),
-						'meta_compare' => '>=',
-						'posts_per_page' => $per_page,
-						'orderby' => 'meta_value_num',
-						'order' => 'ASC',
-						'paged' => $current_page,
-					);
-					$query = new WP_Query($args);
+			<div class="col-footer">
+				<span class="footer-title">
+					Nos formations par catégories
+					<i class="icon icon--right-arrow" aria-hidden="true"></i>
+				</span>
+				<ul class="footer-nav">
+					<li><a href="<?php echo home_url(); ?>/event-type/vie-privee-et-droit-de-la-cybersecurite/">Vie privée et droit de la cybersécurité</a></li>
+					<li><a href="<?php echo home_url(); ?>/event-type/continuite-dactivite/">Continuité d’activité</a></li>
+					<li><a href="<?php echo home_url(); ?>/event-type/cybersecurite-organisationnelle/">Cybersécurité organisationnelle</a></li>
+					<li><a href="<?php echo home_url(); ?>/event-type/cybersecurite-technique/">Cybersécurité technique</a></li>
+				</ul>
+			</div>
 
-					if ($query->have_posts()) {
-						while ($query->have_posts()) {
-							$query->the_post();
-							?>
-							<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
-						<?php
+			<div class="col-footer">
+				<span class="footer-title">
+					À propos
+					<i class="icon icon--right-arrow" aria-hidden="true"></i>
+				</span>
+				<ul class="footer-nav">
+					<li><a href="<?php echo home_url(); ?>/qui-sommes-nous/">Qui sommes nous ?</a></li>
+					<li><a href="<?php echo home_url(); ?>/engagement-qualite/">Notre engagement qualité</a></li>
+					<li><a href="<?php echo home_url(); ?>/reglement-de-certification-hs2/">La certification HS2</a></li>
+					<li><a href="<?php echo home_url(); ?>/contact">Nous contacter</a></li>
+				</ul>
+			</div>
+			<div class="col-footer">
+				<span class="footer-title">
+					Nos événements
+					<i class="icon icon--right-arrow" aria-hidden="true"></i>
+				</span>
+				<ul class="footer-nav">
+					<?php
+						$current_page = get_query_var('paged');
+						$current_page = max(1, $current_page);
+						$per_page = 4;
+						$args = array(
+							'post_type' => 'post',
+							'meta_key' => 'event_start',
+							'meta_value' => date('Ymd'),
+							'meta_compare' => '>=',
+							'posts_per_page' => $per_page,
+							'orderby' => 'meta_value_num',
+							'order' => 'ASC',
+							'paged' => $current_page,
+						);
+						$query = new WP_Query($args);
+
+						if ($query->have_posts()) {
+							while ($query->have_posts()) {
+								$query->the_post();
+								?>
+								<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+							<?php
+							}
+						} else {
+							echo '<p>Aucun événement à venir.</p>';
 						}
-					} else {
-						echo '<p>Aucun événement à venir.</p>';
-					}
-					wp_reset_postdata();
-				?>
-			</ul>
-		</div>
-		<div class="hs-col-footer footer-newsletter">
-			<span class="footer-title">S'inscrire à la newsletter</span>
-			<p>Nous prévoyons de changer de logiciel de newsletter, aussi les inscriptions sont provisoirement suspendues.</p>
+						wp_reset_postdata();
+					?>
+				</ul>
+			</div>
+			<div class="col-footer footer-newsletter">
+				<span class="footer-title">S'inscrire à la newsletter</span>
+				<p>Nous prévoyons de changer de logiciel de newsletter, aussi les inscriptions sont provisoirement suspendues.</p>
+			</div>
 		</div>
 	</footer>
 
@@ -115,6 +123,7 @@
 		</span>
 		Hébergé avec &lt;3 par <a href="https://www.digdeo.fr/" target="_blank">DigDeo</a>
 	</div>
+
 	<script src="<?php echo get_template_directory_uri(); ?>/library/js/scripts.js"></script>
 	<?php wp_footer(); ?>
 </body>

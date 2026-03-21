@@ -1,0 +1,27 @@
+@import "../../../src/scss/partials/variables";
+
+/* -------------------------------
+EVENTS LAYOUT COMPONENT
+------------------------------- */
+.cbo-events{
+	.el--intro{
+		text-align: center;
+		max-width: 46.875rem;
+		margin: 0 auto 2.5rem;
+
+		.button-container{
+			margin-top: 2.5rem;
+		}
+	}
+}
+
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width: $screen-md-min){
+	.cbo-events{
+		.el--intro{
+			margin-bottom: 4.375rem;
+		}
+	}
+}

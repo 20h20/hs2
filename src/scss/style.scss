@@ -5,10 +5,8 @@ Author: Julien B.
 /*********************
 PARTIALS
 *********************/
-@import "partials/bootstrap";
 @import "partials/variables";
 @import "partials/icons";
-@import "partials/animations";
 
 /*********************
 STUCTURE COMPONENTS
@@ -20,47 +18,24 @@ STUCTURE COMPONENTS
 /*********************
 MICRO COMPONENTS
 *********************/
-@import "components/micro/accordion";
-@import "components/micro/aos";
-@import "components/micro/bloc-metier";
-@import "components/micro/container";
-@import "components/micro/breadcrumb";
-@import "components/micro/buttons";
-@import "components/micro/cat-bloc";
-@import "components/micro/event-bloc";
-@import "components/micro/form";
-@import "components/micro/login";
-@import "components/micro/pagination";
-@import "components/micro/pictures";
-@import "components/micro/press-bloc";
-@import "components/micro/sections";
-@import "components/micro/search";
-@import "components/micro/share";
-@import "components/micro/slider";
-@import "components/micro/tabs";
-@import "components/micro/typography";
+@import "components/micros/container";
+@import "components/micros/breadcrumb";
+@import "components/micros/buttons";
+@import "components/micros/form";
+@import "components/micros/login";
+@import "components/micros/modale";
+@import "components/micros/pagination";
+@import "components/micros/pictures";
+@import "components/micros/search";
+@import "components/micros/slider";
+@import "components/micros/typography";
 
-/********************* 
-BLOCKS COMPONENTS
-*********************/
-@import "components/blocks/calendar";
-@import "components/blocks/categories";
-@import "components/blocks/contact";
-@import "components/blocks/hero";
-@import "components/blocks/simple-txt";
-@import "components/blocks/bloc-fiches";
-@import "components/blocks/bio";
-@import "components/blocks/bloc-cta-img";
-@import "components/blocks/partners";
-@import "components/blocks/txt-img";
-@import "components/blocks/relation";
-@import "components/blocks/video";
 
 /*********************
-PAGE COMPONENTS
-*********************/  
-@import "components/pages/home";
-@import "components/pages/event-location";
-@import "components/pages/event-page";
-@import "components/pages/single-formation";
-@import "components/pages/press-page";
+BACK END REMOVE
+*********************/
+.cbo-main{
+    @import "partials/animations";
+}
+
+@import "components/micros/_back-office";

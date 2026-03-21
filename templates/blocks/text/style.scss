@@ -1,0 +1,15 @@
+@import "../../../src/scss/partials/variables";
+
+/* -------------------------------
+TEXT COMPONENT
+------------------------------- */
+.cbo-text{
+    .title-text{
+        margin-bottom: 1.875rem;
+    }
+    .text-content{
+        &.content--center{
+            text-align: center;
+        }
+    }
+}

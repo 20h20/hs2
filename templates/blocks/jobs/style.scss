@@ -1,0 +1,13 @@
+@import "../../../src/scss/partials/variables";
+
+/* -------------------------------
+JOB LAYOUT COMPONENT
+------------------------------- */
+.cbo-jobs{
+	background: $colorgreylight url(../../images/pattern-bg-grey-section.png) no-repeat top left;
+
+	.jobs-title{
+		text-align: center;
+		margin-bottom: 3.125rem;
+	}
+}

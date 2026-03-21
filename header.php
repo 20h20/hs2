@@ -6,7 +6,7 @@
 		<title><?php wp_title(' - '); ?></title>
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
 		<link rel="apple-touch-icon" sizes="57x57" href="<?php echo get_template_directory_uri(); ?>/library/images/fav/apple-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="<?php echo get_template_directory_uri(); ?>/library/images/fav/apple-icon-60x60.png">
 		<link rel="apple-touch-icon" sizes="72x72" href="<?php echo get_template_directory_uri(); ?>/library/images/fav/apple-icon-72x72.png">
@@ -24,40 +24,42 @@
 		<?php wp_head(); ?>
 	</head>
 
-	<body <?php body_class(); ?>>
-		<header>
-			<a class="hs-header-logo" title="<?php echo get_bloginfo('description'); ?>" href="<?php echo home_url(); ?>">
+	<body <?php body_class('cbo-main'); ?> itemscope itemtype="http://schema.org/WebPage">
+
+		<header role="banner" itemscope itemtype="http://schema.org/WPHeader">
+			<a class="header-logo" title="Accueil - <?php echo get_bloginfo('description'); ?>" href="<?php echo home_url(); ?>" itemprop="url">
 				<img
 					decoding="async"
 					src="<?php bloginfo('template_directory'); ?>/library/images/logo-hs2.svg"
-					alt="HS2, centre de formation en cybersécurité" sizes="100vw"
-					loading="lazy"
-					width="190" height="68"
+					alt="<?php echo get_bloginfo('description'); ?>" sizes="100vw"
+					itemprop="logo"
+					fetchpriority="high"
 				>
 			</a>
-			<nav class="header-nav">
-				<i class="icon icon--logo-hs2"></i>
-				<?php wp_nav_menu( array(
-					'container' => false,
-					'container_class' => '',
-					'menu_class' => '',
-					'theme_location' => 'main-nav',
-				)); ?>
-				<button type="button" class="search-button" aria-label="Ouvrir la recherche">
-					<i class="icon icon--search"></i>
-				</button>
-			</nav>
-			<div class="header-buttons">
-				<button type="button" class="search-button" aria-label="Ouvrir la recherche">
-					<i class="icon icon--search"></i>
-				</button>
-				<div class="hs-hamburger-menu">
-					<span class="top"></span>
-					<span class="middle"></span>
-					<span class="bottom"></span>
+
+			<div class="header-content">
+				<nav class="header-nav" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement" aria-label="Navigation principale">
+					<?php wp_nav_menu( array(
+						'container' => false,
+						'container_class' => 'nav-inner',
+						'menu_class' => '',
+						'theme_location' => 'main-nav',
+						'menu_id' => 'menu-principal',
+					)); ?>
+				</nav>
+
+				<div class="header-buttons">
+					<button type="search" class="search-button" aria-label="Ouvrir la recherche">
+						<i class="icon icon--search" aria-hidden="true"></i>
+					</button>
+
+					<button type="button" class="burger-menu" aria-label="Ouvrir la navigation principale">
+						<span class="top"></span>
+						<span class="middle"></span>
+						<span class="bottom"></span>
+					</button>
 				</div>
 			</div>
 		</header>
 
-		<div class="hs-overlay"></div>
-		<div class="hs-overlay_dropdown"></div>
+		<main class="cbo-page" role="main" itemscope itemtype="http://schema.org/WebPageElement">

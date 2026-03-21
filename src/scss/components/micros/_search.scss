@@ -1,0 +1,78 @@
+/* -------------------------------
+SEARCH BUTTON & PAGE MICRO COMPONENT
+------------------------------- */
+.overlay-search{
+	background-color:rgba($colorbluedark, 0.9);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 9;
+	padding: 0 1.25rem;
+	transform: translateY(-100%);
+	transition: .5s all;
+
+	&.overlay-search--open{
+		transform: translateY(0);
+		backdrop-filter: blur(0.875rem);
+	}
+	.search-close{
+		border-radius: $bordersmall;
+		width: 2.5rem;
+		height: 2.5rem;
+		position: absolute;
+		top: 1.25rem;
+		right: 1.25rem;
+		font-size: 1rem;
+		color: $colorwhite;
+		box-shadow: inset 0 0 0 0.125rem $colorwhite;
+		background: none;
+		border: none;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: all .4s;
+
+		&:hover{
+			color: $colorblue;
+			box-shadow: inset 0 0 0 0.125rem $colorblue;
+		}
+	}
+	.cbo-form{
+		width: 100%;
+
+		form{
+			input,button{
+				width: 100%;
+				height: 3.75rem;
+				margin: 0.625rem 0;
+				border: none;
+				padding: 0 1rem;
+			}
+			input{
+				&:focus{
+					box-shadow: 0px 0px 0px 0.1875rem $colorblue inset;
+				}
+			}
+		}
+	}
+}
+
+/* -------------------------------
+SMALL SCREENS
+------------------------------- */
+@media (min-width: $screen-sm-min) {
+	.overlay-search{
+		.search-close {
+			top: 1.875rem;
+			right: 1.875rem;
+		}
+		.cbo-form{
+			max-width: 37.5rem;
+		}
+	}
+}

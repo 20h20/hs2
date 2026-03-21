@@ -1,0 +1,381 @@
+/* -------------------------------
+FORM MICRO COMPONENT
+------------------------------- */
+.cbo-form{
+	form {
+		position: relative;
+		color: $colorbluedark;;
+
+		small{
+			font-style:italic;
+			color:$colorbluedark;
+			line-height: 0.875rem;
+			font-size: 0.75rem;
+			display: block;
+			
+			a{
+				color:$colorbluedark;
+				text-decoration: underline;
+			}
+		}
+		input[type="text"],
+		input[type="email"],
+		input[type="number"],
+		input[type="tel"],
+		input[type="password"],
+		input[type="date"],
+		select,
+		textarea {
+			border: none;
+			background: $colorwhite;
+			height: 3.75rem;
+			width: 100%;
+			font-size: 0.875rem;
+			font-weight: 300;
+			padding: 0 1rem;
+			color: $colorblue;
+			border-radius: $bordersmall;
+			border: 0.0625rem solid $colorgrey;
+			transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1) 0s;
+
+			&:focus,
+			&.filled{
+				border: 0.0625rem solid $colorblue;
+			}
+			&.wpcf7-not-valid{
+				border: 0.0625rem solid $colorerror;
+			}
+		}
+
+		input[type="submit"],
+		button{
+			color: $colorwhite;
+			background: $colorblue;
+			height: 50px;
+			display: table;
+			border-radius: 5px;
+			margin: 1.875rem auto 0 auto;
+			padding: 0 1.875rem;
+			border: none;
+			cursor: pointer;
+			transition: all 0.5s cubic-bezier(0.85, 0, 0.15, 1) 0s;
+
+			i{
+				margin-left: 6px;
+			}
+			&:hover{
+				background: $colorbluedark;
+			}
+			&.disabled {
+				opacity: 0.5;
+				cursor: not-allowed;
+				pointer-events: none;
+			}
+		}
+		::-webkit-input-placeholder {
+			color: rgba($colorblue, .4);
+		}
+		::-moz-placeholder {
+			color: rgba($colorblue, .4);
+		}
+		:-ms-input-placeholder {
+			color: rgba($colorblue, .4);
+		}
+		.hidden-fields-container{
+			display: none;
+		}
+		label{
+			font-size: 0.875rem;
+		}
+		select{
+			background: none;
+			height: 3.75rem;
+			width: 100%;
+			border: 0.0625rem solid #9d9d9d;
+		}
+		.form-title {
+			display: block;
+			font-weight: 700;
+			margin-bottom: 1.5625rem;
+			color:$colorbluedark;
+		}
+		textarea {
+			resize: none;
+			height: 12.5rem;
+			padding: 1rem;
+			font-family: $fontprimary;
+			font-size: 0.875rem;
+			font-weight: 300;
+		}
+		.form-field{
+			margin-bottom: 0.875rem;
+			width: 100%;
+
+			.wpcf7-not-valid-tip{
+				font-size: 0.75rem;
+				color: $colorerror;
+			}
+			&.field--radio{
+				color: $colorblue;
+				font-size: 1rem;
+				line-height: 1.125rem;
+	
+				&.has-error{
+					.radio-error-message{
+						color: $colorerror;
+						font-size: 0.875rem;
+						margin-top: 0.3125rem;
+						margin-bottom: 1.875rem;
+						font-style: italic;
+					}
+				}
+				label{
+					display: block;
+					margin-bottom: 1rem;
+				}
+				.wpcf7-list-item{
+					display: flex;
+					justify-content: flex-start;
+					position: relative;
+					font-size: 0.875rem;
+					line-height: 1rem;
+					margin-bottom: 0.625rem;
+					color: $colorbluedark;
+					position: relative;
+					cursor: pointer;
+	
+					&.item--last{
+						margin-bottom: 1.625rem;
+					}
+					& > label{
+						margin-bottom: 0;
+					}
+					&.checked .wpcf7-list-item-label::after {
+						transform: scale(1);
+					}
+					input[type="radio"] {
+						width: 0;
+						height: 0;
+						opacity: 0.00000001;
+						position: absolute;
+					}
+					.wpcf7-list-item-label {
+						position: relative;
+						padding-left: 1.625rem;
+						display: flex;
+	
+						&:before {
+							content: "";
+							position: absolute;
+							left: 0;
+							top: 0.125rem;
+							width: 1rem;
+							height: 1rem;
+							border-radius: 99rem;
+							border: 0.0625rem solid $colorblue;
+							cursor: pointer;
+						}
+						&:after {
+							content: "";
+							position: absolute;
+							left: 0.25rem;
+							top: 0.375rem;
+							width: 0.625rem;
+							height: 0.625rem;
+							background: $colorblue;
+							border-radius: 99rem;
+							transform: scale(0);
+							transition: all 0.3s $easeinout;
+						}
+					}
+				}
+			}
+			&.form-acceptance {
+				.wpcf7-form-control-wrap{
+					display: none;
+				}
+				input {
+					width: 0;
+					height: 0;
+					opacity: 0.00000001;
+					position: absolute;
+				}
+				label {
+					display: flex;
+					justify-content: flex-start;
+					position: relative;
+					font-size: 0.75rem;
+					line-height: 1rem;
+					position: relative;
+					cursor: pointer;
+	
+					&:before {
+						content: "";
+						display: block;
+						width: 0.75rem;
+						min-width: 0.75rem;
+						height: 0.75rem;
+						border-radius: 0.125rem;
+						border: 0.0625rem solid $colorblue;
+						margin: 0 0.625rem 0 0.0625rem;
+						cursor: pointer;
+					}
+					&:after {
+						content: "";
+						display: block;
+						width: 0.5rem;
+						min-width: 0.5rem;
+						height: 0.5rem;
+						border-radius: 0.125rem;
+						background: $colorblue;
+						position: absolute;
+						top: 0.1875rem;
+						left: 0.25rem;
+						transform: scale(0);
+						transition: all 0.3s $easeinout;
+					}
+				}
+				&:not(.checked) label:hover {
+					&:after{
+						transform: scale(1);
+						opacity: 0.5;
+					}
+				}
+				.field-inner.checked label {
+					&:after {
+						transform: scale(1);
+					}
+				}
+			}
+		}
+
+		.wpcf7-response-output {
+			color: $colorwhite;
+			display:none;
+			width: 100%;
+			margin: 1.875rem auto 0 auto;
+			padding: 1rem;
+			font-size: 0.875rem;
+			border-radius: 0.3125rem;
+
+			&:before{
+				font-family:"icons";
+				margin-right: 0.625rem;
+			}
+		}
+
+		&.invalid{
+			.wpcf7-response-output {
+				background: rgba($colorerror, .2);
+				border-left: 0.1875rem solid $colorerror;
+				display: block;
+				color: $colorerror;
+
+				&:before{
+					content:"\f11d";
+				}
+			}
+		}
+
+		.form-buttons{
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+
+			.hs-form-submit {
+				width: 100%;
+
+				button,
+				input[type="submit"]{
+					width: 100%;
+					margin: 0;
+				}
+				&.form-actions{
+					button{
+						margin-bottom: 0.625rem;
+						background: $colorwhite;
+						color: $colorblue;
+						box-shadow: 0 0 0 0.0625rem $colorblue inset;
+					}
+				}
+			}
+		}
+
+		&.submitting{
+			&:before {
+				z-index: 99;
+				content: "";
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 2.5rem;
+				height: 2.5rem;
+				margin: -1.25rem 0 0 -1.25rem;
+				border: 0.4375rem solid rgba($colorblue, 0.3);
+				border-top-color: $colorblue;
+				border-radius: 50%;
+				animation: spin 1s linear infinite;
+			}
+			.form-field{
+				opacity: .2;
+			}
+		}
+		@keyframes spin {
+			from { transform: rotate(0deg); }
+			to { transform: rotate(360deg); }
+		}
+	}
+	.screen-reader-response{
+		display: none;
+	}
+}
+
+/* -------------------------------
+SMALL SCREENS
+------------------------------- */
+@media (min-width: $screen-sm-min){
+	.cbo-form{
+		form{
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+
+			.form-step{
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				width: 100%;
+			}
+			.form-field{
+				&.field-half{
+					width: 49%;
+				}
+			}
+			.hs-form-submit{
+				width: 100%;
+
+				input[type="submit"],
+				button{
+					margin-top: 1.25rem;
+				}
+			}
+			.form-buttons{
+				justify-content: space-between;
+		
+				.hs-form-submit {
+					width: auto;
+		
+					button,
+					input[type="submit"]{
+						width: fit-content;
+					}
+					.form-actions{
+						button{
+							margin-bottom: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,87 @@
+@import "../../../src/scss/partials/variables";
+
+/* -------------------------------
+PARTNERS COMPONENT
+------------------------------- */
+.cbo-partners{
+	text-align: center;
+
+	.partners-chapo {
+		margin: 1.875rem auto 0;
+		max-width: 46.875rem;
+	}
+	.partners-list{
+		margin: 0.625rem 0 -1.25rem 0;
+
+		&:not(.slick-slider){
+			display: flex;
+			overflow: hidden;
+
+			.list-el{
+				width: 50%;
+				min-width: 50%;
+				height: 6.875rem;
+				margin: 0 0.625rem;
+			}
+		}
+
+		.slick-list{
+			overflow: hidden;
+			padding: 1.25rem 0;
+			justify-content: center;
+			display: flex;
+
+			.slick-track{
+				align-items: center;
+
+				.slick-slide{
+					margin: 0 0.625rem;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+
+					& > div {
+						height: 100%;
+						width: 100%;
+					}
+				}
+			}
+		}
+
+		.list-el{
+			height: 5rem;
+
+			.el-inner{
+				background: $colorwhite;
+				box-shadow: 0 0 0.3125rem 0 $colorgrey;
+				border-radius: $bordersmall;
+				display: flex;
+				padding: 0.625rem;
+				height: 100%;
+
+				img{
+					position: relative;
+				}
+			}
+		}
+	}
+}
+
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width:$screen-md-min) {
+	.cbo-partners{
+		.partners-list{
+			margin: 1.875rem 0 -1.25rem 0;
+
+			.list-el{
+				height: 6.875rem;
+
+				.el-inner{
+					padding: 1.25rem;
+				}
+			}
+		}
+	}
+}
