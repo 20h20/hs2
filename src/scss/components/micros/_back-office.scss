@@ -1,25 +1,17 @@
+@import "src/scss/partials/variables";
+
 /* -------------------------------
 BACK OFFICE COMPONENT
 ------------------------------- */
 
 // BLOCKS
 .editor-styles-wrapper{
-	font-size: 18px;
-	line-height: 24px;
-	font-family: $fontprimary;
-	color: $colorbluedark;
-
 	.wp-block-post-content{
 		.block-editor-block-list__block{
 			max-width: 104.375rem;
-
-	
 		}
 	}
 }
-
-
-
 
 #wpbody{
 	input[type="submit"]{
@@ -97,6 +89,7 @@ BACK OFFICE COMPONENT
 							justify-content: center;
 							align-items: center;
 							padding: 0 30px;
+							text-decoration: none;
 						}
 					}
 				}
@@ -276,6 +269,10 @@ BACK OFFICE COMPONENT
 				display: flex;
 				flex-wrap: wrap;
 				justify-content: space-between;
+
+				&.empty-container{
+					display: none;
+				}
 			}
 		}
 	}

@@ -57,6 +57,12 @@ module.exports = function (grunt) {
         }
       },
 
+      admin: {
+        src: "<%= path_src_styles %>admin.scss",
+        dest: "<%= path_dist_styles %>admin.min.css",
+        options: { sourceMap: false }
+      },
+
       global: {
         src: "<%= path_src_styles %>style.scss",
         dest: "<%= path_dist_styles %>style.min.css",
@@ -84,6 +90,11 @@ module.exports = function (grunt) {
 
       parts: {
         src: "<%= path_dist_parts %>*.css"
+      },
+
+      admin: {
+        src: "<%= path_dist_styles %>admin.min.css",
+        dest: "<%= path_dist_styles %>admin.min.css"
       },
 
       global: {
@@ -160,10 +171,14 @@ module.exports = function (grunt) {
         tasks: ["sass:blocks", "postcss:blocks", "concat:gutenberg"]
       },
 
-      /* 🔥 NEW : watch des parts */
       parts: {
         files: ["<%= path_src_parts %>**/*.scss"],
         tasks: ["sass:parts", "postcss:parts"]
+      },
+
+       admin: {
+        files: ["<%= path_src %>scss/components/micros/_back-office.scss"],
+        tasks: ["sass:admin", "postcss:admin"]
       },
 
       global: {
@@ -191,8 +206,8 @@ module.exports = function (grunt) {
   /*       DEFAULT            */
   /* ------------------------ */
   grunt.registerTask("default", [
-    "sass:blocks", "sass:parts", "sass:global",
-    "postcss:blocks", "postcss:parts", "postcss:global",
+    "sass:blocks", "sass:parts", "sass:global", "sass:admin",
+    "postcss:blocks", "postcss:parts", "postcss:global", "postcss:admin",
     "concat:gutenberg",
     "webfont",
     "include_file",

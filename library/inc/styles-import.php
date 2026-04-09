@@ -150,4 +150,21 @@
 	}
 	add_action( 'enqueue_block_editor_assets', 'cbo_enqueue_block_editor_assets' );
 
+
+	/* ****************** */
+	/* Import des styles pour le dashboard */
+	function cbo_admin_styles() {
+		$admin_css_file = get_stylesheet_directory() . '/library/css/admin.min.css';
+
+		if (file_exists($admin_css_file)) {
+			wp_enqueue_style(
+				'cbo-admin-styles',
+				get_stylesheet_directory_uri() . '/library/css/admin.min.css',
+				array(),
+				filemtime($admin_css_file)
+			);
+		}
+	}
+	add_action('admin_enqueue_scripts', 'cbo_admin_styles');
+
 ?>

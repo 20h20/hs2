@@ -2,18 +2,13 @@
 	get_header();
 	$accordionactive	= get_field('formation_accordionactive');
 	$programmehidden	= get_field('formation_programmehidden');
-	$shareactive	= get_field('formation_sharedeactivate');
 	$goodtoknowhidden	= get_field('formation_goodtoknowhidden');
 	$subscribhidden	= get_field('formation_subscribehidden');
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('hs-page-formation'); ?> itemscope itemtype="https://schema.org/Course">
 
-	<?php
-		if($shareactive == 0):
-			get_part('templates/parts/summary/template');
-		endif; 
-	?>
+	<?php get_part('templates/parts/summary/template'); ?>
 
 	<?php
 		if($accordionactive == 0):

@@ -5,7 +5,7 @@
 		global $wp_meta_boxes;
 		$wp_meta_boxes['dashboard']['normal']['core'] = array(
 			'welcome_dashboard'      => array('id' => 'welcome_dashboard', 'title' => 'Bienvenue', 'callback' => 'display_welcome_message', 'args' => array()),
-			'google_sheet_dashboard' => array('id' => 'google_sheet_dashboard', 'title' => 'Suivi de maintenance 2025', 'callback' => 'display_google_sheet_data', 'args' => array()),
+			'google_sheet_dashboard' => array('id' => 'google_sheet_dashboard', 'title' => 'Suivi de maintenance 2026', 'callback' => 'display_google_sheet_data', 'args' => array()),
 			'custom_git_commits'     => array('id' => 'custom_git_commits', 'title' => 'Modifications récentes', 'callback' => 'render_custom_git_commits_dashboard_widget', 'args' => array()),
 		);
 	}
@@ -37,7 +37,7 @@
 			<strong>Bonjour $first_name, content de vous revoir 👋</strong>
 			<p>Bienvenue sur le back-office de votre site internet.</p>
 		</div>
-		<a class='cbo-button' href='https://trello.com/b/uIoRAi6F/bangger' target='_blank'>Suivi de vos tickets</a>";
+		<a class='cbo-button' href='https://trello.com/b/5UN0GIv5/hs2' target='_blank'>Suivi de vos tickets</a>";
 	}
 
 
@@ -133,7 +133,7 @@
 
 	// Affichage des modifications via Git
 	function render_custom_git_commits_dashboard_widget() {
-		$api_url = 'https://api.github.com/repos/20h20/bangger/commits?sha=develop';
+		$api_url = 'https://github.com/20h20/hs2/commits/develop/';
 	
 		if (!defined('GITHUB_TOKEN')) {
 			echo '<p>Token GitHub non défini.</p>';

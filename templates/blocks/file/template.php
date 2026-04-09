@@ -27,7 +27,7 @@
 				<a
 					class="list-el" 
 					aria-label="<?php echo esc_attr(wp_strip_all_tags($title)); ?> (PDF, nouvelle fenêtre)"
-					<?php if($file): ?>href="<?php echo esc_url($file['url']); ?>""<?php endif; ?>
+					<?php if($file): ?>href="<?php echo esc_url($file['url']); ?>"<?php endif; ?>
 					target="_blank"
 					rel="noopener noreferrer"
 				>
