@@ -23,7 +23,7 @@
 					<?php
 						foreach( $posts as $p ):
 							$cf7_id = $p->ID;
-							echo do_shortcode( '[contact-form-7 id="'.$cf7_id.'" ]' );
+							echo do_shortcode( '[contact-form-7 id="3d52f17" title="Formulaire des formations"]' );
 						endforeach;
 					?>
 				</div>

@@ -6,10 +6,17 @@
 	<a class="el-inner slide-up" href="<?php the_permalink(); ?>" itemprop="url" aria-label="Voir la formation <?php the_title(); ?>">
 		<span class="el-picture cbo-picture-cover slide-up">
 			<?php
-				the_post_thumbnail('small', array(
-					'sizes' => '(max-width:320px) 145px, (max-width:425px) 220px, 500px',
-					'itemprop' => 'image',
-				));
+				if (has_post_thumbnail(get_the_ID())) {
+					the_post_thumbnail('small', array(
+						'sizes'    => '(max-width:320px) 145px, (max-width:425px) 220px, 500px',
+						'itemprop' => 'image',
+					));
+				} else {
+					echo '<img src="' . get_template_directory_uri() . '/library/images/logo-hs2.svg" 
+					alt="Image par défaut" 
+					class="picture-none"
+					itemprop="image">';
+				}
 			?>
 		</span>
 

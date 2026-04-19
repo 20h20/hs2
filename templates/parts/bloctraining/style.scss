@@ -28,6 +28,15 @@ TRAINING BLOC MICRO COMPONENT
 				padding-bottom: 51%;
 				overflow: hidden;
 				background: $colorbluedark;
+
+				.picture-none{
+					object-fit: contain;
+					width: 15.625rem;
+					height: auto;
+					left: 50%;
+					top: 50%;
+					margin: -2.8125rem 0 0 -7.8125rem;
+				}
 			}
 			.el-content{
 				padding: 1.25rem;
