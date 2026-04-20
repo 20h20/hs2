@@ -132,21 +132,6 @@ BACK OFFICE COMPONENT
 									color: $dbcolorgreen;
 									display: flex;
 									align-items: center;
-	
-									&:before{
-										font-family:"icons";
-										content:"\f102";
-										margin-right: 6px;
-										font-size: 8px;
-										min-width: 20px;
-										width: 20px;
-										height: 20px;
-										border:1px solid;
-										border-radius:99rem;
-										display: flex;
-										align-items: center;
-										justify-content: center;
-									}
 								}
 							}
 						}

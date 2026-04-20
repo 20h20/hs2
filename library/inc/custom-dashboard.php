@@ -133,16 +133,18 @@
 
 	// Affichage des modifications via Git
 	function render_custom_git_commits_dashboard_widget() {
-		$api_url = 'https://github.com/20h20/hs2/commits/develop/';
-	
+		$api_url = 'https://api.github.com/repos/20h20/hs2/commits?sha=develop&per_page=5';
+
 		if (!defined('GITHUB_TOKEN')) {
 			echo '<p>Token GitHub non défini.</p>';
 			return;
 		}
 		$response = wp_remote_get($api_url, [
 			'headers' => [
-				'User-Agent' => 'WordPress-GitHub-Dashboard',
-				'Authorization' => 'token ' . GITHUB_TOKEN,
+				'User-Agent'    => 'WordPress-GitHub-Dashboard',
+				'Authorization' => 'Bearer ' . GITHUB_TOKEN,
+				'Accept'        => 'application/vnd.github+json',
+				'X-GitHub-Api-Version' => '2022-11-28',
 			],
 		]);
 		if (is_wp_error($response)) {
@@ -151,7 +153,9 @@
 		}
 		$code = wp_remote_retrieve_response_code($response);
 		if ($code !== 200) {
-			echo '<p>Erreur HTTP ' . esc_html($code) . ' reçue depuis GitHub.</p>';
+			$error_body = json_decode(wp_remote_retrieve_body($response), true);
+			$error_msg = isset($error_body['message']) ? $error_body['message'] : 'Inconnue';
+			echo '<p>Erreur HTTP ' . esc_html($code) . ' : ' . esc_html($error_msg) . '</p>';
 			return;
 		}
 		$body = wp_remote_retrieve_body($response);
