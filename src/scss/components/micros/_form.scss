@@ -191,8 +191,12 @@ FORM MICRO COMPONENT
 				}
 			}
 			&.form-acceptance {
+				.field-inner{
+					display: flex;
+					flex-wrap: wrap;
+				}
 				.wpcf7-form-control-wrap{
-					display: none;
+					order: 2;
 				}
 				input {
 					width: 0;

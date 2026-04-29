@@ -19,7 +19,7 @@
 					S'inscrire à la formation
 				</h3>
 
-				<div class="content-form cbo-form slide-up" data-formation-id="<?php echo get_the_ID(); ?>" data-formation-nom="<?php echo esc_attr(get_the_title()); ?>">
+				<div class="content-form cbo-form" data-formation-id="<?php echo get_the_ID(); ?>" data-formation-nom="<?php echo esc_attr(get_the_title()); ?>">
 					<?php
 						foreach( $posts as $p ):
 							$cf7_id = $p->ID;

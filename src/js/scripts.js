@@ -98,6 +98,13 @@
 			});
 
 
+			/////////////////// RESET CHECKBOXES AFTER CF7 SUBMIT ///////////////////
+			document.addEventListener('wpcf7mailsent', function() {
+				$(".cbo-form input[type='checkbox']").prop('checked', false);
+				cbo_forms.check_checked();
+			}, false);
+
+
 			/////////////////// ADD CHECK TO ACCEPTANCE ///////////////////
 			var cbo_forms = {
 				init: function () {

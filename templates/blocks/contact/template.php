@@ -107,7 +107,7 @@
             <?php endif; ?>
         </div>
 
-        <div class="contact-form cbo-form slide-up">
+        <div class="contact-form cbo-form">
             <?php
                 $posts = get_field('contact_form');
                 if( $posts ):
