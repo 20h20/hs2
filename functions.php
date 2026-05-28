@@ -223,4 +223,26 @@
 	}
 	add_filter( 'wpcf7_form_elements', 'cf7_dynamic_select' );
 
+
+	/* ************************* */
+	/* Désactivation jQuery Migrate */
+	/* ************************* */
+	add_action('wp_default_scripts', function($scripts) {
+		if (!is_admin() && isset($scripts->registered['jquery'])) {
+			$scripts->registered['jquery']->deps = array_diff(
+				$scripts->registered['jquery']->deps,
+				['jquery-migrate']
+			);
+		}
+	});
+
+
+	/* ************************* */
+	/* Déplacement jQuery en footer */
+	/* ************************* */
+	add_action('wp_enqueue_scripts', function() {
+		wp_scripts()->add_data('jquery', 'group', 1);
+		wp_scripts()->add_data('jquery-core', 'group', 1);
+	}, 100);
+
 ?>

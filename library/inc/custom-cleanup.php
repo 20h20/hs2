@@ -144,6 +144,44 @@
 	add_action('wp_enqueue_scripts', 'dequeue_eventon_jitsi', 100);
 
 
+	add_action('wp_enqueue_scripts', function() {
+		if ( !is_singular('ajde_events') && !is_post_type_archive('ajde_events') ) {
+			wp_dequeue_script('eventon_gmaps_blank');
+			wp_dequeue_script('evcal_functions');
+			wp_dequeue_script('evcal_easing');
+			wp_dequeue_script('evo_handlebars');
+			wp_dequeue_script('evo_mobile');
+			wp_dequeue_script('evo_moment');
+			wp_dequeue_script('evo_moment_tz');
+			wp_dequeue_script('evo_mouse');
+			wp_dequeue_script('evcal_ajax_handle');
+		}
+	}, 100);
+
+	add_action('wp_enqueue_scripts', function() {
+		if ( !is_singular('ajde_events') && !is_post_type_archive('ajde_events') ) {
+			wp_dequeue_style('evcal_google_fonts');
+			wp_dequeue_style('evcal_cal_default');
+			wp_dequeue_style('evo_font_icons');
+			wp_dequeue_style('eventon_dynamic_styles');
+		}
+	}, 100);
+
+	add_action('wp_enqueue_scripts', function() {
+		if ( !is_user_logged_in() ) {
+			wp_dequeue_script('yoast-seo-premium-frontend-inspector');
+		}
+	}, 100);
+
+	add_filter('style_loader_src', function($src, $handle) {
+		if ($handle === 'evcal_google_fonts' && strpos($src, 'fonts.googleapis.com') !== false) {
+			if (strpos($src, 'display=swap') === false) {
+				$src = add_query_arg('display', 'swap', $src);
+			}
+		}
+		return $src;
+	}, 10, 2);
+
 	/* --------------------------
 	   CLEANUP PROCESS
 	-------------------------- */

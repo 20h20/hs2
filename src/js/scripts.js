@@ -1,4 +1,3 @@
-/*include /libs/jquery.core.js*/
 /*include /libs/slick.js*/
 
 (function($) {
@@ -269,27 +268,25 @@
 			}
 
 			/////////////////// SCROLL ANCHOR ///////////////////
-			$('a[href^="#"]').click(function(){
-				var the_id = $(this).attr("href");
-				var target = $(the_id);
-
-				if (the_id === "#" || !target.length) return;
-
-				$('html, body').animate({
-					scrollTop: target.offset().top
-				}, 'slow');
-				return false;
+			document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+				link.addEventListener('click', function(e) {
+					var id = this.getAttribute('href');
+					if (id === '#') return;
+					var target = document.querySelector(id);
+					if (!target) return;
+					e.preventDefault();
+					target.scrollIntoView({ behavior: 'smooth' });
+				});
 			});
 
 
 			/////////////////// Smooth scroll ///////////////////
 			$('.summary-options a[href^="#"]').on('click', function(e) {
 				e.preventDefault();
-				var target = $($(this).attr('href'));
-				if (target.length) {
-					$('html, body').animate({
-						scrollTop: target.offset().top - 100
-					}, 600);
+				var targetEl = document.querySelector($(this).attr('href'));
+				if (targetEl) {
+					var top = targetEl.getBoundingClientRect().top + window.scrollY - 100;
+					window.scrollTo({ top: top, behavior: 'smooth' });
 				}
 				var $summary = $(this).closest('.cbo-summary');
 				if (window.innerWidth >= 1280) {
@@ -636,11 +633,11 @@
 		
 	});
 
-	$(window).load( function(){
+	$(window).on('load', function(){
 		Master.onload();
 	});
 
-	$(window).resize( function(){
+	$(window).on('resize', function(){
 		Master.onresize();
 	});
 

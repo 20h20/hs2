@@ -21,6 +21,9 @@
 		<link rel="icon" type="image/png" sizes="96x96" href="<?php echo get_template_directory_uri(); ?>/library/images/fav/favicon-96x96.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="<?php echo get_template_directory_uri(); ?>/library/images/fav/favicon-16x16.png">
 		<?php if ( is_front_page() ) : ?><link rel="preload" as="image" href="<?php echo get_template_directory_uri(); ?>/library/images/bg-hero.jpg"><?php endif; ?>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<?php wp_head(); ?>
 	</head>
 
