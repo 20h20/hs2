@@ -2,11 +2,7 @@
 
 @font-face {
     font-family:"icons";
-    src: url("../iconfont/icons.eot?4173b97e824392c0f76a1cfeae2d8888");
-    src: url("../iconfont/icons.eot?4173b97e824392c0f76a1cfeae2d8888#iefix") format("embedded-opentype"),
-		url("../iconfont/icons.woff?4173b97e824392c0f76a1cfeae2d8888") format("woff"),
-		url("../iconfont/icons.ttf?4173b97e824392c0f76a1cfeae2d8888") format("truetype"),
-		url("../iconfont/icons.svg?4173b97e824392c0f76a1cfeae2d8888#icons") format("svg");
+    src: url("../iconfont/icons.woff?4173b97e824392c0f76a1cfeae2d8888") format("woff");
     font-weight:normal;
     font-style:normal;
     font-display:swap;
@@ -46,7 +42,7 @@
 .icon--pedagogie:before { content:"\f114"; }
 .icon--player:before { content:"\f115"; }
 .icon--public:before { content:"\f116"; }
-.icon--right-arrow:before { content:"\f117"; }
+.icon--right-arrow:before { content:"\f117"; } 
 .icon--search:before { content:"\f118"; }
 .icon--studient-hat:before { content:"\f119"; }
 .icon--success:before { content:"\f11a"; }

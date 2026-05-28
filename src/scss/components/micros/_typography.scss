@@ -3,24 +3,18 @@ TYPOGRAPHY
 ------------------------------- */
 @font-face {
 	font-family: 'MuseoSlab-500';
-	src:url('../fonts/museo/MuseoSlab-500.eot?#iefix') format('embedded-opentype'),
-	url('../fonts/museo/MuseoSlab-500.otf')  format('opentype'),
-		url('../fonts/museo/MuseoSlab-500.woff') format('woff'),
-		url('../fonts/museo/MuseoSlab-500.ttf')  format('truetype'),
-		url('../fonts/museo/MuseoSlab-500.svg#MuseoSlab-500') format('svg');
+	src: url('../fonts/museo/MuseoSlab-500.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
 	font-family: 'MuseoSansRounded-900';
-	src:url('../fonts/museo/MuseoSansRounded-900.eot?#iefix') format('embedded-opentype'),
-		url('../fonts/museo/MuseoSansRounded-900.otf')  format('opentype'),
-		url('../fonts/museo/MuseoSansRounded-900.woff') format('woff'),
-		url('../fonts/museo/MuseoSansRounded-900.ttf')  format('truetype'),
-		url('../fonts/museo/MuseoSansRounded-900.svg#MuseoSansRounded-900') format('svg');
+	src: url('../fonts/museo/MuseoSansRounded-900.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
+	font-display: swap;
 }
 
 ul{

@@ -75,6 +75,14 @@
 	}
 
 	
+	/* Preload principal stylesheet so browser discovers it before wp_head emits it */
+	function cbo_preload_main_style() {
+		$css_file = get_stylesheet_directory() . '/library/css/style.min.css';
+		$version  = file_exists($css_file) ? filemtime($css_file) : '';
+		echo '<link rel="preload" as="style" href="' . esc_url(get_stylesheet_directory_uri() . '/library/css/style.min.css?ver=' . $version) . '">' . "\n";
+	}
+	add_action('wp_head', 'cbo_preload_main_style', 1);
+
 	/* Add defer attr on scripts */
 	function cbo_add_defer_attribute($tag, $handle) {
 		if (is_admin() || (
@@ -128,6 +136,12 @@
 		wp_deregister_style('contact-form-7');
 	}
 	add_action('wp_enqueue_scripts', 'dequeue_contact_form_7_css', 100);
+
+	function dequeue_eventon_jitsi() {
+		wp_dequeue_script('evo_jitsi');
+		wp_deregister_script('evo_jitsi');
+	}
+	add_action('wp_enqueue_scripts', 'dequeue_eventon_jitsi', 100);
 
 
 	/* --------------------------

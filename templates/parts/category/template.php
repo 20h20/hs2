@@ -11,8 +11,8 @@
 			<span class="el-picture cbo-picture-contain">
 				<img
 					src="<?php echo esc_url($icon['sizes']['small']); ?>"
-					srcset="<?php echo esc_url($icon['sizes']['small']); ?> 320w, 
-						<?php echo esc_url($icon['sizes']['small']); ?> 768w"
+					srcset="<?php echo esc_url($icon['sizes']['small']); ?> 320w,
+						<?php echo esc_url($icon['sizes']['medium'] ?? $icon['url']); ?> 768w"
 					alt=""
 					role="presentation"
 					sizes="(min-width: 1024px) 50vw, (min-width: 768px) 60vw, 100vw"

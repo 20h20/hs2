@@ -31,28 +31,38 @@
 
         <div class="events-list">
             <?php
-                $current_page = get_query_var('paged');
-                $current_page = max(1, $current_page);
-                $per_page = 3;
-                $args = array(
-                    'post_type' => 'post',
-                    'meta_key' => 'event_start',
-                    'meta_value' => date('Ymd'),
-                    'meta_compare' => '>=',
-                    'posts_per_page' => $per_page,
-                    'orderby' => 'meta_value_num',
-                    'order' => 'ASC',
-                );
-                $query = new WP_Query($args);
-                if ($query->have_posts()) {
+                $event_ids = get_transient('hs2_block_upcoming_events');
+                if (false === $event_ids) {
+                    $ids_query = new WP_Query(array(
+                        'post_type'      => 'post',
+                        'meta_key'       => 'event_start',
+                        'meta_value'     => date('Ymd'),
+                        'meta_compare'   => '>=',
+                        'posts_per_page' => 3,
+                        'orderby'        => 'meta_value_num',
+                        'order'          => 'ASC',
+                        'no_found_rows'  => true,
+                        'fields'         => 'ids',
+                    ));
+                    $event_ids = $ids_query->posts;
+                    set_transient('hs2_block_upcoming_events', $event_ids, HOUR_IN_SECONDS);
+                }
+                if (!empty($event_ids)) {
+                    $query = new WP_Query(array(
+                        'post_type'      => 'post',
+                        'post__in'       => $event_ids,
+                        'orderby'        => 'post__in',
+                        'posts_per_page' => count($event_ids),
+                        'no_found_rows'  => true,
+                    ));
                     while ($query->have_posts()) {
                         $query->the_post();
                         get_part('templates/parts/blocevent/template');
                     }
+                    wp_reset_postdata();
                 } else {
                     echo '<p>Aucun événement à venir.</p>';
                 }
-                wp_reset_postdata();
             ?>
         </div>
     </div>

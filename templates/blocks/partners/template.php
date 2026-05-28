@@ -28,9 +28,9 @@
 					<a class="el-inner cbo-picture-contain" href="<?php echo $link; ?>" target="_blank" title="Site <?php echo esc_html($name); ?> - ouverture d'une nouvelle fenêtre" rel="noopener">
 						<img
 							src="<?php echo esc_url($logo['sizes']['small']); ?>"
-							srcset="<?php echo esc_url($logo['sizes']['small']); ?> 320w, 
-								<?php echo esc_url($logo['sizes']['small']); ?> 768w, 
-								<?php echo esc_url($logo['sizes']['small']); ?> 1024w"
+							srcset="<?php echo esc_url($logo['sizes']['small']); ?> 320w,
+								<?php echo esc_url($logo['sizes']['medium'] ?? $logo['url']); ?> 768w,
+								<?php echo esc_url($logo['url']); ?> 1024w"
 							alt="<?php echo esc_attr($logo['alt']); ?>"
 							sizes="(min-width: 1024px) 50vw, (min-width: 768px) 60vw, 100vw"
 							width="120" height="100"

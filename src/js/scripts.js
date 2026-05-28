@@ -1,8 +1,19 @@
 /*include /libs/jquery.core.js*/
 /*include /libs/slick.js*/
 
-(function($) { 
-	
+(function($) {
+
+	var _upButton, _footer, _scrollTicking = false;
+
+	function _toggleUpButtonScroll() {
+		if (!_upButton) return;
+		_upButton.classList.toggle('show', (window.scrollY || document.documentElement.scrollTop) > 200);
+	}
+
+	function _toggleStickyHeader() {
+		$('header').toggleClass('header-scroll', $(window).scrollTop() > 80);
+	}
+
 	var Master = {
 		onready : function(){
 			//////////////////// VIDÉO ////////////////////
@@ -15,27 +26,20 @@
 
 
 			//////////////// SCROLL ANIMATIONS ////////////////
-			var scroll = window.requestAnimationFrame || function(callback){ window.setTimeout(callback, 1000/60)};
-			var elementsToShow = document.querySelectorAll('.slide-up, .slide-up, .slide-right, .slide-left, .scale-up, .scale-down'); 
-			function loop() {
-				Array.prototype.forEach.call(elementsToShow, function(element){
-					if (isElementInViewport(element)) {
-						element.classList.add('anim-scroll');
-					} else {
-						element.classList.remove('anim-scroll');
-					}
+			var elementsToShow = document.querySelectorAll('.slide-up, .slide-right, .slide-left, .scale-up, .scale-down');
+			if ('IntersectionObserver' in window) {
+				var animObserver = new IntersectionObserver(function(entries) {
+					entries.forEach(function(entry) {
+						entry.target.classList.toggle('anim-scroll', entry.isIntersecting);
+					});
+				}, { threshold: 0 });
+				Array.prototype.forEach.call(elementsToShow, function(el) {
+					animObserver.observe(el);
 				});
-				scroll(loop);
-			}	
-			loop();
-			function isElementInViewport(el) {
-				if (typeof jQuery === "function" && el instanceof jQuery) {
-					el = el[0];
-				}
-				var rect = el.getBoundingClientRect();
-				return (
-					(rect.top <= 0&& rect.bottom >= 0)||(rect.bottom >= (window.innerHeight || document.documentElement.clientHeight) && rect.top <= (window.innerHeight || document.documentElement.clientHeight))||(rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight))
-				);
+			} else {
+				Array.prototype.forEach.call(elementsToShow, function(el) {
+					el.classList.add('anim-scroll');
+				});
 			}
 
 
@@ -75,27 +79,16 @@
 
 
 			//////////////////// UP BUTTON ////////////////////
-			var upButton = document.querySelector(".cbo-up");
-			var footer = document.querySelector("footer");
-			function toggleUpButton() {
-				var scrollY = window.scrollY || document.documentElement.scrollTop;
-				var footerPosition = footer.getBoundingClientRect().top + window.scrollY;
-				var windowHeight = window.innerHeight;
-				if (scrollY > 200) {
-					upButton.classList.add("show");
-				} else {
-					upButton.classList.remove("show");
-				}
-				if (scrollY + windowHeight >= footerPosition) {
-					upButton.classList.add("hide");
-				} else {
-					upButton.classList.remove("hide");
-				}
+			_upButton = document.querySelector(".cbo-up");
+			_footer = document.querySelector("footer");
+			if (_upButton && _footer) {
+				new IntersectionObserver(function(entries) {
+					_upButton.classList.toggle('hide', entries[0].isIntersecting);
+				}).observe(_footer);
+				_upButton.addEventListener("click", function () {
+					window.scrollTo({ top: 0, behavior: "smooth" });
+				});
 			}
-			window.addEventListener("scroll", toggleUpButton);
-			upButton.addEventListener("click", function () {
-				window.scrollTo({ top: 0, behavior: "smooth" });
-			});
 
 
 			/////////////////// RESET CHECKBOXES AFTER CF7 SUBMIT ///////////////////
@@ -156,15 +149,27 @@
 			}, false);
 
 
+			/////////////////// Ouverture d'une modale lors d'un échec d'envoi CF7 ///////////////////
+			document.addEventListener('wpcf7mailfailed', function(event) {
+				event.preventDefault();
+				var modal = document.createElement('div');
+				modal.className = 'cbo-cf7modale cbo-cf7modale--error';
+				modal.innerHTML =
+					'<div class="cf7modale-inner">' +
+						'<i class="icon icon--warning"></i>' +
+						'<p>Une erreur s\'est produite lors de l\'envoi de votre message. Veuillez essayer à nouveau plus tard.</p>' +
+						'<button type="button" class="cf7modale-button cbo-button" aria-label="Fermer la fenêtre">Fermer la fenêtre</button>' +
+					'</div>';
+				document.body.appendChild(modal);
+				var closeButton = modal.querySelector('.cf7modale-button');
+				closeButton.addEventListener('click', function() {
+					modal.remove();
+				});
+			}, false);
+
+
 			//////////////// STICKY ////////////////
-			$(window).scroll(function(){
-				if($(window).scrollTop()>80){
-					$("header").addClass('header-scroll');
-				}else{
-					$("header").removeClass('header-scroll');
-				}
-			})
-			.scroll();
+			_toggleStickyHeader();
 			
 
 			/////////////////// SMARTPHONE NAVIGATION ///////////////////
@@ -199,11 +204,15 @@
 			}
 
 			//////////////// SUB-MENU HOVER ////////////////
-			$('header .menu-item.menu-item-has-children').hover(function(){ 
-				$('body').addClass('menu--open');
+			$('header .menu-item.menu-item-has-children').hover(function(){
+				if (window.innerWidth >= 1090) {
+					$('body').addClass('menu--open');
+				}
 			},
-			function(){ 
-				$('body').removeClass('menu--open');
+			function(){
+				if (window.innerWidth >= 1090) {
+					$('body').removeClass('menu--open');
+				}
 			})
 
 
@@ -273,7 +282,7 @@
 			});
 
 
-			// Smooth scroll
+			/////////////////// Smooth scroll ///////////////////
 			$('.summary-options a[href^="#"]').on('click', function(e) {
 				e.preventDefault();
 				var target = $($(this).attr('href'));
@@ -282,8 +291,22 @@
 						scrollTop: target.offset().top - 100
 					}, 600);
 				}
+				var $summary = $(this).closest('.cbo-summary');
+				if (window.innerWidth >= 1280) {
+					$summary.addClass('summary--closed').find('.summary-input').prop('checked', false);
+				} else {
+					$summary.removeClass('summary--open').find('.summary-input').prop('checked', false);
+				}
 			});
 
+			$('.summary-input').on('change', function(){
+				var $summary = $(this).closest('.cbo-summary');
+				if (window.innerWidth >= 1280) {
+					$summary.toggleClass('summary--closed');
+				} else {
+					$summary.toggleClass('summary--open');
+				}
+			});
 
 			///////////////////// ACCORDION / TABS ///////////////////
 			function initAdaptiveTabs() {
@@ -596,7 +619,14 @@
 		},
 
 		onscroll : function(){
-
+			if (!_scrollTicking) {
+				window.requestAnimationFrame(function() {
+					_toggleUpButtonScroll();
+					_toggleStickyHeader();
+					_scrollTicking = false;
+				});
+				_scrollTicking = true;
+			}
 		},
 	
 	};

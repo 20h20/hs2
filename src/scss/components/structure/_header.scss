@@ -375,7 +375,7 @@ MEDIUM SCREENS
 								pointer-events: auto;
 								z-index: 9;
 								padding:6.25rem 0;
-								width: calc(100vw - 0);
+								width: 100vw;
 								transform: scaleY(0);
 								transition: 0.4s transform cubic-bezier(0.77, 0, 0.175, 1) 0s, 0.4s visibility 0s, 0.4s opacity ease 0.2s;
 								position: absolute;

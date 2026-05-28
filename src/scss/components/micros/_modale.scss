@@ -18,14 +18,19 @@ MODALE MICRO COMPONENT
 		padding: 1.25rem;
 		border-radius: $bordersmall;
 		text-align: center;
+		width: 37.5rem;
 
 		.icon--success{
 			font-size: 2.5rem;
 			color: $colorblue;
 		}
+		.icon--warning{
+			font-size: 2.5rem;
+			color: $colorerror;
+		}
 		.cf7modale-button{
 			border: none;
 			cursor: pointer;
 		}
-	}	
+	}
 }

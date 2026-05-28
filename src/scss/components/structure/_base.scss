@@ -65,7 +65,7 @@ body{
 		outline:none;
 	}
 	&::selection{
-		background: $colorblue;
+		background: rgba($colorblue, .4);
 	}
 }
 

@@ -20,25 +20,26 @@
 		<link rel="icon" type="image/png" sizes="32x32" href="<?php echo get_template_directory_uri(); ?>/library/images/fav/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="96x96" href="<?php echo get_template_directory_uri(); ?>/library/images/fav/favicon-96x96.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="<?php echo get_template_directory_uri(); ?>/library/images/fav/favicon-16x16.png">
-		<link rel="preload" as="image" href="<?php echo get_template_directory_uri(); ?>/library/images/bg-hero.jpg">
+		<?php if ( is_front_page() ) : ?><link rel="preload" as="image" href="<?php echo get_template_directory_uri(); ?>/library/images/bg-hero.jpg"><?php endif; ?>
 		<?php wp_head(); ?>
 	</head>
 
-	<body <?php body_class('cbo-main'); ?> itemscope itemtype="http://schema.org/WebPage">
+	<body <?php body_class('cbo-main'); ?> itemscope itemtype="https://schema.org/WebPage">
 
-		<header role="banner" itemscope itemtype="http://schema.org/WPHeader">
+		<header role="banner" itemscope itemtype="https://schema.org/WPHeader">
 			<a class="header-logo" title="Accueil - <?php echo get_bloginfo('description'); ?>" href="<?php echo home_url(); ?>" itemprop="url">
 				<img
 					decoding="async"
 					src="<?php bloginfo('template_directory'); ?>/library/images/logo-hs2.svg"
 					alt="<?php echo get_bloginfo('description'); ?>" sizes="100vw"
 					itemprop="logo"
+					width="200" height="60"
 					fetchpriority="high"
 				>
 			</a>
 
 			<div class="header-content">
-				<nav class="header-nav" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement" aria-label="Navigation principale">
+				<nav class="header-nav" role="navigation" itemscope itemtype="https://schema.org/SiteNavigationElement" aria-label="Navigation principale">
 					<?php wp_nav_menu( array(
 						'container' => false,
 						'container_class' => 'nav-inner',

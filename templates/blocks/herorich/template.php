@@ -11,7 +11,9 @@
 				src="<?php bloginfo('template_directory'); ?>/library/images/home-hero.webp"
 				alt="HS2, centre de formation en cybersécurité" sizes="100vw"
 				width="2000" height="700"
-				itemprop="logo"
+				decoding="async"
+				loading="eager"
+				fetchpriority="high"
 			>
 		</div>
 

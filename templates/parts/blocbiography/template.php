@@ -3,8 +3,10 @@
 		<div class="el-picture cbo-picture-cover slide-up">
 			<?php 
 				the_post_thumbnail('large', array(
-					'sizes' => '(max-width:320px) 145px, (max-width:425px) 220px, 500px',
+					'sizes'    => '(max-width:320px) 145px, (max-width:425px) 220px, 500px',
 					'itemprop' => 'image',
+					'loading'  => 'lazy',
+					'decoding' => 'async',
 				));
 			?>
 		</div>

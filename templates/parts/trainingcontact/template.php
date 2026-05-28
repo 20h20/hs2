@@ -15,7 +15,7 @@
 
 		<div class="trainingcontact-inner cbo-container container--padding container--nomargin">
 			<div class="trainingcontact-content">
-				<h3 class="content-title cbo-title-2 slide-up">
+				<h3 class="content-title cbo-title-2">
 					S'inscrire à la formation
 				</h3>
 

@@ -61,32 +61,36 @@
 				</span>
 				<ul class="footer-nav">
 					<?php
-						$current_page = get_query_var('paged');
-						$current_page = max(1, $current_page);
-						$per_page = 4;
-						$args = array(
-							'post_type' => 'post',
-							'meta_key' => 'event_start',
-							'meta_value' => date('Ymd'),
-							'meta_compare' => '>=',
-							'posts_per_page' => $per_page,
-							'orderby' => 'meta_value_num',
-							'order' => 'ASC',
-							'paged' => $current_page,
-						);
-						$query = new WP_Query($args);
-
-						if ($query->have_posts()) {
+						$footer_events = get_transient('hs2_footer_upcoming_events');
+						if (false === $footer_events) {
+							$query = new WP_Query(array(
+								'post_type'      => 'post',
+								'meta_key'       => 'event_start',
+								'meta_value'     => date('Ymd'),
+								'meta_compare'   => '>=',
+								'posts_per_page' => 4,
+								'orderby'        => 'meta_value_num',
+								'order'          => 'ASC',
+								'no_found_rows'  => true,
+							));
+							$footer_events = array();
 							while ($query->have_posts()) {
 								$query->the_post();
-								?>
-								<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
-							<?php
+								$footer_events[] = array(
+									'title' => get_the_title(),
+									'url'   => get_permalink(),
+								);
+							}
+							wp_reset_postdata();
+							set_transient('hs2_footer_upcoming_events', $footer_events, 12 * HOUR_IN_SECONDS);
+						}
+						if (!empty($footer_events)) {
+							foreach ($footer_events as $event) {
+								echo '<li><a href="' . esc_url($event['url']) . '">' . esc_html($event['title']) . '</a></li>';
 							}
 						} else {
 							echo '<p>Aucun événement à venir.</p>';
 						}
-						wp_reset_postdata();
 					?>
 				</ul>
 			</div>
@@ -124,7 +128,11 @@
 		Hébergé avec &lt;3 par <a href="https://www.digdeo.fr/" target="_blank">DigDeo</a>
 	</div>
 
-	<script src="<?php echo get_template_directory_uri(); ?>/library/js/scripts.js"></script>
+	<script defer src="<?php echo esc_url(
+		get_template_directory_uri() . '/library/js/scripts.js?ver=' .
+		filemtime( get_template_directory() . '/library/js/scripts.js' )
+	); ?>"></script>
+
 	<?php wp_footer(); ?>
 </body>
 </html>

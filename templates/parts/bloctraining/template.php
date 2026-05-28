@@ -10,12 +10,11 @@
 					the_post_thumbnail('small', array(
 						'sizes'    => '(max-width:320px) 145px, (max-width:425px) 220px, 500px',
 						'itemprop' => 'image',
+						'loading'  => 'lazy',
+						'decoding' => 'async',
 					));
 				} else {
-					echo '<img src="' . get_template_directory_uri() . '/library/images/logo-hs2.svg" 
-					alt="Image par défaut" 
-					class="picture-none"
-					itemprop="image">';
+					echo '<img src="' . get_template_directory_uri() . '/library/images/logo-hs2.svg" alt="Image par défaut" class="picture-none" itemprop="image" loading="lazy" decoding="async">';
 				}
 			?>
 		</span>

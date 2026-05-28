@@ -55,28 +55,31 @@
                             <?php while (have_rows('formateurs')): the_row();
                                 $picture = get_sub_field('photo_du_formateur');
                                 $name    = get_sub_field('nom_et_prenom_du_formateur');
-                                if ($picture):
                             ?>
                                 <div class="trainer-el">
-                                    <div class="el-picture cbo-picture-cover">
-                                        <img
-                                            src="<?php echo esc_url($picture['sizes']['small']); ?>"
-                                            srcset="<?php echo esc_url($picture['sizes']['small']); ?> 320w, 
+                                    <?php if($picture): ?>
+                                        <div class="el-picture cbo-picture-cover">
+                                            <img
+                                                src="<?php echo esc_url($picture['sizes']['small']); ?>"
+                                                srcset="<?php echo esc_url($picture['sizes']['small']); ?> 320w, 
                                                 <?php echo esc_url($picture['sizes']['small']); ?> 768w, 
                                                 <?php echo esc_url($picture['sizes']['small']); ?> 1024w"
-                                            alt="<?php echo esc_attr($picture['alt']); ?>"
-                                            sizes="(min-width: 1024px) 50vw, (min-width: 768px) 60vw, 100vw"
-                                            width="120" height="100"
-                                            loading="lazy"
-                                            decoding="async"
-                                        >
-                                    </div>
+                                                alt="<?php echo esc_attr($picture['alt']); ?>"
+                                                sizes="(min-width: 1024px) 50vw, (min-width: 768px) 60vw, 100vw"
+                                                width="120" height="100"
+                                                loading="lazy"
+                                                decoding="async"
+                                            >
+                                        </div>
+                                    <?php else: ?>
+                                        <div class="el-picture picture--none"></div>
+                                    <?php endif; ?>
+
                                     <div class="el-name">
                                         <?php echo esc_html($name); ?>
                                     </div>
                                 </div>
                             <?php
-                                endif;
                                 endwhile;
                             ?>
                         </div>
